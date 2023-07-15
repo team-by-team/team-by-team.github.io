@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://team-by-team.github.io/sitemap-index.xml
+Host: https://team-by-team.github.io
