@@ -1,17 +1,13 @@
 module.exports = {
-  title: "hoodie",
-  description: "Hello :) I'm Hudi who developed gatsby-starter-hoodie theme.",
-  author: "Hudi",
-  siteUrl: "https://devhudi.github.io/gatsby-starter-hoodie/",
+  title: "TEAM-BY-TEAM",
+  description: "안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!",
+  author: "Team-By-Team",
+  siteUrl: "https://team-by-team.github.io",
   links: {
-    github: "https://github.com/devHudi",
-    linkedIn: "https://linkedin.com",
-    facebook: "https://www.facebook.com",
-    instagram: "https://www.instagram.com",
-    email: "mailto:devhudi@gmail.com",
+    github: "https://github.com/woowacourse-teams/2023-team-by-team",
   },
   utterances: {
-    repo: "devHudi/gatsby-starter-hoodie",
+    repo: "team-by-team/team-by-team.github.io",
     type: "pathname",
   },
 }
