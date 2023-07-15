@@ -1,8 +1,8 @@
 ---
 title: "팀바팀 이벤트 스토밍(Event Storming) 도입기"
 description: "팀바팀의 좌충우돌 이벤트 스토밍 도입기"
-date: 2022-07-01
-update: 2021-07-01
+date: 2023-07-01
+update: 2023-07-01
 tags:
     - 기획
     - 설계
