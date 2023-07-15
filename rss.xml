@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Jul 2023 11:57:06 GMT</lastBuildDate><item><title><![CDATA[팀바팀 이벤트 스토밍(Event Storming) 도입기]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다! 🌈 이벤트 스토밍(Event Storming) 도입기 우아한테크코스 5기 팀바팀 Project에서 Event Storming…]]></description><link>https://team-by-team.github.io/event-storming/</link><guid isPermaLink="false">https://team-by-team.github.io/event-storming/</guid><pubDate>Fri, 01 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Jul 2023 12:06:27 GMT</lastBuildDate><item><title><![CDATA[팀바팀 이벤트 스토밍(Event Storming) 도입기]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다! 🌈 이벤트 스토밍(Event Storming) 도입기 우아한테크코스 5기 팀바팀 Project에서 Event Storming…]]></description><link>https://team-by-team.github.io/event-storming/</link><guid isPermaLink="false">https://team-by-team.github.io/event-storming/</guid><pubDate>Fri, 01 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/sh111-coder&quot;&gt;성하&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h1&gt;🌈 이벤트 스토밍(Event Storming) 도입기&lt;/h1&gt;
+&lt;h2&gt;🌈 이벤트 스토밍(Event Storming) 도입기&lt;/h2&gt;
 &lt;p&gt;우아한테크코스 5기 팀바팀 Project에서 Event Storming을 처음 사용해보면서&lt;/p&gt;
 &lt;p&gt;적용했던 배경과 적용 과정, 적용 후에 느낀점 등을 간단하게 기록하고자 합니다!&lt;/p&gt;
-&lt;h1&gt;🎯 이벤트 스토밍 도입 배경&lt;/h1&gt;
+&lt;h2&gt;🎯 이벤트 스토밍 도입 배경&lt;/h2&gt;
 &lt;p&gt;프로젝트 팀원이 배정되기 전에,&lt;/p&gt;
 &lt;p&gt;DDD에 대해 공부해보면서 자연스럽게 DDD 도입 시 쉽게 DDD를 도입할 수 있는 방법을 접하게 되었습니다.&lt;/p&gt;
 &lt;p&gt;그게 바로 이벤트 스토밍(Event Storming)이었습니다.&lt;/p&gt;
@@ -18,7 +18,7 @@
 &lt;p&gt;위와 같은 생각을 하게 되었습니다.&lt;/p&gt;
 &lt;br&gt;
 &lt;p&gt;그래서 결국 팀 첫 회의 날에 이벤트 스토밍을 해보자고 주장했고, 도입하게 되었습니다!&lt;/p&gt;
-&lt;h1&gt;🎯 이벤트 스토밍이란?&lt;/h1&gt;
+&lt;h2&gt;🎯 이벤트 스토밍이란?&lt;/h2&gt;
 &lt;p&gt;간단하게 이벤트 스토밍에 대해서 설명하고 넘어가겠습니다!&lt;/p&gt;
 &lt;p&gt;이벤트 스토밍이란, &lt;strong&gt;복잡한 비즈니스 도메인을 빠르게 탐색하고 학습할 수 있는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;코드로 소통하지 않고 모든 사람이 공통된 도메인 이해를 가지도록 하는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
@@ -47,7 +47,7 @@
 &lt;p&gt;구체적인 색상별 예시는 아래에서 더 설명하겠습니다.&lt;/p&gt;
 &lt;p&gt;말로만 들으면 어떤 방법인지 감이 안 올 수 있기 때문에,&lt;/p&gt;
 &lt;p&gt;어떻게 공통된 도메인 이해를 가질 수 있는지 진행 방식 및 과정을 보면서 이해해봅시다.&lt;/p&gt;
-&lt;h1&gt;🎯 이벤트 스토밍 진행 방식&lt;/h1&gt;
+&lt;h2&gt;🎯 이벤트 스토밍 진행 방식&lt;/h2&gt;
 &lt;p&gt;이벤트 스토밍을 하기 위한 준비물은 큰 종이나 큰 화이트보드, 포스트잇과 펜 정도면 충분합니다!&lt;/p&gt;
 &lt;p&gt;이벤트 스토밍은 단계별로 진행됩니다!&lt;/p&gt;
 &lt;p&gt;여러 참고 자료를 공부해본 결과, 자료마다 포스트잇 색상이 의미하는 개념은 대부분 비슷했지만&lt;/p&gt;
@@ -58,7 +58,7 @@
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hUcpv5fdCIk&amp;#x26;ab_channel=OpenUP-%EC%98%A4%ED%94%88%EC%97%85&quot;&gt;KCD 2020 TRACK 2 : 도메인 지식 탐구를 위한 이벤트 스토밍&lt;/a&gt; &lt;/p&gt;
 &lt;p&gt;그럼, 저희 팀에서 이벤트 스토밍을 진행했던 단계를 경험 기반으로 소개해보겠습니다!&lt;/p&gt;
 &lt;p&gt;(단계 이름은 제 맘대로 정해보겠습니다!)&lt;/p&gt;
-&lt;h2&gt;✅ 1단계 : 도메인 이벤트 흩뿌리기&lt;/h2&gt;
+&lt;h3&gt;✅ 1단계 : 도메인 이벤트 흩뿌리기&lt;/h3&gt;
 &lt;p&gt;1단계에서는 팀의 서비스에서 발생할 수 있는 이벤트들을 &lt;strong&gt;주황색 포스트잇&lt;/strong&gt;에 생각나는대로 적어서 붙이는 단계입니다.&lt;/p&gt;
 &lt;p&gt;저희 서비스는 &apos;여러 팀플 참여 시 쉽게 협업을 할 수 있도록 도와주는 서비스&apos;이므로,&lt;/p&gt;
 &lt;p&gt;다음과 같은 이벤트가 공통적으로 발생합니다.&lt;/p&gt;
@@ -83,7 +83,7 @@
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 1단계&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;✅ 2단계 : 도메인 이벤트 타임 라인 순으로 정리 &amp;#x26; 토론 시작&lt;/h2&gt;
+&lt;h3&gt;✅ 2단계 : 도메인 이벤트 타임 라인 순으로 정리 &amp;#x26; 토론 시작&lt;/h3&gt;
 &lt;p&gt;1단계를 마무리했다면, 수많은 도메인 이벤트가 큰 종이에 붙어있을 것입니다.&lt;/p&gt;
 &lt;p&gt;2단계가 이벤트 스토밍의 Main 단계라고 생각이 듭니다.&lt;/p&gt;
 &lt;p&gt;2단계에서는 1단계에서 팀원들이 각각의 생각대로 도출한 도메인 이벤트를 타임 라인 순으로 정리합니다.&lt;/p&gt;
@@ -129,7 +129,7 @@
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 2단계 - 2&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;✅ 3단계 : 액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책 설정 + 토론 결론 내기&lt;/h2&gt;
+&lt;h3&gt;✅ 3단계 : 액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책 설정 + 토론 결론 내기&lt;/h3&gt;
 &lt;p&gt;2단계를 거쳐서 타임 라인이 결정된 이후에 저희 팀은 다시 한번 도메인 Flow를 하나씩 살펴보며&lt;/p&gt;
 &lt;p&gt;액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책을 생각나는 대로 개념에 맞는 포스트잇 색상으로 붙여나갔습니다.&lt;/p&gt;
 &lt;p&gt;보통의 2단계에서는 노란색 포스트잇으로 &lt;strong&gt;구체적인 사용자 페르소나를 뜻하는 액터&lt;/strong&gt;를 설정하지만,&lt;/p&gt;
@@ -206,7 +206,7 @@
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 3단계 - 2&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;🎯 피그잼에 이벤트 스토밍 결과 옮기기&lt;/h1&gt;
+&lt;h2&gt;🎯 피그잼에 이벤트 스토밍 결과 옮기기&lt;/h2&gt;
 &lt;p&gt;저희 팀은 &lt;strong&gt;오프라인&lt;/strong&gt;으로 이벤트 스토밍을 진행했습니다.&lt;/p&gt;
 &lt;p&gt;이때 1단계에서 진행한 도메인 이벤트 포스트잇은 공통된 &apos;유비쿼터스 언어&apos;를 정의하기 전에 작성된 것이기 때문에&lt;/p&gt;
 &lt;p&gt;용어들이 공통된 용어로 작성되지 못했습니다.&lt;/p&gt;
@@ -234,7 +234,7 @@
     &lt;/span&gt;
     &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 결과물 in FigJam&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;h1&gt;🎯 이벤트 스토밍 진행 후 느낀점&lt;/h1&gt;
+&lt;h2&gt;🎯 이벤트 스토밍 진행 후 느낀점&lt;/h2&gt;
 &lt;p&gt;저희 팀 프로젝트 진행 전에 이벤트 스토밍을 스스로 도입해야겠다고 생각했던 이유는&lt;/p&gt;
 &lt;p&gt;앞에서도 말했듯이 DDD를 하기 위함이 아닌, &lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과&lt;/strong&gt;를 얻기 위해서였습니다.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;저희 팀에 맞게 줄인 이벤트 스토밍의 3단계를 진행하고 나서 경험한 바로는&lt;/strong&gt;&lt;/p&gt;
@@ -244,7 +244,7 @@
 &lt;p&gt;우리가 이벤트 스토밍을 진행하면서 정한 공통의 언어인 &lt;strong&gt;유비쿼터스 언어&lt;/strong&gt;를 사용하고 있었고,&lt;/p&gt;
 &lt;p&gt;기능 구현 우선 순위나 해당 기능의 정책 등 여러 결정 사항이 도출되었습니다.&lt;/p&gt;
 &lt;p&gt;아래는 저희 팀이 이벤트 스토밍에서 정립한 저희 팀의 &lt;strong&gt;용어 사전&lt;/strong&gt;입니다.&lt;/p&gt;
-&lt;h2&gt;📕 용어 사전&lt;/h2&gt;
+&lt;h3&gt;📕 용어 사전&lt;/h3&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
       &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
