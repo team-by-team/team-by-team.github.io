@@ -1,354 +1,239 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Jul 2023 10:43:17 GMT</lastBuildDate><item><title><![CDATA[🤔 test]]></title><description><![CDATA[test ☺️]]></description><link>https://team-by-team.github.io/test/</link><guid isPermaLink="false">https://team-by-team.github.io/test/</guid><pubDate>Sat, 15 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;h3&gt;test&lt;/h3&gt;
-&lt;p&gt;☺️&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤩 4. Other Tips]]></title><description><![CDATA[How to change the favicon? The favicon is located in . If you replace that image, the favicon will change. If you want to change the name of…]]></description><link>https://team-by-team.github.io/other-tips/</link><guid isPermaLink="false">https://team-by-team.github.io/other-tips/</guid><pubDate>Tue, 04 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;How to change the favicon?&lt;/h2&gt;
-&lt;p&gt;The favicon is located in &lt;code class=&quot;language-text&quot;&gt;static/favicon.png&lt;/code&gt;. If you replace that image, the favicon will change.&lt;/p&gt;
-&lt;p&gt;If you want to change the name of the favicon, change the &lt;code class=&quot;language-text&quot;&gt;icon&lt;/code&gt; property of &lt;code class=&quot;language-text&quot;&gt;gatsby-plugin-manifest&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;Utterance is not working properly.&lt;/h2&gt;
-&lt;p&gt;In the http environment, utterance may not work properly. Host your blog with https.&lt;/p&gt;
-&lt;h2&gt;How to set OG Image?&lt;/h2&gt;
-&lt;p&gt;Replace the &lt;code class=&quot;language-text&quot;&gt;og-image.png&lt;/code&gt; file in the &lt;code class=&quot;language-text&quot;&gt;/static&lt;/code&gt; directory with your own image file.&lt;/p&gt;
-&lt;h2&gt;Do you have another question?&lt;/h2&gt;
-&lt;p&gt;Please comment on this article or &lt;a href=&quot;https://github.com/devHudi/gatsby-starter-hoodie/issues&quot;&gt;open an issue&lt;/a&gt; in the gatsby-starter-hoodie repository. Your participation advances gatsby-starter-hoodie. Thank you 😎.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤔 3. Writing Guide]]></title><description><![CDATA[1. Add a post You can add posts by creating a new markdown document in the  path. 1-1. Post file structure There are two ways to add a new…]]></description><link>https://team-by-team.github.io/writing-guide/</link><guid isPermaLink="false">https://team-by-team.github.io/writing-guide/</guid><pubDate>Mon, 03 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. Add a post&lt;/h2&gt;
-&lt;p&gt;You can add posts by creating a new markdown document in the &lt;code class=&quot;language-text&quot;&gt;contents/post&lt;/code&gt; path.&lt;/p&gt;
-&lt;h3&gt;1-1. Post file structure&lt;/h3&gt;
-&lt;p&gt;There are two ways to add a new document. The first is to create a markdown file for a single document without a directory. If you are writing about JavaScript, you can create a &lt;code class=&quot;language-text&quot;&gt;about-javascript.md&lt;/code&gt; file in the &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt; directory.&lt;/p&gt;
-&lt;p&gt;The second is to create a directory and create an &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; file in it. This method is useful when the document contains several additional files such as picture files.&lt;/p&gt;
-&lt;p&gt;Each file name or directory name becomes a unique address of the document and can be accessed as follows. &lt;code class=&quot;language-text&quot;&gt;https://siteURL/about-javascript&lt;/code&gt;.&lt;/p&gt;
-&lt;h3&gt;1-2. Frontmatter&lt;/h3&gt;
-&lt;p&gt;The Markdown document you create contains the document&apos;s metadata called frontmatter.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
-title: &quot;🤔 3. Writing Guide&quot;
-description: &quot;How to write and add a post?&quot;
-date: 2021-05-03
-update: 2021-05-03
-tags:
-  - hoodie
-  - writing-guide
-series: &quot;Getting started your blog with gatsby-starter-hoodie&quot;
----&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Above is the frontmatter of the document you are currently reading. Among them, title and date are required. It is recommended to enclose the string with spaces in quotation marks.&lt;/p&gt;
-&lt;h3&gt;1-3. Writing markdown&lt;/h3&gt;
-&lt;p&gt;If you have written a Frontmatter, you can write your markdown document under it. gatsby-starter-hoodie supports most Markdown syntax. To learn more about Markdown syntax, see the &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;Mastering Markdown&lt;/a&gt; documentation on GitHub.&lt;/p&gt;
-&lt;h2&gt;2. Syntax Highlighting &amp;#x26; Katex&lt;/h2&gt;
-&lt;h3&gt;2-1. Syntax Highlighting&lt;/h3&gt;
-&lt;p&gt;Syntax highlighting based on Prism.JS is supported.&lt;/p&gt;
-&lt;h4&gt;Examples&lt;/h4&gt;
-&lt;p&gt;Javascript&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Python&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;It supports a wider variety of other languages. Check it out on the &lt;a href=&quot;https://prismjs.com/&quot;&gt;Prism.js website&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;2-2. Katex&lt;/h3&gt;
-&lt;p&gt;It supports Katex syntax, you can easily express complex formulas.&lt;/p&gt;
-&lt;h4&gt;Inline mode&lt;/h4&gt;
-&lt;p&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;E = m c^{2}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8141079999999999em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h4&gt;Block mode&lt;/h4&gt;
-&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msubsup&gt;&lt;mo&gt;∫&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/msubsup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\int_{0}^{\infty} f(x) dx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.326242em;vertical-align:-0.9119499999999999em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop op-symbol large-op&quot; style=&quot;margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;&quot;&gt;∫&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.414292em;&quot;&gt;&lt;span style=&quot;top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.8129000000000004em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.9119499999999999em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;h2&gt;3. Add images to a post&lt;/h2&gt;
-&lt;p&gt;You can easily embed images using relative paths. It is easy to manage documents containing images by creating a directory.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 15 Jul 2023 11:28:29 GMT</lastBuildDate><item><title><![CDATA[팀바팀 이벤트 스토밍(Event Storming) 도입기]]></title><description><![CDATA[🌈 이벤트 스토밍(Event Storming) 도입기 우아한테크코스 5기 팀바팀 Project에서 Event Storming…]]></description><link>https://team-by-team.github.io/event-storming/</link><guid isPermaLink="false">https://team-by-team.github.io/event-storming/</guid><pubDate>Fri, 01 Jul 2022 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;&lt;strong&gt;🌈 이벤트 스토밍(Event Storming) 도입기&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;우아한테크코스 5기 팀바팀 Project에서 Event Storming을 처음 사용해보면서&lt;/p&gt;
+&lt;p&gt;적용했던 배경과 적용 과정, 적용 후에 느낀점 등을 간단하게 기록하고자 합니다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;🎯 이벤트 스토밍 도입 배경&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;프로젝트 팀원이 배정되기 전에,&lt;/p&gt;
+&lt;p&gt;DDD에 대해 공부해보면서 자연스럽게 DDD 도입 시 쉽게 DDD를 도입할 수 있는 방법을 접하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;그게 바로 이벤트 스토밍(Event Storming)이었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;처음에는 &apos;DDD를 쉽게 할 수 있다고?&apos; 라는 생각으로 이벤트 스토밍에 흥미를 가지고 공부를 해봤습니다.&lt;/p&gt;
+&lt;p&gt;공부를 한 뒤에 느낀 생각은 다음과 같았습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DDD 뿐만 아니라 기획, 설계 시에 적용하면 좋겠는데?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;뒤에서 소개하겠지만, 이벤트 스토밍을 하고 나면 팀원 모두가 공통된 이해를 가지는 효과때문에&lt;/p&gt;
+&lt;p&gt;위와 같은 생각을 하게 되었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그래서 결국 팀 첫 회의 날에 이벤트 스토밍을 해보자고 주장했고, 도입하게 되었습니다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;# 🎯 이벤트 스토밍이란?&lt;/strong&gt;
+간단하게 이벤트 스토밍에 대해서 설명하고 넘어가겠습니다!&lt;/p&gt;
+&lt;p&gt;이벤트 스토밍이란, &lt;strong&gt;복잡한 비즈니스 도메인을 빠르게 탐색하고 학습할 수 있는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;코드로 소통하지 않고 모든 사람이 공통된 도메인 이해를 가지도록 하는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;포스트잇 색상으로 개념들을 구분하고, 해당 개념에 따라 포스트잇을 붙여가면서 도메인 이해를 해나가는 방법입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/bbbf7/event-stroming-postit.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 25.294117647058822%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR42hXHy2oTURzA4XkNwUV9BVeC676Eay+LIAquslGiCAqmFiwuFVsXimQxVYw2kFakprk4KTWtaTqaC20yk57/zDknk0lbkF/x231OT/m0Ao/doEloRhz3hcNfRxy2huhQGAQJ9b2En+2EfjAjDf9wsr/OaadMMvSxesA0KJKGn0mUh7N68JbH1Ts8rd+jJQ38UpdP979SfLhO0Oyy1jzj5sIJN/Iz3Dqw94Hw2VWCJ5ex314xVSWSyiXSrYvMOndx3P0Vct8zPNq8zY7U+Fvu8zFXxH3whZHXpbR9RmZxyq28xa0BnVVGi/OE+Sukm6+ZyhqyMYdsXCBtZ3AqgzIrzSXeNF7gy28G3hE/lqs03m+j/CG1dsLzd4qlgqHW+cdpr0JYyBK7WSa7ZSbiYXauM65fQ/svcYwxiBLUsWCNRRuNEkWkI6y1GKMRGRNH/28wxqKiGIk1xlqsnSCiCcdCFBvOAXGhVPUTLV8/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;event stroming postit&apos; title=&apos;&apos; src=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/ca1dc/event-stroming-postit.png&apos; srcset=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/e7570/event-stroming-postit.png 170w,
+/static/87ef14a113bc4e34675135f74cb4d75a/f46e7/event-stroming-postit.png 340w,
+/static/87ef14a113bc4e34675135f74cb4d75a/ca1dc/event-stroming-postit.png 680w,
+/static/87ef14a113bc4e34675135f74cb4d75a/02d09/event-stroming-postit.png 1020w,
+/static/87ef14a113bc4e34675135f74cb4d75a/bbbf7/event-stroming-postit.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;일반적으로 이벤트 도메인에 사용되는 포스트잇의 색상에 따른 개념은 위의 사진과 같습니다.&lt;/p&gt;
+&lt;p&gt;간단하게 색상별 개념을 알아보도록 하겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 주황색 : &apos;도메인 이벤트&apos; - 서비스에서 발생할 수 있는 도메인별 이벤트
+2. 노란색 : &apos;액터&apos; - 단순한 사용자, 고객보다 구체적인 페르소나
+3. 파란색 : &apos;액션&apos; - 시스템에서 일어나는 일, 도메인 이벤트가 발생하는 원인
+4. 초록색 : &apos;정보&apos; - 액터가 액션을 실행하는 데에 필요한 정보
+5. 보라색 : &apos;정책&apos; - 도메인 이벤트와 액션 사이에 위치해서 &apos;주로 ~할 때마다&apos;로 시작하는 정책&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;구체적인 색상별 예시는 아래에서 더 설명하겠습니다.&lt;/p&gt;
+&lt;p&gt;말로만 들으면 어떤 방법인지 감이 안 올 수 있기 때문에,&lt;/p&gt;
+&lt;p&gt;어떻게 공통된 도메인 이해를 가질 수 있는지 진행 방식 및 과정을 보면서 이해해봅시다.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;🎯 이벤트 스토밍 진행 방식&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;이벤트 스토밍을 하기 위한 준비물은 큰 종이나 큰 화이트보드, 포스트잇과 펜 정도면 충분합니다!&lt;/p&gt;
+&lt;p&gt;이벤트 스토밍은 단계별로 진행됩니다!&lt;/p&gt;
+&lt;p&gt;여러 참고 자료를 공부해본 결과, 자료마다 포스트잇 색상이 의미하는 개념은 대부분 비슷했지만&lt;/p&gt;
+&lt;p&gt;어떤 단계로 진행하는 지는 부분부분 달랐습니다.&lt;/p&gt;
+&lt;p&gt;저희 팀은 아래의 영상에 나오는 단계를 참고하여 진행했습니다!
+참고는 했지만,&lt;/p&gt;
+&lt;p&gt;처음 진행해본 것이기도 하고 부분적으로 단계별로 진행하지 않았던 부분도 있어서 완전히 똑같게 진행하지는 않았습니다!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hUcpv5fdCIk&amp;#x26;ab_channel=OpenUP-%EC%98%A4%ED%94%88%EC%97%85&quot;&gt;KCD 2020 TRACK 2 : 도메인 지식 탐구를 위한 이벤트 스토밍&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;그럼, 저희 팀에서 이벤트 스토밍을 진행했던 단계를 경험 기반으로 소개해보겠습니다!&lt;/p&gt;
+&lt;p&gt;(단계 이름은 제 맘대로 정해보겠습니다!)&lt;/p&gt;
+&lt;h2&gt;✅ 1단계 : 도메인 이벤트 흩뿌리기&lt;/h2&gt;
+&lt;p&gt;1단계에서는 팀의 서비스에서 발생할 수 있는 이벤트들을 &lt;strong&gt;주황색 포스트잇&lt;/strong&gt;에 생각나는대로 적어서 붙이는 단계입니다.&lt;/p&gt;
+&lt;p&gt;저희 서비스는 &apos;여러 팀플 참여 시 쉽게 협업을 할 수 있도록 도와주는 서비스&apos;이므로,&lt;/p&gt;
+&lt;p&gt;다음과 같은 이벤트가 공통적으로 발생합니다.&lt;/p&gt;
+&lt;p&gt;(아래 이벤트만 있는 것이 아니라 무수히 많은 이벤트가 발생하겠죠?!)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 로그인이 성공하였다.
+2. 팀 플레이스가 생성되었다.
+3. 팀별 캘린더 일정 등록이 성공하였다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이처럼, 각자의 생각으로 서비스에 맞는 도메인의 이벤트들을 적어서 붙이면 됩니다.&lt;/p&gt;
+&lt;p&gt;이때, 하나의 큰 종이에 포스트잇을 붙여나가면서 다른 팀원들의 이벤트를 볼 수는 있지만&lt;/p&gt;
+&lt;p&gt;&apos;그 이벤트가 필요할까?&apos;와 같은 토론은 지양하고, 팀원들 각각 자신의 생각대로 이벤트를 적어서 붙입니다.&lt;/p&gt;
+&lt;p&gt;저희 팀 같은 경우는 1단계 마무리 시 다음과 같이 큰 종이에 빽빽하게 채워질 만큼의 도메인 이벤트가 도출되었습니다.&lt;/p&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 61.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABUsxAixiE/wD/xAAbEAACAwADAAAAAAAAAAAAAAABAgADBBEiM//aAAgBAQABBQIFOW7ETHWtk0ezWFT/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/AYf/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/AWsIf//EABkQAAMBAQEAAAAAAAAAAAAAAAABIRECMf/aAAgBAQAGPwJaTWj0fXdaeIkMh//EABoQAQADAQEBAAAAAAAAAAAAAAEAETFRIUH/2gAIAQEAAT8hFdQ6EfUPBjowSgW0YQgXQ9r7FoKHSf/aAAwDAQACAAMAAAAQeN//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EJwp/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/EIG3/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFRQf/aAAgBAQABPxA3pFmq4m2wUjT9WvYy3aVDOTlbQ8O892CBa9ZtcY9TG1n/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Sample Image Caption&apos; title=&apos;&apos; src=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg&apos; srcset=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/0b705/sample-image.jpg 170w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/31389/sample-image.jpg 340w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg 680w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/29373/sample-image.jpg 1020w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/232dc/sample-image.jpg 1360w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg 1920w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/bbbf7/1st.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 74.11764705882352%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAElEQVR42h3RSU+TCQCA4e93zA+Yg5nMJJN4MXEOEw/jZIyKijgQp2yySG0pS0vpYiltaUsp5fugO11FylKEotCiLKUlgECRxSAGQcz8jncyHt7rc3kFrbYDvUGDqUeHw27B7XYwJLoQJTeSV0TySQz7hxkJ+vCNBvGFA4wEvITiUaJjSYJOI2GTkrhNg19dh2AwP6fHZqbP5WDIKxGMRxhNxIgmIiRCEmMhkYmYj8mQh2mpl/RAN9PGJ8z1a5jx9zOjqSLd9AeT7Y9IqcoR7Mpq3Dolwz1qYk4DSZuapEnBdK+CWUMd850PSLeVMa/7h3m9jEXbUxY77jDX+ZBM+z0mFXd4palkSn6LzKiI4Kn6HbHuLwLKShJqGZMdFYw1/8mM4hYLnWXMqR+S6apg0dLAgrOV7LCRN+oHLLtUZNtuMdtZzpK5npzmPm8G9Qg+2Q1GGu8S09Qw1lXNbE8T86Z65lxq1rx6ls3V31vtl5MX1eRDvaz1ynhraSCrrWBVc4cl3d/k1PdYGtIhJBX3CTTeZkzfwHj7IzKmJ2Rtzbz2Wcm/HKE4IGd9QE7RXs/GoJKNwHOKnjbWrHUULLWsGStZ0leR+x9PJxAmHN1EHv/GC1UFU23lvNZVsWx9wrKhgryxgoKtlt1AN7v+LnZCRvZiVrb6atmz17DV38ymo5HNvnoKTjmFlRyCZGhgSnmXVx33mWotY0XUshkwsDPUyo69hu2YlVKgi72wgVLYyGHkOZtWGRvmx+y7mij1VVPU3GYzaGY1v4Iw6fqFjF7GnOo2bw2VFB2N7HiUfAjrKYnPOM6EOQp0cvTCxnHSysm4k6Ohp3yUWjnxtHxHd73d7C6kWM6vIqxM6VkSdWSNMjbsDbwfaOEgYuKjr4PjoRZK0R4+JUx8HrNyOuHkNBPkNGbibNzOWdTAx5F2DsYHKb30UHg3j+Ad8JOJSrzTVVC0VFMSVRyOD3Do7WBfVHLib+ciPciXiJazpJlDSclZysFFNs7FQpSTpI19ex0lZxP5xRmELkkiFg9QNFVSMFWxMyDnaNTE55CaD55nbLuf8TktcRE3cJ7s4ZNXxfmolq8pJ1+nRc5eOjgQVez69Kxk5xAkTx+JuJ9Vl4J1XTnF3hqOfBqOpVZOJfn3k4eJPk7cjZxHDVwsRLjwtfIt0cPlrJejoIFdRxO7QRNvc/MIDouOgH+QbNDGhlfLwYTI19UpvixE+XcxwqdxFyepQb69GuYyE+ByK8dlWMu5V8UXbzuLhhr6y68z3FlPOBJAuPrrT1y/dpWH5WW0KJrptZiIxoNMpFPMvs7wbjnHzvsCm9vrbG2vs7+3wfH2CvvZFB9mR5lwG6m9eY0bV37g5ys/8h9OVTfWq5V88wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 1단계&apos; title=&apos;&apos; src=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/ca1dc/1st.png&apos; srcset=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/e7570/1st.png 170w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/f46e7/1st.png 340w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/ca1dc/1st.png 680w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/02d09/1st.png 1020w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/bbbf7/1st.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Sample Image Caption&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 1단계&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;Images are loaded with Lazy Loading, so you can secure fast document loading speed.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;⚠ The extension of the file must be set to lowercase.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;4. Tagging&lt;/h2&gt;
+&lt;h2&gt;&lt;strong&gt;✅ 2단계 : 도메인 이벤트 타임 라인 순으로 정리 &amp;#x26; 토론 시작&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;1단계를 마무리했다면, 수많은 도메인 이벤트가 큰 종이에 붙어있을 것입니다.&lt;/p&gt;
+&lt;p&gt;2단계가 이벤트 스토밍의 Main 단계라고 생각이 듭니다.&lt;/p&gt;
+&lt;p&gt;2단계에서는 1단계에서 팀원들이 각각의 생각대로 도출한 도메인 이벤트를 타임 라인 순으로 정리합니다.&lt;/p&gt;
+&lt;p&gt;타임 라인 순으로 정리하면서 중복이라고 생각되는 이벤트들은 제거합니다.&lt;/p&gt;
+&lt;p&gt;정리를 해나가면서, 팀원들과 토론이 필요한 부분은 토론하면서 필요한 이벤트들만 남겨놓습니다.&lt;/p&gt;
+&lt;p&gt;도메인 이벤트를 중복이라고 여겨서 제거할 때 중요한 점은,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;동일한 용어인 이유로 중복일 때 다른 개념일 수 있으므로 100% 중복인 도메인 이벤트만 제거해야합니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;예를 들어, 팀원 A와 B가 똑같이 &apos;로그인이 성공했습니다.&apos; 이벤트를 작성했을 때,&lt;/p&gt;
+&lt;p&gt;A는 자체 로그인으로 생각했고, B는 소셜 로그인으로 생각했다면 이 두 개의 이벤트는 다른 이벤트입니다.&lt;/p&gt;
+&lt;p&gt;따라서 제거하는 것이 아니라 구체화해야 할 것입니다.&lt;/p&gt;
+&lt;p&gt;이렇듯, 도출한 이벤트를 제거할 때는 100% 중복이 맞는지 확인 후에 제거해야합니다.&lt;/p&gt;
+&lt;p&gt;이 단계에서 한 가지 더 중요한 포인트는 바로 &lt;strong&gt;토론을 시작한다는 점&lt;/strong&gt;입니다!&lt;/p&gt;
+&lt;p&gt;도메인 이벤트에 대한 토론을 시작하면서 많은 갈등 및 충돌이 발생할 것입니다!&lt;/p&gt;
+&lt;p&gt;**이때, 자주색 포스트잇을 이용하여 어떤 부분에서 토론을 했는지에 대해 토론을 한 도메인 이벤트 옆에 붙여주는 것이 중요합니다.&lt;/p&gt;
+&lt;p&gt;이후에 자주색 포스트잇에 적혀있는 토론 부분들을 해결해 나가면서 공통된 이해를 도출할 수 있습니다!**&lt;/p&gt;
+&lt;p&gt;다음은 저희 팀이 진행한 2단계 결과입니다.&lt;/p&gt;
+&lt;p&gt;저희 팀의 경우에는 분홍색 포스트잇에 용어 후보들이나, 해당 기능을 넣을지 말지 등의 고민들을 적어 놓고&lt;/p&gt;
+&lt;p&gt;이후에 해당 포스트잇을 보고 해결해나갔습니다.&lt;/p&gt;
+&lt;p&gt;(자주색 포스트잇이 없어서 불가피하게 분홍색 포스트잇으로 토론이 발생한 부분을 나타냈습니다.)&lt;/p&gt;
 &lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.823529411764707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB36AH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAT8hj//aAAwDAQACAAMAAAAQAA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABPxABf//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;tag example&apos; title=&apos;&apos; src=&apos;/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg&apos; srcset=&apos;/static/82ce4bec7f5360eef32a473171b181af/0b705/tag-example.jpg 170w,
-/static/82ce4bec7f5360eef32a473171b181af/31389/tag-example.jpg 340w,
-/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg 680w,
-/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg 737w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6d336a811a966f1b614418c4981683bf/bbbf7/2nd-1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 111.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGElEQVR42i3V2XMU1xXH8f6D8pAXl20Z4QiBiJREQFgcI5cCCLSgDRBEaCuQsSwHywib2I5iYUtC0sz09HRP732X7ukZhJxyxf6Xvqnp4eG89MOn7rn3/E4bh6U9XN8mkSGJjFCpoJGnNFSCDmykU8J9sYq79RSdJgShQxh7qDRBZ6L4prVAa4nOJEap/ArPdxAqLjDdkCgV46yOYt0ZpDLey49Xfkd5eQQZefh2mSSso1WE0nFRUsVImSBkglGu7BMEHjKVHSwViMSjNvMnSsPvUB45we7Hv6eyeB3pWkS1EjqoI0OXRAQoFSHbJWOEiDFMs0TgO0gRonWM1hFKBPhLn+BO9RLcH8R/cIlgY4HYLhPWDknqVeKiq6hoO801uqEK2Kiah4SBh1ICrTr3kYoId2GI6nQ/uxMDVEZPEn06Qhh6JHGAiDxE+xCJRyo9EnufyNpDiRDDqlbwt58Tfb1C/J+nJNtfIrbWcabPsDPcxctr3ezf+AD//iDB0zu4a1O4q6P4Sx8TLlzGvvsXKtffxV0eLq7CsKpVvLVp6tffwbrVjT3ahT/RRX2yB+t2L87kKWrjH+KMd+ONfUD52nuUb3QTzlzAm7mEOXkVa/wy7txfUXUTwzYr+I9uEtzqwp+7SjB3lfrs33Cm/og/24c704c98SH22AmC8RM4o+/h3T5L8mgVZ3EFb+kxycJDgvtXUI6JUa9WiF8+Qz5bQD75HHd5FWd+EXv0NLXxbmoTf8C6+T716TPI5/Mk366gvv0M+XgVd2EZ9+Ei3vwiurSPDn2MulVBSEEWR4jVJ9Ta2Nx93Ik+vJlevLv91KdP4z++RqM9p7kma8/sP79ArK8jN75Cb2yiahY68DBc20RFHplfR794QfTVM+TmJmrve0TlJYm5g3RNlHNAsDJE/eEV/KUhwoWPiNduF3OYttMiQpSIMHzbIk18mmlCMxPkOiZXMalKkEmICF2ECEnsA7z2Q906iTl2Cn+ih2j+MkqG6EYngkoLjCCok6WSVjOlmWsaaUIqAnTsIQMH4VnF3CXOAd70WdzJ07hTffi3e3HvnUNJnyxXaN2ZYSOKA/JWg6PjFkfHTfJmimpjkVtkNnY7oPBM3AcXqd8bxJs7jz93nuAfV8jaYFO/XRIKI04imq8bvDlu8vrnJnmuijtVbTBwSNpg3AHt6X4q42dwZwYIZwcI7w7SiJ1O9FJBmimMRES0XucFeHScF2C7XRE4RO1l4FRIfJugsos13svhjZNUbvVijfYSTveT+hV0Iy3WV9ZIMZRWHP3yCz//9ivHv/2P5pvXRaaTJCQKPaLAJQo83PIelZlBzKkBarPncO9eIHhwGe2VSRsZaarI8wxDVPfIv/+U1vYXZD98TvTNCs7GIt7mCs6zZWobSxx+do+D9Xlqr7axS7v45VdEtTIicjoLJVM0GroDJlvriPEe0nt/Rsz2442dKqJljvSwO3ySraFufhp6l72bvdivtqlVDnDMQwLXRrSxVJK+xfJmA0N894Rkqo90/hLJ3Hnqk/34d85RGj3Lv4dP8c0nPTy9+D47YwM4pR1qtQquaxFHfmflZZIsT2k2m0UZ8sUj8ocXOVr9O9nyVaK5C7h3LmBODBTo/s0zbA918eNIH9WDn6haZVyvRhyHSCVQWecxmq0mrVYLI3VrvIl9/qsiWoGNMPcI9n7AefkvrK1NzO++pPz1GvvP1ygd7mBapbdgUPxDpBYdsJkX4P8BgULpb63QVtEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;2nd 1&apos; title=&apos;&apos; src=&apos;/static/6d336a811a966f1b614418c4981683bf/ca1dc/2nd-1.png&apos; srcset=&apos;/static/6d336a811a966f1b614418c4981683bf/e7570/2nd-1.png 170w,
+/static/6d336a811a966f1b614418c4981683bf/f46e7/2nd-1.png 340w,
+/static/6d336a811a966f1b614418c4981683bf/ca1dc/2nd-1.png 680w,
+/static/6d336a811a966f1b614418c4981683bf/02d09/2nd-1.png 1020w,
+/static/6d336a811a966f1b614418c4981683bf/bbbf7/2nd-1.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/bbbf7/2nd-2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 133.52941176470588%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAAsTAAALEwEAmpwYAAAF7klEQVR42lWV6XcT1xmH50/qx7YkPZxAAZtAtxTygSbnQFObQGJsCA1liY3BFjYY21ibtYyW0WgbLSPNPhqNRpJt0qYnf9LTMyMnbT/8zp31eZ/3zr1nhK1XL1HVLlpfxTH6eJbOwNRwdBVL72NZVhTbNrFtC8e1sR0T09IxTA3DOI2pRdeEjY11NK0XxTG0U6DOwNBwLYPB0MML44XjAHfoYjthEQPLNGajbWA5ZnRdyOfSdNVOVGVgGQxtA982IrDnmAyHA4aey3DgMBzY0bHnuThOaH0KC+1/BubTqGonaskfDhgHQ4LAJwiG+K7NMCxi6VF8S4vAkalrYTkalqVHlrMpMRFE8RBVbeN6A4LplOnxCdP376OMgxHjoUfge4z9IZORz8gfRtbuwMKOgGFCOyOKUBTTqJqKo5QJGlmmZpv3bp9ju8tElZkqIpNqimlpl0n8Gb5SxB8HuK6JZYcfQjs1nFkK5bBl08DZf0Ln1od0716ivngB7euLjB/M463Mo381h7t0ieCrswTiNv50jOvokaF52vJPbQulfCoCurvf0v3rb0h8do7qwgXc5TmCB5fw7s/h3r+M+83vGK1cYiLtM/rXD7j+4NSw/3/zKJQiQx1n/ynu8jzayu8ZPLhK8Oga02cLnKwt8n5tkZMn15g+/JhgcwHnzX30nb9jGiq62fsv1DYQSoUMXbWFaxuMrHDuVI4HPaZKFW9jG/vFFsdv9hg//gujh1cYrMzR/+IM2v2rGH2Ffgg1VAyzj2XrCIVChk5HwfEG+MdHBO9PmP74byZ9DePpKtrqOqONV3gPr2Msz2MtX0b98hz6wz+itWXUfoe+1kHTuxE0WjbtdjPS9XyX0chjfDJh3Gzir29gr29yFIsxefRnvG/mMZcu0ls8S/fuRZTSIe1OE7XXotdvo+nqbKe0Wg0MvY8b7gR/QDD2mQxdjmyTE3/EsZxm9PAq2vIV9HvzkWFz4Sy1zF70brtdp9NtRlAhn02hKA308EsPPYaTgOBoQhC2fxQw+eGfTDoF3AdX6N67inJ3ntbtczT+dpZaegdFqaE0q7QiqIKQy2eopXZoP76F9moFc+cRdmINN/0Sz+gy+f57Ro0MztIF1LsXqX/xEfVbHyB//kvk5Db1hky9XqGpVKP2hVQqQWXrMbUbv6K1cJ72wnn6dy7gLM/htCVGx0f4do9BJY5dfkdf3KWViNHYf0GtnEWWi8i1ErW6RLNVQ0gmE5Se30O6cQbl9jyNxTn6S5exv/0E2+gyOJrgTcd4J0fYgY9q9Gm0G8h1GUkSKUsiUqWAXC1Rb1QQkukk4uoS1cWPad+/jrJyjc7Kn9AfXcdsFhj0ajhKCa2SopXbpZxLIJXzVKR8BPtfYLVWRkjG9yiKGdoNGV1toXcVjH4bUynTXvoDlYU5aotzNBZ+S/XmB6RXVygUcxFUqsxgUqWIXC1SrUkIiYNdCkWRRrOO2u9F6ZkWWq9N9fY8Bzc+IvX5eXI3z5O5cYbkk6/J5Q4pl2eGklRCkspU5DJyVULY33uLmM9SlSXarRYtRaHT7aI2ZKSb50h8eoaDTz/k3fVf8938Lzh4dIdsNk2plKNULpwCZ6lUygi7b98QLp3wpNFo0AyjKLQaVeS1JaRnX1JdvYP8j5uUlz4hG3uKWMhRKmYplUXK5eLPiYA7O9tksmnK5RL1ej1KrVajVqsi1eqIlQqiJJEriGQOE2QPE4S7qxACSyKlUmEGlGa2wuvXWxweJikWC6egWlQpfCiXTZNKxkklDojH9zk42CV+sMdhOo5YyETvhMBZZrZCLLZBuLhFMUe1Wo0S3gjPk8k4e3tv2d3dYeftNm92XrG3+4Zkcp9cPk2hkKdYzM/Gwsw2+i8nEnHy+TyVSgVZrlAsimQy6Qj2amuTzdhLNjbX2Yw9Z/v1Jvvv3kZd5XIZ8vlcVPynCOvra8TjccRigWq9Rr1RpyDmSCQO2NqKsb7+HWvPn7K69oTn68+IxV6wt7dDOpUgmzsknw+h2QiezR7yH48vFTobUHT4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;2nd 2&apos; title=&apos;&apos; src=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/ca1dc/2nd-2.png&apos; srcset=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/e7570/2nd-2.png 170w,
+/static/b259f4081cf46811ca0c1fa2c0528534/f46e7/2nd-2.png 340w,
+/static/b259f4081cf46811ca0c1fa2c0528534/ca1dc/2nd-2.png 680w,
+/static/b259f4081cf46811ca0c1fa2c0528534/02d09/2nd-2.png 1020w,
+/static/b259f4081cf46811ca0c1fa2c0528534/bbbf7/2nd-2.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;You can classify and search documents by tag set in Frontmatter. All tags you set can be viewed and searched in &lt;code class=&quot;language-text&quot;&gt;https://siteUrl/tags&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;5. Series&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 677px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 17.058823529411764%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdqwSD//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABBQIv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAARD/2gAIAQEAAT8hF//aAAwDAQACAAMAAAAQ8A//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAYEAEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAQABPxAk0GGHCv/Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;series example&apos; title=&apos;&apos; src=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; srcset=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/0b705/series-example.jpg 170w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/31389/series-example.jpg 340w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg 677w&apos; sizes=&apos;(max-width: 677px) 100vw, 677px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+&lt;h2&gt;&lt;strong&gt;✅ 3단계 : 액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책 설정 + 토론 결론 내기&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;2단계를 거쳐서 타임 라인이 결정된 이후에 저희 팀은 다시 한번 도메인 Flow를 하나씩 살펴보며&lt;/p&gt;
+&lt;p&gt;액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책을 생각나는 대로 개념에 맞는 포스트잇 색상으로 붙여나갔습니다.&lt;/p&gt;
+&lt;p&gt;보통의 2단계에서는 노란색 포스트잇으로 &lt;strong&gt;구체적인 사용자 페르소나를 뜻하는 액터&lt;/strong&gt;를 설정하지만,&lt;/p&gt;
+&lt;p&gt;저희 팀은 서비스 Flow에서 액터가 거의 &apos;멤버&apos; 1개라고 생각했기 때문에, 따로 액터 포스트잇은 붙이지 않았습니다.&lt;/p&gt;
+&lt;p&gt;다음으로, &lt;strong&gt;도메인 이벤트가 발생하는 원인인 액션&lt;/strong&gt;을 파란색 포스트잇으로 붙여나갔습니다.&lt;/p&gt;
+&lt;p&gt;붙어져 있는 모든 도메인 이벤트들의 액션을 생각해보며 자연스럽게&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;액터가 액션을 내리는데 필요한 정보&lt;/strong&gt;를 초록색 포스트잇으로,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;도메인 이벤트와 액션 사이에 위치한 정책&lt;/strong&gt;을 진한 노랑색 포스트잇으로 붙여나갔습니다.&lt;/p&gt;
+&lt;p&gt;(원래는 정책은 보라색 포스트잇이지만 없어서 진한 노랑색 포스트잇으로 대체했습니다.)&lt;/p&gt;
+&lt;p&gt;정보, 정책 개념에 대해 사용했던 예시를 들어보자면 다음과 같이 들어볼 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 정보 : &apos;팀별 캘린더 일정 등록&apos; 액션을 하기 위해 필요한 정보
+    - 일정 이름
+    - 시작 기간
+    - 종료 기간
+
+2. 정책 : 도메인 이벤트와 액션 사이에 위치해서 도메인 이벤트가 발생할 때마다 액션을 수행하게 하는 트리거
+    - &apos;팀 플레이스에서 나갔다&apos; 도메인 이벤트가 발생할 때, &apos;팀 플레이스가 삭제되었다.&apos;가 수행되는 조건
+    - &apos;팀 플레이스 멤버가 0명이면&apos; : 정책&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8fccc04899220e098c6bdb196eb4244c/bbbf7/info.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACcElEQVR42o2T208aQRSH+Xeb+NT3PvShL1hrTUDrHS+9xEuaVq1RmlqxFS9FWBFYVxEQscIuorA7sFz2a3bXxtbQpA9fzmRy8mXm/GY8hcIlkhQnGpNIpmRS8jHRqMTNbRXdENR047/RdQNPqVjgJBVBSf4glz4im45zehxF1IqYQqNhqDTsWi/TEHfUuyBUhF7BYzfQykOrAM2LOwogsi71LFzLUEqAlgQ1CVrKqVYp4XIVh4qMaah4GroKRgbLyIHIOZL7dQ4aeVr7QbQ3o5Tmxim/G6O9tYy+Okdm0sfppI+r6SGsoxCmeX0ndE5y7iLuxRhZMC9o7q6R8veSGukn4ffSCS3xcyFAYtCLMjaAMvic9uFXzGYFT1PXyNQShCsRdq8jSNUYG9kyMwnB26TOnKKjh4MUxgeQ/L1kxwZga4XL+Qnifi+p0X7SQ320pQ1X2NI1YtUYgZNPBJJLBCs7TESveLR4Rs+iwpNQhdr+JvUPM1wtBtA/vsYKryLW5slP+TkN+FBnhyFxd2VbeFiVmJKXmZVXCJbDzB6V6ZmXefxe4emmRu0kinXwmY60STvyhY4cxtKOQbXDkbGKKbhRMIXqChNViRV1mzUtzNbtPgvKDc926nj3BC9jDW6/B8mO9DnzOh1+QTO05MzWDszlwnkNpl5yQ+mIDO16jpbIOjT1PI3fiEuae+uOKDnaz/GrPlrflh8EaJPBNEp/pCzO76nnXOxGM4+1t05xwseh34s6PUgntPxA9pewBOLM2eiK/bALMTrKNp30Dp2TMFb+oEtvGlMv4rG/i2kUHfs/qWtOgqZZdmtD69JXdL7eL94SrNkG+Uf/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;info&apos; title=&apos;&apos; src=&apos;/static/8fccc04899220e098c6bdb196eb4244c/ca1dc/info.png&apos; srcset=&apos;/static/8fccc04899220e098c6bdb196eb4244c/e7570/info.png 170w,
+/static/8fccc04899220e098c6bdb196eb4244c/f46e7/info.png 340w,
+/static/8fccc04899220e098c6bdb196eb4244c/ca1dc/info.png 680w,
+/static/8fccc04899220e098c6bdb196eb4244c/02d09/info.png 1020w,
+/static/8fccc04899220e098c6bdb196eb4244c/bbbf7/info.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/bbbf7/policy.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 36.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABh0lEQVR42m3QX2vTYBTH8bxZ8QWoN94O772QCYJOHSI6cdKpu3DaTqe166Rsa3Fds9A1TZPmSWLaZHnS/PtK0rIbvfjAOQd+B85RLi5Ums0m54MBZ/0+wXxOGAT/CsP/ClbCMKgo0cwgnWkUVyPy8JJcGhSxWcmvGRRSryDHFJVVH4+XIp04FChpZNIYOrzs+bwbzJn3WmQHO8Q/PpI0d0m+fyA7/oqr+Qh1jtX/g63O8NQAbejx5rfLi+6Mtj4ljyyUTFqst2xubGncbfg43+oEm+uoj+6jP3mAt/mQ5HON0UlGp+6xX1NpfzIZHma0u5JbuyNubhts9RyIpyjplcnT04A7ex73DiPEQZ3i7TO81xu4rx6Tbj8nabxHP11wvO/QqVv8+mKitSI6Z5K1nwG393xqAx+kVS40GDsG57ZAFRYLswvDI9A7S5dHFJMTYjFh4YolT7AQFjPHqDJ9WzD1dNLy5PKRhTRhJZU2aSxIVsq6nGXSJJMT0miprHNpXefKHTJ0+Qu1ff9Gf0hwVAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;policy&apos; title=&apos;&apos; src=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/ca1dc/policy.png&apos; srcset=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/e7570/policy.png 170w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/f46e7/policy.png 340w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/ca1dc/policy.png 680w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/02d09/policy.png 1020w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/bbbf7/policy.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;You can publish multiple related documents in a series. The series set in Frontmatter is grouped together and shown at the top of the document. This can be useful for serialized documents with an order. Series documents are displayed in ascending order of creation date.&lt;/p&gt;
-&lt;p&gt;The current document is also set in a series called &lt;code class=&quot;language-text&quot;&gt;Getting started your blog with gatsby-starter-hoodie&lt;/code&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🚀 2. Quick Start]]></title><description><![CDATA[Getting started your blog with gatsby-starter-hoodie by following steps below. It's very easy 😉. 1. Create a Gatsby site Make sure you have…]]></description><link>https://team-by-team.github.io/quick-start/</link><guid isPermaLink="false">https://team-by-team.github.io/quick-start/</guid><pubDate>Sun, 02 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Getting started your blog with gatsby-starter-hoodie by following steps below. It&apos;s very easy 😉.&lt;/p&gt;
-&lt;h2&gt;1. Create a Gatsby site&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Make sure you have &lt;strong&gt;node.js&lt;/strong&gt; and &lt;strong&gt;gatsby-cli&lt;/strong&gt; installed on your computer.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npx gatsby new my-hoodie-blog https://github.com/devHudi/gatsby-starter-hoodie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. Start dev server&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd my-hoodie-blog
-$ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Now you can access to your blog at localhost:8000.&lt;/p&gt;
-&lt;h2&gt;3. Create your own Github repository&lt;/h2&gt;
-&lt;p&gt;Utterance comment widget is based on &lt;strong&gt;Github issue system&lt;/strong&gt;. So you need your own GitHub repository. Also, if you want to publish your blog through Github Pages or Netlify, the Github Repository is a necessary.&lt;/p&gt;
-&lt;p&gt;If you don&apos;t know how to create a GitHub repository, follow the &lt;a href=&quot;https://docs.github.com/en/github/getting-started-with-github/create-a-repo&quot;&gt;official GitHub documentation&lt;/a&gt;.&lt;/p&gt;
-&lt;h3&gt;Add remote repository&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git init
-$ git remote add origin https://github.com/{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;4. Write blog-config.js&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;MY BLOG&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello, This is my blog&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YOUR NAME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;siteUrl&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://myblog.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://github.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;facebook&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.facebook.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;instagram&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.instagram.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.google.com/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;utterances&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pathname&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;gatsby-starter-hoodie provides a configuration file called &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt;. In this file, you can configure blog, biography (profile), and utterance. The website settings you are currently viewing are as above.&lt;/p&gt;
-&lt;p&gt;Configure &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt; to suit your blog. However, it is recommended not to modify &lt;code class=&quot;language-text&quot;&gt;utterances.type&lt;/code&gt;.&lt;/p&gt;
-&lt;h3&gt;Change profile image&lt;/h3&gt;
-&lt;p&gt;Replace &lt;code class=&quot;language-text&quot;&gt;static/profile.png&lt;/code&gt; with the image you want. To change the image file name, you need to change the source code of &lt;code class=&quot;language-text&quot;&gt;src/components/Bio.jsx&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;5. Add your content&lt;/h2&gt;
-&lt;p&gt;Markdown content is in &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt;. You can write and add your articles like the sample posts here. &lt;a href=&quot;/writing-guide&quot;&gt;Click here&lt;/a&gt; to see the detail writing guide.&lt;/p&gt;
-&lt;h2&gt;6. Deploy your blog&lt;/h2&gt;
-&lt;h3&gt;6-1 via Netlify&lt;/h3&gt;
-&lt;p&gt;Follow the Connecting to Netlify steps in &lt;a href=&quot;https://www.netlify.com/blog/2016/02/24/a-step-by-step-guide-gatsby-on-netlify/&quot;&gt;A Step-by-Step Guide: Gatsby on Netlify&lt;/a&gt;. It&apos;s not difficult.&lt;/p&gt;
-&lt;p&gt;If you connect the github repository using Netlify, it is automatically distributed whenever you push it, so it is convenient.&lt;/p&gt;
-&lt;h3&gt;6-2. via Github Pages&lt;/h3&gt;
-&lt;h4&gt;Case 1&lt;/h4&gt;
-&lt;p&gt;If the repository name is in the form of &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME} .github.io&lt;/code&gt;, run it below.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;Case 2&lt;/h4&gt;
-&lt;p&gt;If the repository name is not in the form of &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME} .github.io&lt;/code&gt;, run it below.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh-prefix-paths&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;In the above case, you need to change &lt;code class=&quot;language-text&quot;&gt;pathPrefix&lt;/code&gt; in &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; to your repository name.&lt;/p&gt;
-&lt;h3&gt;6-3. other platforms&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You can build the gatsby website with the command above. The build output is created in the &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; directory. Deploy the &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; directory using the command for the platform you want to deploy.&lt;/p&gt;
-&lt;h2&gt;7. Cutomize&lt;/h2&gt;
-&lt;h3&gt;Project Structure&lt;/h3&gt;
-&lt;p&gt;You can customize your own gatsby-starter-hoodie by referring to the following file structure 🙊.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;├── node_modules
-├── contents
-│   └── posts // your articles are here
-├── public // build outputs are here
-└── src
-    ├── assets
-    │   └── theme // theme config is here
-    ├── components
-    │   └── Article
-    │       └── Body
-    │           └── StyledMarkdown
-    │               └── index.jsx // markdown styles are here
-    │   ...
-    ├── fonts // webfonts are here
-    ├── hooks
-    ├── images
-    ├── pages // page components are here
-    ├── reducers
-    ├── templates // post components are here
-    └── utils&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[🎇 1. About gatsby-starter-hoodie]]></title><description><![CDATA[About gatsby-starter-hoodie gatsby-starter-hoodie is a gatsby theme created for writing tech blogs. Markdown, Code Highlighting in various…]]></description><link>https://team-by-team.github.io/about-hoodie/</link><guid isPermaLink="false">https://team-by-team.github.io/about-hoodie/</guid><pubDate>Sat, 01 May 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;About gatsby-starter-hoodie&lt;/h2&gt;
-&lt;p&gt;gatsby-starter-hoodie is a gatsby theme created for writing tech blogs. Markdown, Code Highlighting in various programming languages, and Katex syntax are supported. Also, you can easily categorize articles into tags and series.&lt;/p&gt;
-&lt;p&gt;Start your blog with a neatly designed gatsby-starter-hoodie that supports dark mode.&lt;/p&gt;
-&lt;h2&gt;Features&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Markdown&lt;/li&gt;
-&lt;li&gt;Code Highlighting&lt;/li&gt;
-&lt;li&gt;Katex Syntax&lt;/li&gt;
-&lt;li&gt;Dark Mode (Responsive to the settings of the OS)&lt;/li&gt;
-&lt;li&gt;Tag Categoriazation&lt;/li&gt;
-&lt;li&gt;Series Categorization&lt;/li&gt;
-&lt;li&gt;Responsive Web&lt;/li&gt;
-&lt;li&gt;SEO&lt;/li&gt;
-&lt;li&gt;Utterance (Comment widget)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;Let&apos;s get started&lt;/h2&gt;
-&lt;p&gt;Follow the &lt;a href=&quot;/quick-start&quot;&gt;Quick Start&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤩 4. 그 외 팁들]]></title><description><![CDATA[파비콘은 어떻게 변경하나요?  에 파비콘 파일이 위치해 있습니다. 이미지 파일을 대체하면 파비콘을 변경할 수 있습니다. 만약 파비콘 파일의 이름을 변경하고 싶다면,  파일의  에서  속성을 변경하셔야합니다. Utterance…]]></description><link>https://team-by-team.github.io/other-tips-kr/</link><guid isPermaLink="false">https://team-by-team.github.io/other-tips-kr/</guid><pubDate>Sun, 04 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;파비콘은 어떻게 변경하나요?&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;static/favicon.png&lt;/code&gt; 에 파비콘 파일이 위치해 있습니다. 이미지 파일을 대체하면 파비콘을 변경할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;만약 파비콘 파일의 이름을 변경하고 싶다면, &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; 파일의 &lt;code class=&quot;language-text&quot;&gt;gatsby-plugin-manifest&lt;/code&gt; 에서 &lt;code class=&quot;language-text&quot;&gt;icon&lt;/code&gt; 속성을 변경하셔야합니다.&lt;/p&gt;
-&lt;h2&gt;Utterance 가 제대로 작동하지 않아요.&lt;/h2&gt;
-&lt;p&gt;http 환경에서는 Utterance 가 제대로 작동하지 않을 수 있습니다. 여러분의 웹사이트를 https 환경으로 제공하세요.&lt;/p&gt;
-&lt;h2&gt;OG Image 를 설정하고 싶어요.&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;/static&lt;/code&gt; 디렉토리의 &lt;code class=&quot;language-text&quot;&gt;og-image.png&lt;/code&gt; 파일을 여러분이 원하는 이미지 파일로 대체하세요.&lt;/p&gt;
-&lt;h2&gt;다른 질문이 있으신가요?&lt;/h2&gt;
-&lt;p&gt;이 문서에 댓글을 달거나 gatsby-starter-hoodie 레포지토리에 &lt;a href=&quot;https://github.com/devHudi/gatsby-starter-hoodie/issues&quot;&gt;이슈를 열어주세요&lt;/a&gt;. 여러분의 참여가 gatsby-starter-hoodie 를 더욱 발전시킵니다. 감사해요 😎.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🤔 3. 작성 가이드]]></title><description><![CDATA[1. 포스트 추가하기  경로에 새로운 마크다운 파일을 생성하여 여러분의 글을 추가할 수 있습니다. 1-…]]></description><link>https://team-by-team.github.io/writing-guide-kr/</link><guid isPermaLink="false">https://team-by-team.github.io/writing-guide-kr/</guid><pubDate>Sat, 03 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;1. 포스트 추가하기&lt;/h2&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;contents/post&lt;/code&gt; 경로에 새로운 마크다운 파일을 생성하여 여러분의 글을 추가할 수 있습니다.&lt;/p&gt;
-&lt;h3&gt;1-1. 포스트 파일 구조&lt;/h3&gt;
-&lt;p&gt;새로운 문서를 추가하는 방법에는 두가지가 있습니다. 첫번째는 디렉토리 없이 문서를 생성하는 방법입니다. 만약 여러분이 Javascript 에 관한 문서를 생성한다면, &lt;code class=&quot;language-text&quot;&gt;about-javascript.md&lt;/code&gt; 파일을 &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt; 디렉토리에 추가할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;두번째 방법은 먼저 디렉토리를 생성한 뒤, 디렉토리 안에 &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; 파일을 추가하는 것 입니다. 이 방법은 문서 내에 여러 이미지 파일 등 부수적인 파일 여러개가 포함되었을 때 유용합니다.&lt;/p&gt;
-&lt;p&gt;첫번째 방법으로 생성한 파일명이나, 두번째 방법으로 생성한 디렉토리 이름은 웹사이트에서 고유의 주소를 갖습니다. &lt;code class=&quot;language-text&quot;&gt;https://siteURL/about-javascript&lt;/code&gt; 와 같이요.&lt;/p&gt;
-&lt;h3&gt;1-2. Frontmatter&lt;/h3&gt;
-&lt;p&gt;마크다운은 문서의 메타데이터인 Frontmatter 라 불리는 정보를 가지고 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;---
-title: &quot;🤔 3. 작성 가이드&quot;
-description: &quot;어떻게 글을 작성하고 추가할까요?&quot;
-date: 2021-04-03
-update: 2021-04-03
-tags:
-  - hoodie
-  - writing-guide
-series: &quot;gatsby-starter-hoodie 로 블로그 시작하기&quot;
----&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위는 지금 여러분이 읽고 있는 문서의 Frontmatter 입니다. &lt;code class=&quot;language-text&quot;&gt;title&lt;/code&gt; 과 &lt;code class=&quot;language-text&quot;&gt;date&lt;/code&gt; 는 필수 값입니다. 띄어쓰기를 포함된 문자열을 입력할 때에는 따옴표로 감싸는 것을 추천합니다.&lt;/p&gt;
-&lt;h3&gt;1-3. 마크다운 작성하기&lt;/h3&gt;
-&lt;p&gt;만약 Frontmatter 까지 작성했다면, 여러분은 그 아래에 마크다운 문서를 작성하면 됩니다. gatsby-starter-hoodie 는 대부분의 마크다운 문법을 지원합니다. 마크다운 작성 방법을 알고 싶다면, Github 의 &lt;a href=&quot;https://guides.github.com/features/mastering-markdown/&quot;&gt;Mastering Markdown&lt;/a&gt; 문서를 참고하세요.&lt;/p&gt;
-&lt;h2&gt;2. 코드 하이라이팅 &amp;#x26; Katex&lt;/h2&gt;
-&lt;h3&gt;2-1. 코드 하이라이팅&lt;/h3&gt;
-&lt;p&gt;Prism.JS 에 기반한 코드 하이라이팅이 제공됩니다.&lt;/p&gt;
-&lt;h4&gt;예시&lt;/h4&gt;
-&lt;p&gt;Javascript&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Python&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;python&quot;&gt;&lt;pre class=&quot;language-python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Hello, world!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;그 외 더 많은 언어를 제공합니다. 제공되는 언어를 확인하고 싶다면, &lt;a href=&quot;https://prismjs.com/&quot;&gt;Prism.js 웹사이트&lt;/a&gt; 를 참고하세요.&lt;/p&gt;
-&lt;h3&gt;2-2. Katex&lt;/h3&gt;
-&lt;p&gt;Katex 문법을 지원하여 복잡한 수식도 쉽게 표현할 수 있습니다.&lt;/p&gt;
-&lt;h4&gt;인라인 모드&lt;/h4&gt;
-&lt;p&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;E&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;msup&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;E = m c^{2}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.68333em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.05764em;&quot;&gt;E&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mrel&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.2777777777777778em;&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8141079999999999em;vertical-align:0em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.8141079999999999em;&quot;&gt;&lt;span style=&quot;top:-3.063em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;2&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;h4&gt;블럭 모드&lt;/h4&gt;
-&lt;span class=&quot;katex-display&quot;&gt;&lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot; display=&quot;block&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msubsup&gt;&lt;mo&gt;∫&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;∞&lt;/mi&gt;&lt;/msubsup&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;(&lt;/mo&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;mo stretchy=&quot;false&quot;&gt;)&lt;/mo&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;x&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;\int_{0}^{\infty} f(x) dx&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:2.326242em;vertical-align:-0.9119499999999999em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mop&quot;&gt;&lt;span class=&quot;mop op-symbol large-op&quot; style=&quot;margin-right:0.44445em;position:relative;top:-0.0011249999999999316em;&quot;&gt;∫&lt;/span&gt;&lt;span class=&quot;msupsub&quot;&gt;&lt;span class=&quot;vlist-t vlist-t2&quot;&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:1.414292em;&quot;&gt;&lt;span style=&quot;top:-1.7880500000000001em;margin-left:-0.44445em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&quot;top:-3.8129000000000004em;margin-right:0.05em;&quot;&gt;&lt;span class=&quot;pstrut&quot; style=&quot;height:2.7em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;sizing reset-size6 size3 mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;&lt;span class=&quot;mord mtight&quot;&gt;∞&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-s&quot;&gt;​&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;vlist-r&quot;&gt;&lt;span class=&quot;vlist&quot; style=&quot;height:0.9119499999999999em;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mopen&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;mclose&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathnormal&quot;&gt;x&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;h2&gt;3. 글에 이미지 추가하기&lt;/h2&gt;
-&lt;p&gt;상대경로를 이용하여 쉽게 이미지를 추가할 수 있습니다. 디렉토리를 생성하고 그 안에 &lt;code class=&quot;language-text&quot;&gt;index.md&lt;/code&gt; 를 추가하여, 글을 추가하는 방법으로 작성해야 이미지 관리가 쉽습니다.&lt;/p&gt;
+&lt;p&gt;이 단계에서는 액션, 정보, 정책 붙이기 이외에 더 중요한 작업이 있었습니다.&lt;/p&gt;
+&lt;p&gt;중요한 작업은 바로, 2단계에서 붙여놨던 토론 부분들을 다시 살펴보면서 해결해나가는 과정입니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 용어나 해당 기능의 개발 여부 등 여러 갈림길들을 하나의 길로 만들어서 싱크를 맞췄습니다.&lt;/p&gt;
+&lt;p&gt;저희 팀은 이러한 3단계 과정 끝에 공통된 도메인 이해를 가지고 개발 단계에 접어들 수 있었습니다!&lt;/p&gt;
+&lt;p&gt;다음은 완성한 저희 팀의 이벤트 스토밍 결과물입니다!&lt;/p&gt;
+&lt;p&gt;(최소 기능들만 우선 구현하자는 공동의 목표로 가지고 임했기 때문에 이벤트들을 많이 제거하게 되었습니다.)&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/bbbf7/result-1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 62.94117647058823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC7UlEQVR42kWTXU8bRxhG/YP6M3oVtWovc1EpKVXSIJU6paAALi7g2CS1oebDxcbGYJv17s737Owa6EdaRflfp1pHai+emas5et5XZyqHrX263V+Ib1vMBqvM+tuI2QSlNVJK4jgiEYIkSRBpgtGSVEqESFHlrTVpmiJEghQxlXa7xWnvnIuzLaL9T5jtfk7a2OLsMqJf2yDeeoZUCqs1o+kto1SS9E+5WXuMHp5jlERphTEaYxSVk26bs8mM43qN4TdfkFwNybKA1o755lPEXhXvHcE7etfXrB8N6Bw0iV+tMPnhK+a1VYK3+DwnywOVy/4FmwctGs8fE22/4OH+jjj/i87pNbfPHmG6DYo//iTznsxovHPEynL425zL6lPk1grBG7IiJxQ5lenlkPHmFuOVz4iPW5zMcma/tnHNDcKgw10eyO9/Jy/CssUywXOTGOavX6Gb64TMERYF+SKnYqzFxhFi1EdLxWgecIMT4m6b4URie20GP+0xHoxR52/Q0yGxdjS614zXy4ZfE6wiL3LyRUGlPEyxwOYL8sWCd//8zbv3H5jaB467fUzzRxr1t+zWDpl/+4j4aA+VBXqjiGm9itqv4p0mKzxZZqlMx9dE9SqzkyNkNMcdVNEnLXwIuODJ7u/pRRlnnWOS+ipp2d44riYRca+Du+gQxmfYmx7eGypvX75k9uRT6rUWxwdvyNa+RB0dYLKAMAZlHc5bbOYRzqGd4WIq2Hl9zmznBb2NFWprT0j2vycET2XWrHFVq7LXHjFp1Mh3n2PHA7TWzJUmUXYpcOliqiWJkqRaIZ0l5IGrKGK71yc1H/dYsS5jeKvZaV6Q/lzF73+H0xJlDdIaTOaXUc4uQYkSxEqQKIWyliw47oqwVGbpYZIIojhGaMXdIqcoMoyziPIHlPb7ckyLNJpUClKZkoiUSfkulSiZorXEh+wjMJrH3MbRErJ4uF8KKrX6H+gsumxbjivi/xILgTIGl3l85pewEvgvx73rSortN4oAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;result 1&apos; title=&apos;&apos; src=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/ca1dc/result-1.png&apos; srcset=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/e7570/result-1.png 170w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/f46e7/result-1.png 340w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/ca1dc/result-1.png 680w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/02d09/result-1.png 1020w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/bbbf7/result-1.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/bbbf7/result-2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 53.529411764705884%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR42i2R2W7iBgBF/Xd96XulqdSqmkpNm1GXUTsziRIyWTrTEAhLwGHHNg7YgUAwGLybmMUQkv7SqZr24b4eHZ0rHCX2SJ6fUW+WKItHVCpXKIpEW+uQqTcQGwrtYhqteoXW1ak1ZTqlLHVJoiaKdIp73FzvIqVPkGoiwp+nhxx9SpI+PiB1ukvh+D1iJks1m+YqeUb+/a/0jn9BT7yhq3eolcoov71CqlWQKxXui79zX/sWLXeKrjYQzv86IZUvcvnj12Tf/kRh5yvEs2Pk4hWWJDI8eYOZ+sD9/neMB12aSgf1YBezkccJXWzfZeo4mLaJMR4gZC7PUeUarXKBW7mCrLTIpfL0q3k8Z4I/C7C1OnZmH9816fSHDOoFrLs2XugQ+BN838L1ptjOGEEsZrjVVNotiX6vQ1m9o5q6YHSxR+CYDCYuarWKf33KzDNfII49xutKPFgG89Uji3hOtAgJQwehXhfpdjU0TcUY9hiZYyZ9HbvbIgod9KHDjVhgJn4kCqY4gYd2ozLa+4ao+D0b54DFUGbuGsznIUIul6ZWLdMoiehtGaPXwRgOGNlTLNtAMyZochO7kcad9On2bsmVZbofXuN//pKl9gVR8S2BUngxF8RyFVXModXLyK0bxkoFX5fw7hSmrk9gDlibHVabFQ/zANse43oTeoev2f9jB8t3+Ps5ZrNesI4jhHeJDLWfX1G9vODTRYlhYofpxx+w8gkaPYdWLkcsHhJH7kunf2HhzMJSC7TLaR4WM56fYp62/02oN5robYVeT8cY9vGsEYE3JYoCFssH4vWSx+c1qzgiCB2mloEodWhfZ5k3kmyWAdunNdv/oUK7Lb0c0h/omJMhlmPieBZB6DKfz1jFC+LN8sXOdkyM0R1JsUnp8wnT1DsWoc1mG/P4tOJxu+IfR3qH51WgqO0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;result 2&apos; title=&apos;&apos; src=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/ca1dc/result-2.png&apos; srcset=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/e7570/result-2.png 170w,
+/static/2453bd9057d7b456772ff257a5d71fc7/f46e7/result-2.png 340w,
+/static/2453bd9057d7b456772ff257a5d71fc7/ca1dc/result-2.png 680w,
+/static/2453bd9057d7b456772ff257a5d71fc7/02d09/result-2.png 1020w,
+/static/2453bd9057d7b456772ff257a5d71fc7/bbbf7/result-2.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;🎯 피그잼에 이벤트 스토밍 결과 옮기기&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;저희 팀은 &lt;strong&gt;오프라인&lt;/strong&gt;으로 이벤트 스토밍을 진행했습니다.&lt;/p&gt;
+&lt;p&gt;이때 1단계에서 진행한 도메인 이벤트 포스트잇은 공통된 &apos;유비쿼터스 언어&apos;를 정의하기 전에 작성된 것이기 때문에&lt;/p&gt;
+&lt;p&gt;용어들이 공통된 용어로 작성되지 못했습니다.&lt;/p&gt;
+&lt;p&gt;예를 들면, 이벤트 스토밍이 끝난 후에는 &apos;파일 업로드 하는 공간&apos;을 &apos;팀 드라이브&apos;로 정의를 마쳤는데,&lt;/p&gt;
+&lt;p&gt;1단계에서 작성한 주황색 포스트잇에서는 &apos;공유 드라이브&apos;라는 용어로 표현되어 있는 경우가 많았습니다.&lt;/p&gt;
+&lt;p&gt;이러한 이유 때문에 온라인으로 옮기면서 용어를 공통된 용어로 수정해야겠다고 생각했고,&lt;/p&gt;
+&lt;p&gt;또한 이미 작성했던 포스트잇 부분에 변경 사항이 생기거나 추가할 필요가 생길 때&lt;/p&gt;
+&lt;p&gt;불편한 점이 많다고 느끼게 되어서 디자인 툴인 피그잼에 이벤트 스토밍 결과를 옮기게 되었습니다.&lt;/p&gt;
+&lt;p&gt;그렇다고 해서, &lt;strong&gt;오프라인에서 직접 포스트잇을 붙이며 진행한 이벤트 스토밍이 의미가 없다고 생각하지는 않습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;오히려 7명의 팀원이 각자의 화면에서 이벤트 스토밍을 진행했다면&lt;/p&gt;
+&lt;p&gt;집중이 분산되어서 결과물의 퀄리티가 더 낮아졌을 것이라고 저는 느꼈습니다!&lt;/p&gt;
+&lt;p&gt;또한, 오프라인으로 진행한 이벤트 스토밍 결과를 온라인으로 옮길 때&lt;/p&gt;
+&lt;p&gt;한번 더 설계한 서비스의 Flow를 되새기면서 놓쳤던 부분을 발견해서 더 나은 설계가 되기도 했습니다.&lt;/p&gt;
+&lt;p&gt;다음은, 피그잼으로 옮긴 저희의 이벤트 스토밍 결과물입니다.&lt;/p&gt;
+&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/1d227/real-result.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 80.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkElEQVR42n2Ua4/cNBiF9///C8SHopWo1CJRIQRfqBCCVt22CGZmV7OZJHNJJjcnthPHSR5kZyd0UEukNzcfn/ic9zg30zRxOdz95TnPc1arFVEUstlsSNKUXfDI2LdX2Av+cn/jHvq+R6qWcYLeDn6g6zoO+z3xfs8pPdPUDWVVMQ6WcZp8DdPI8AnxQhjHe3796TuaJCA7hmjV+K++/3jHy+e3JOEDpSgoTzFZmlDlKdU5QWZnVHn25HxKaIyhTgJEEtLkIV2rmEaQpqB89zPm7Y8cioz8GJOt7yjvP3A+HKjDCJ3GjLPma0KpNEJ3ZIdHjJYe1KkSK0/IY4AoCmQtSPcB+hyj3ZxWI3XLOI6Lj4uHSkqkUtR5QqeVB8SnlCJ6RBpDGGyRDx+RjfTVNI0vKeU14fQfU2c75qtuNboRtK0mOZ1oshNt16GUWsqNXTXFnQY7eNnDOC4xcF81pscMw9JV9+5S7hiGeZ4dxusub4Mtz29vie7XTNMMroTg+5ff8ssPryjPR0R6RGntZbpI+Xm7gGdff8Xdb6+p0j29MdzgpHUV2ep3bLpmGK0Hd9ZS7N5R7u4okoAq2qLajqauF0LRNoTr9+Tbv0ju/2TozbxCUVfU4YpWFlg7E7pGaa1ojUEkEWL7N7Lr/AqdTC/5CVtLQXb/AWueCHVnaJsa29vFH+t2j1R+B2XpERFtfGSyYI1VwmPOacqbN28J49j76ebefGkvd31PfozIk5jK+acaRF2Thw/0cibcxHtevfiG3R+vF47PxGYmbK0l220oopVfnQuwy2kj5SJ5xk6+kVex+Ryhk6y0IklixGlL4+RLeeXh9BSnf7P7P4TOD9egvjcMtvceXWocxy/+vv4BPdLP9wvkyZQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;real result&apos; title=&apos;&apos; src=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/ca1dc/real-result.png&apos; srcset=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/e7570/real-result.png 170w,
+/static/8d02b5640ed41f4b4594ade69cf70517/f46e7/real-result.png 340w,
+/static/8d02b5640ed41f4b4594ade69cf70517/ca1dc/real-result.png 680w,
+/static/8d02b5640ed41f4b4594ade69cf70517/02d09/real-result.png 1020w,
+/static/8d02b5640ed41f4b4594ade69cf70517/1d227/real-result.png 1164w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1&gt;&lt;strong&gt;🎯 이벤트 스토밍 진행 후 느낀점&lt;/strong&gt;&lt;/h1&gt;
+&lt;p&gt;저희 팀 프로젝트 진행 전에 이벤트 스토밍을 스스로 도입해야겠다고 생각했던 이유는&lt;/p&gt;
+&lt;p&gt;앞에서도 말했듯이 DDD를 하기 위함이 아닌, &lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과&lt;/strong&gt;를 얻기 위해서였습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;저희 팀에 맞게 줄인 이벤트 스토밍의 3단계를 진행하고 나서 경험한 바로는&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과를 경험해봤습니다! 😃 👍&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;그래서 너무 만족하게 되었습니다!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이벤트 스토밍 진행 중이나, 끝나고 난 후에 팀원들이 모두&lt;/p&gt;
+&lt;p&gt;우리가 이벤트 스토밍을 진행하면서 정한 공통의 언어인 &lt;strong&gt;유비쿼터스 언어&lt;/strong&gt;를 사용하고 있었고,&lt;/p&gt;
+&lt;p&gt;기능 구현 우선 순위나 해당 기능의 정책 등 여러 결정 사항이 도출되었습니다.&lt;/p&gt;
+&lt;p&gt;아래는 저희 팀이 이벤트 스토밍에서 정립한 저희 팀의 &lt;strong&gt;용어 사전&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;📕 용어 사전&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 61.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAQBAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/aAAwDAQACEAMQAAABUsxAixiE/wD/xAAbEAACAwADAAAAAAAAAAAAAAABAgADBBEiM//aAAgBAQABBQIFOW7ETHWtk0ezWFT/AP/EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAEDAQE/AYf/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREh/9oACAECAQE/AWsIf//EABkQAAMBAQEAAAAAAAAAAAAAAAABIRECMf/aAAgBAQAGPwJaTWj0fXdaeIkMh//EABoQAQADAQEBAAAAAAAAAAAAAAEAETFRIUH/2gAIAQEAAT8hFdQ6EfUPBjowSgW0YQgXQ9r7FoKHSf/aAAwDAQACAAMAAAAQeN//xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREh/9oACAEDAQE/EJwp/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEh/9oACAECAQE/EIG3/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARITFRQf/aAAgBAQABPxA3pFmq4m2wUjT9WvYy3aVDOTlbQ8O892CBa9ZtcY9TG1n/2Q==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;샘플 이미지 캡션&apos; title=&apos;&apos; src=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg&apos; srcset=&apos;/static/69b244095d8c72158c9dd2d4ca59a7b1/0b705/sample-image.jpg 170w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/31389/sample-image.jpg 340w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/a22ce/sample-image.jpg 680w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/29373/sample-image.jpg 1020w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/232dc/sample-image.jpg 1360w,
-/static/69b244095d8c72158c9dd2d4ca59a7b1/aaf92/sample-image.jpg 1920w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 41.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6klEQVR42oVSWw7DIAzb/Y86GO9nC/XkdHRf3ZCiQpwax+HRWoOxFt4HeO/BxZy1Fs45hBAECyGilCL4cRy38di2XQrHmBhjYM4DzKWUhSjGKPuU0oXfhRBSjdYv9N4/SaDWM6eUhtZaVJL0F9lF2PsG5zxKqZKgUhKy/ZyLtMrzwn6FEO77jpwzYkzSHhfVkpDKiLHmn3eXh7z9+VQwxkCpF2qtOG3QUErJ1xgrxHekc06Jayg0nCoYlL4GRRvYNv3jmcpb63Lhd9+vYX2G0kUBk+tG/nC2HMVfY5w8oRWsJ07MWgfOYSl8A6lncOMULI+wAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;img.png&apos; title=&apos;&apos; src=&apos;/static/da4427083cef8054a90b1f210d73055b/ca1dc/dictionary.png&apos; srcset=&apos;/static/da4427083cef8054a90b1f210d73055b/e7570/dictionary.png 170w,
+/static/da4427083cef8054a90b1f210d73055b/f46e7/dictionary.png 340w,
+/static/da4427083cef8054a90b1f210d73055b/ca1dc/dictionary.png 680w,
+/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png 948w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
   &lt;/a&gt;
     &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;샘플 이미지 캡션&lt;/figcaption&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;img.png&lt;/figcaption&gt;
   &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;이미지는 Lazy Loading 으로 로드되어, 빠른 초기 문서 로딩 속도를 확보할 수 있습니다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;⚠ 이미지의 모든 확장자는 소문자여야합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;4. 태그&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 18.823529411764707%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB36AH/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAT8hj//aAAwDAQACAAMAAAAQAA//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABPxABf//Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;tag example&apos; title=&apos;&apos; src=&apos;/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg&apos; srcset=&apos;/static/82ce4bec7f5360eef32a473171b181af/0b705/tag-example.jpg 170w,
-/static/82ce4bec7f5360eef32a473171b181af/31389/tag-example.jpg 340w,
-/static/82ce4bec7f5360eef32a473171b181af/a22ce/tag-example.jpg 680w,
-/static/82ce4bec7f5360eef32a473171b181af/6031b/tag-example.jpg 737w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;Frontmatter 의 태그를 통해 쉽게 문서를 분류하고 검색할 수 있습니다. 여러분의 모든 태그는 &lt;code class=&quot;language-text&quot;&gt;https://siteUrl/tags&lt;/code&gt; 경로에서 확인하고, 검색할 수 있습니다.&lt;/p&gt;
-&lt;h2&gt;5. 시리즈&lt;/h2&gt;
-&lt;p&gt;&lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 677px; margin-bottom: 16px;&apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 17.058823529411764%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAdqwSD//xAAVEAEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAQABBQIv/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAFRABAQAAAAAAAAAAAAAAAAAAARD/2gAIAQEAAT8hF//aAAwDAQACAAMAAAAQ8A//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAYEAEAAwEAAAAAAAAAAAAAAAABABAhEf/aAAgBAQABPxAk0GGHCv/Z&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;series example&apos; title=&apos;&apos; src=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg&apos; srcset=&apos;/static/1ea4e56966cb5fb6e110d32124fd883c/0b705/series-example.jpg 170w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/31389/series-example.jpg 340w,
-/static/1ea4e56966cb5fb6e110d32124fd883c/d1584/series-example.jpg 677w&apos; sizes=&apos;(max-width: 677px) 100vw, 677px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;여러분이 연관된 여러개의 문서를 작성할 때 시리즈를 사용할 수 있습니다. Frontmatter 에 작성된 시리즈가 같은 문서끼리 묶여 문서 상단에 리스트로 표시됩니다. 시리즈는 일련의 순서가 있는 문서들을 작성할 때 유용하게 사용할 수 있습니다. 시리즈는 문서의 작성 날짜 순서대로 정렬됩니다.&lt;/p&gt;
-&lt;p&gt;현재 문서는 &lt;code class=&quot;language-text&quot;&gt;gatsby-starter-hoodie 로 블로그 시작하기&lt;/code&gt; 라는 시리즈로 설정되어 있습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[🚀 2. 빠르게 시작하기]]></title><description><![CDATA[아래 단계를 따라서 여러분의 블로그를 시작하세요. 굉장히 쉬워요 😉. 1. Gatsby 사이트 생성 컴퓨터에 node.js 와 gatsby-cli 가 설치되어 있어야합니다. 2. 개발 서버 시작 이제 localhost:800…]]></description><link>https://team-by-team.github.io/quick-start-kr/</link><guid isPermaLink="false">https://team-by-team.github.io/quick-start-kr/</guid><pubDate>Fri, 02 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;아래 단계를 따라서 여러분의 블로그를 시작하세요. 굉장히 쉬워요 😉.&lt;/p&gt;
-&lt;h2&gt;1. Gatsby 사이트 생성&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;컴퓨터에 &lt;strong&gt;node.js&lt;/strong&gt; 와 &lt;strong&gt;gatsby-cli&lt;/strong&gt; 가 설치되어 있어야합니다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npx gatsby new my-hoodie-blog https://github.com/devHudi/gatsby-starter-hoodie&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;2. 개발 서버 시작&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ cd my-hoodie-blog
-$ npm run start&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이제 localhost:8000 으로 여러분의 블로그를 접속할 수 있습니다.&lt;/p&gt;
-&lt;h2&gt;3. Github 레포지토리 생성&lt;/h2&gt;
-&lt;p&gt;Utterance 댓글 위젯은 &lt;strong&gt;Github 이슈 시스템&lt;/strong&gt; 기반입니다. 따라서 각 블로그 별 Github 레포지토리가 필요합니다. 또한 여러분이 Github Pages 혹은 Netlify 로 블로그를 배포하길 원한다면, Github 레포지토리는 필수입니다.&lt;/p&gt;
-&lt;p&gt;만약 Github 레포지토리를 생성하는 법을 모른다면, &lt;a href=&quot;https://docs.github.com/en/github/getting-started-with-github/create-a-repo&quot;&gt;Github 공식 문서&lt;/a&gt; 를 참조하세요.&lt;/p&gt;
-&lt;h3&gt;원격 레포지토리 등록&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;git remote add origin https://github.com/{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h2&gt;4. blog-config.js 작성&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;module&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;exports &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;MY BLOG&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;description&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;Hello, This is my blog&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;YOUR NAME&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;siteUrl&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://myblog.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;links&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;github&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://github.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;facebook&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.facebook.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;instagram&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.instagram.com&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;https://www.google.com/&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;utterances&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;repo&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;{YOUR_GITHUB_NAME}/{YOUR_REPOSITORY_NAME}&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;pathname&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;gatsby-starter-hoodie 는 &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt; 라는 설정 파일을 제공합니다. 이 파일에서 블로그 정보, 작성자 프로필, Utterance 설정 등을 작성할 수 있습니다. 여러분 블로그 설정에 맞게 &lt;code class=&quot;language-text&quot;&gt;blog-config.js&lt;/code&gt; 를 설정하세요. 하지만, &lt;code class=&quot;language-text&quot;&gt;utterances.type&lt;/code&gt; 속성은 수정하지 않는 것을 권장합니다.&lt;/p&gt;
-&lt;h3&gt;프로필 이미지 변경&lt;/h3&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;static/profile.png&lt;/code&gt; 에 위치한 이미지 파일을 원하는 이미지 파일로 교체하세요. 만약 파일명을 변경하고 싶다면, &lt;code class=&quot;language-text&quot;&gt;src/components/Bio.jsx&lt;/code&gt; 의 소스코드를 수정해야합니다.&lt;/p&gt;
-&lt;h2&gt;5. 포스트 추가&lt;/h2&gt;
-&lt;p&gt;마크다운 포스트는 &lt;code class=&quot;language-text&quot;&gt;contents/posts&lt;/code&gt; 경로에 위치해있습니다. 해당 경로에서 글을 작성할 수 있습니다. &lt;a href=&quot;https://devHudi.github.io/gatsby-starter-hoodie/writing-guide&quot;&gt;여기를 클릭하여&lt;/a&gt; 더 자세한 글 작성 방법을 확인하세요.&lt;/p&gt;
-&lt;h2&gt;6. 블로그 배포하기&lt;/h2&gt;
-&lt;h3&gt;6-1 Netlify 를 통해&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.netlify.com/blog/2016/02/24/a-step-by-step-guide-gatsby-on-netlify/&quot;&gt;A Step-by-Step Guide: Gatsby on Netlify&lt;/a&gt; 문서를 참조하여, Netlify 를 Github 레포지토리와 연결할 수 있습니다. 이 과정은 어렵지 않습니다.&lt;/p&gt;
-&lt;p&gt;Github 레포지토리와 연결이 되었다면, Github 레포지토리에 변경사항이 발생할 때 마다 자동으로 여러분의 블로그에 배포됩니다.&lt;/p&gt;
-&lt;h3&gt;6-2. Github Pages 를 통해&lt;/h3&gt;
-&lt;h4&gt;상황 1&lt;/h4&gt;
-&lt;p&gt;레포지토리 이름이 &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME}.github.io&lt;/code&gt; 형태일 경우, 아래 명령어를 실행해주세요.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h4&gt;상황 2&lt;/h4&gt;
-&lt;p&gt;레포지토리 이름이 &lt;code class=&quot;language-text&quot;&gt;{YOUR_GITHUB_NAME}.github.io&lt;/code&gt; 형태가 아닐 경우, 아래 명령어를 실행해주세요.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run deploy-gh-prefix-paths&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;만약 위와 같은 경우 &lt;code class=&quot;language-text&quot;&gt;gatsby-config.js&lt;/code&gt; 에서 &lt;code class=&quot;language-text&quot;&gt;pathPrefix&lt;/code&gt; 를 여러분의 레포지토리 이름으로 바꿔야합니다.&lt;/p&gt;
-&lt;h3&gt;6-3. 다른 플랫폼&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ npm run build&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;위 명령어로 Gastby 웹사이트를 빌드할 수 있습니다. 빌드 결과물은 &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; 에 저장됩니다. &lt;code class=&quot;language-text&quot;&gt;/public&lt;/code&gt; 디렉토리를 여러분이 사용하는 플랫폼의 배포 명령을 통해 배포해주세요.&lt;/p&gt;
-&lt;h2&gt;7. 커스터마이징&lt;/h2&gt;
-&lt;h3&gt;프로젝트 구조&lt;/h3&gt;
-&lt;p&gt;아래 프로젝트 구조를 참고하여 커스터마이징 할 수 있습니다 🙊.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;├── node_modules
-├── contents
-│   └── posts // your articles are here
-├── public // build outputs are here
-└── src
-    ├── assets
-    │   └── theme // theme config is here
-    ├── components
-    │   └── Article
-    │       └── Body
-    │           └── StyledMarkdown
-    │               └── index.jsx // markdown styles are here
-    │   ...
-    ├── fonts // webfonts are here
-    ├── hooks
-    ├── images
-    ├── pages // page components are here
-    ├── reducers
-    ├── templates // post components are here
-    └── utils&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[🎇 1. gatsby-starter-hoodie 에 대하여]]></title><description><![CDATA[gatsby-starter-hoodie 에 대하여 gatsby-starter-hoodie 는 기술 블로그를 작성하기 위해 개발된 Gatsby 테마입니다. 마크다운과 많은 프로그래밍 언어의 코드 하이라이팅, 그리고 Katex…]]></description><link>https://team-by-team.github.io/about-hoodie-kr/</link><guid isPermaLink="false">https://team-by-team.github.io/about-hoodie-kr/</guid><pubDate>Thu, 01 Apr 2021 00:00:00 GMT</pubDate><content:encoded>&lt;h2&gt;gatsby-starter-hoodie 에 대하여&lt;/h2&gt;
-&lt;p&gt;gatsby-starter-hoodie 는 기술 블로그를 작성하기 위해 개발된 Gatsby 테마입니다. 마크다운과 많은 프로그래밍 언어의 코드 하이라이팅, 그리고 Katex 문법을 지원합니다. 또한 태그와 시리즈를 통하여 쉽게 게시물을 분류할 수 있습니다.&lt;/p&gt;
-&lt;p&gt;다크모드를 지원하는 깔끔한 디자인의 gatsby-starter-hoodie 로 여러분의 블로그를 시작하세요.&lt;/p&gt;
-&lt;h2&gt;주요 기능&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;마크다운&lt;/li&gt;
-&lt;li&gt;코드 하이라이팅&lt;/li&gt;
-&lt;li&gt;Katex 문법&lt;/li&gt;
-&lt;li&gt;다크모드 (OS 환경설정과 연동)&lt;/li&gt;
-&lt;li&gt;태그 분류&lt;/li&gt;
-&lt;li&gt;시리즈 분류&lt;/li&gt;
-&lt;li&gt;반응형 웹&lt;/li&gt;
-&lt;li&gt;SEO&lt;/li&gt;
-&lt;li&gt;Utterance (댓글 위젯)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;시작&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;/quick-start-kr&quot;&gt;빠르게 시작하기&lt;/a&gt; 문서에서 블로그를 세팅하세요.&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;p&gt;이렇듯, 처음 진행해서 미숙했음에도 불구하고 &lt;strong&gt;팀원 모두가 &apos;공통된 이해&apos;를 가지고,&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;기록까지 남아있다는 점에서 아주 좋은 방법이라고 생각했습니다! 👍&lt;/strong&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
