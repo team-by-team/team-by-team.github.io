@@ -6,7 +6,6 @@ update: 2023-07-17
 tags:
     - frontend
     - 기획
-  <!-- series: "frontend" -->
 ---
 
 > 해당 글은 우아한테크코스 5기 팀바팀 크루 [루루](https://github.com/hafnium1923)가 작성했습니다!
