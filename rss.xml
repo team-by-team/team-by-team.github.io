@@ -1,334 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 17 Jul 2023 07:46:01 GMT</lastBuildDate><item><title><![CDATA[팀바팀 컴포넌트 스타일링 방법 선택]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다. CSS…]]></description><link>https://team-by-team.github.io/component-styling/</link><guid isPermaLink="false">https://team-by-team.github.io/component-styling/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다.&lt;/p&gt;
-&lt;h2&gt;CSS&lt;/h2&gt;
-&lt;h3&gt;단점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;모든 클래스의 이름이 전역적으로 존재하기 때문에 별도의 class 명명 규칙이 필요하다&lt;/li&gt;
-&lt;li&gt;하나의 요소에 여러 css 가 적용될 수 있어, 개발자가 모든 스타일을 기억해야한다.&lt;/li&gt;
-&lt;li&gt;js의 상태 값을 공유하기 어렵다.&lt;/li&gt;
-&lt;li&gt;css 로드 순서에 따라 우선순위가 달라지기 때문에 css 로드 순서를 기억해야한다.&lt;/li&gt;
-&lt;li&gt;하위 컴포넌트가 부모 컴포넌트의 스타일링에 영향을 받는다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;⇒ 유지보수의 측면에서도, 협업의 측면에서도 단점이 명확함&lt;/p&gt;
-&lt;h2&gt;CSS-in-JS&lt;/h2&gt;
-&lt;h3&gt;장점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;class 명이 빌드 타임에 유니크하게 변경되어 명명규칙이 필요없음&lt;/li&gt;
-&lt;li&gt;CSS가 컴포넌트 단위로 추상화되기 때문에 CSS간 의존성 고려 필요없음&lt;/li&gt;
-&lt;li&gt;JS의 상태 값을 공유할 수 있음 (동적스타일링이 가능)&lt;/li&gt;
-&lt;li&gt;CSS가 지역(컴포넌트) 스코프에 적용되므로 우선순위에 따른 문제가 없음&lt;/li&gt;
-&lt;li&gt;CSS가 컴포넌트에 격리되어 있기 때문에 상속 문제가 없음&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;단점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;번들 크기를 늘린다.&lt;/li&gt;
-&lt;li&gt;렌더링 속도가 느려진다&lt;/li&gt;
-&lt;li&gt;CSS 파일이 없으므로 별도의 CSS를 캐시할 수 없다.&lt;/li&gt;
-&lt;li&gt;간단한 스타일에도 상용구 코드가 많다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;⇒ 프로젝트 성능에는 영향을 미치지만 TS와 연결을 자동으로 해준다는 점, 협업을 할 때 따로 명명 규칙을 정하지 않아도 되는점, 스타일이 컴포넌트에 종속되어있다는 점, 동적 스타일링이 가능한 점이 장점이다.&lt;/p&gt;
-&lt;h2&gt;CSS module&lt;/h2&gt;
-&lt;h3&gt;장점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;CSS를 JS에 적용하는 것이 쉽다.&lt;/li&gt;
-&lt;li&gt;CSS가 지역(컴포넌트) 스코프에 적용된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;단점&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;전역 스타일 설정이 어렵다.&lt;/li&gt;
-&lt;li&gt;TS로 작업하려면 자동/수동으로 인터페이스를 생성해야함&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;⇒ CSS-in-JS와 장점은 비슷하지만 전역적으로 스타일을 할 때 어렵다는 점, TS로 작업하려면 추가로 손봐야한다는점이 단점이다.&lt;/p&gt;
-&lt;h2&gt;Styled Components VS emotion&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;전반적인 스타일 기능은 동일&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;성능면에서 emotion이 조금 더 가볍고 빠르다.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;다만 그렇게 유의미한 차이라고 보기엔 어렵다고 한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;emotion&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;css props 기능&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;인라인 스타일로 작성하면 클래스로 변환된다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;서버 사이드 렌더링 설정시 별도의 추가 설정을 안해도 된다.&lt;/li&gt;
-&lt;li&gt;파일마다 pragma line을 추가해야한다.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;결론&lt;/h2&gt;
-&lt;p&gt;우리 팀의 선택은 CSS-in-JS이다. 프로젝트를 하면서 3명이 일관성있게 코드를 짜기위해 이미 여러 컨벤션이 있는데 class 이름까지 신경쓰는 것은 낭비라 생각했다. 또한 우리 프로젝트는 TypeScript를 적용하기 때문에 따로 설정을 하지 않아도 되는 점이 매력적이었다. 동적 스타일링도 선택의 이유였다. 우리는 사용자가 여러 팀에 속해있을 때 팀별로 색을 다 다르게 보여주기 위해서 동적으로 스타일링이 되어야만 했다.&lt;/p&gt;
-&lt;p&gt;물론 프로젝트 성능저하라는 단점이 있지만 현재 단계에서는 큰 프로젝트가 아니기 때문에 그정도는 감수할 수 있다고 생각했다.&lt;/p&gt;
-&lt;p&gt;라이브러리중에는 styled components를 선택했다.&lt;/p&gt;
-&lt;p&gt;성능면에서는 emotion이 조금 더 가볍고 빠르다. 하지만 큰 차이가 없는데 파일마다 pragma line을 추가해야하는 것은 불필요한 시간낭비라고 생각했다.(까먹을 수도 있으니 말이다). 또한 이모션의 가장 큰 장점이라고 생각하는 서버 사이드 렌더링 관련해서 우리는 필요없을 것이라고 판단했기 때문이다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[팀바팀 이벤트 스토밍(Event Storming) 도입기]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다! 🌈 이벤트 스토밍(Event Storming) 도입기 우아한테크코스 5기 팀바팀 Project에서 Event Storming…]]></description><link>https://team-by-team.github.io/event-storming/</link><guid isPermaLink="false">https://team-by-team.github.io/event-storming/</guid><pubDate>Sat, 01 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/sh111-coder&quot;&gt;성하&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2&gt;🌈 이벤트 스토밍(Event Storming) 도입기&lt;/h2&gt;
-&lt;p&gt;우아한테크코스 5기 팀바팀 Project에서 Event Storming을 처음 사용해보면서&lt;/p&gt;
-&lt;p&gt;적용했던 배경과 적용 과정, 적용 후에 느낀점 등을 간단하게 기록하고자 합니다!&lt;/p&gt;
-&lt;h2&gt;🎯 이벤트 스토밍 도입 배경&lt;/h2&gt;
-&lt;p&gt;프로젝트 팀원이 배정되기 전에,&lt;/p&gt;
-&lt;p&gt;DDD에 대해 공부해보면서 자연스럽게 DDD 도입 시 쉽게 DDD를 도입할 수 있는 방법을 접하게 되었습니다.&lt;/p&gt;
-&lt;p&gt;그게 바로 이벤트 스토밍(Event Storming)이었습니다.&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;처음에는 &apos;DDD를 쉽게 할 수 있다고?&apos; 라는 생각으로 이벤트 스토밍에 흥미를 가지고 공부를 해봤습니다.&lt;/p&gt;
-&lt;p&gt;공부를 한 뒤에 느낀 생각은 다음과 같았습니다.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;DDD 뿐만 아니라 기획, 설계 시에 적용하면 좋겠는데?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;뒤에서 소개하겠지만, 이벤트 스토밍을 하고 나면 팀원 모두가 공통된 이해를 가지는 효과때문에&lt;/p&gt;
-&lt;p&gt;위와 같은 생각을 하게 되었습니다.&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;그래서 결국 팀 첫 회의 날에 이벤트 스토밍을 해보자고 주장했고, 도입하게 되었습니다!&lt;/p&gt;
-&lt;h2&gt;🎯 이벤트 스토밍이란?&lt;/h2&gt;
-&lt;p&gt;간단하게 이벤트 스토밍에 대해서 설명하고 넘어가겠습니다!&lt;/p&gt;
-&lt;p&gt;이벤트 스토밍이란, &lt;strong&gt;복잡한 비즈니스 도메인을 빠르게 탐색하고 학습할 수 있는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;코드로 소통하지 않고 모든 사람이 공통된 도메인 이해를 가지도록 하는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;p&gt;포스트잇 색상으로 개념들을 구분하고, 해당 개념에 따라 포스트잇을 붙여가면서 도메인 이해를 해나가는 방법입니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/bbbf7/event-stroming-postit.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 25.294117647058822%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABaElEQVR42hXHy2oTURzA4XkNwUV9BVeC676Eay+LIAquslGiCAqmFiwuFVsXimQxVYw2kFakprk4KTWtaTqaC20yk57/zDknk0lbkF/x231OT/m0Ao/doEloRhz3hcNfRxy2huhQGAQJ9b2En+2EfjAjDf9wsr/OaadMMvSxesA0KJKGn0mUh7N68JbH1Ts8rd+jJQ38UpdP979SfLhO0Oyy1jzj5sIJN/Iz3Dqw94Hw2VWCJ5ex314xVSWSyiXSrYvMOndx3P0Vct8zPNq8zY7U+Fvu8zFXxH3whZHXpbR9RmZxyq28xa0BnVVGi/OE+Sukm6+ZyhqyMYdsXCBtZ3AqgzIrzSXeNF7gy28G3hE/lqs03m+j/CG1dsLzd4qlgqHW+cdpr0JYyBK7WSa7ZSbiYXauM65fQ/svcYwxiBLUsWCNRRuNEkWkI6y1GKMRGRNH/28wxqKiGIk1xlqsnSCiCcdCFBvOAXGhVPUTLV8/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;포스트잇 색상에 따른 개념&apos; title=&apos;&apos; src=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/ca1dc/event-stroming-postit.png&apos; srcset=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/e7570/event-stroming-postit.png 170w,
-/static/87ef14a113bc4e34675135f74cb4d75a/f46e7/event-stroming-postit.png 340w,
-/static/87ef14a113bc4e34675135f74cb4d75a/ca1dc/event-stroming-postit.png 680w,
-/static/87ef14a113bc4e34675135f74cb4d75a/02d09/event-stroming-postit.png 1020w,
-/static/87ef14a113bc4e34675135f74cb4d75a/bbbf7/event-stroming-postit.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;포스트잇 색상에 따른 개념&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;일반적으로 이벤트 도메인에 사용되는 포스트잇의 색상에 따른 개념은 위의 사진과 같습니다.&lt;/p&gt;
-&lt;p&gt;간단하게 색상별 개념을 알아보도록 하겠습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 주황색 : &apos;도메인 이벤트&apos; - 서비스에서 발생할 수 있는 도메인별 이벤트
-2. 노란색 : &apos;액터&apos; - 단순한 사용자, 고객보다 구체적인 페르소나
-3. 파란색 : &apos;액션&apos; - 시스템에서 일어나는 일, 도메인 이벤트가 발생하는 원인
-4. 초록색 : &apos;정보&apos; - 액터가 액션을 실행하는 데에 필요한 정보
-5. 보라색 : &apos;정책&apos; - 도메인 이벤트와 액션 사이에 위치해서 &apos;주로 ~할 때마다&apos;로 시작하는 정책&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;구체적인 색상별 예시는 아래에서 더 설명하겠습니다.&lt;/p&gt;
-&lt;p&gt;말로만 들으면 어떤 방법인지 감이 안 올 수 있기 때문에,&lt;/p&gt;
-&lt;p&gt;어떻게 공통된 도메인 이해를 가질 수 있는지 진행 방식 및 과정을 보면서 이해해봅시다.&lt;/p&gt;
-&lt;h2&gt;🎯 이벤트 스토밍 진행 방식&lt;/h2&gt;
-&lt;p&gt;이벤트 스토밍을 하기 위한 준비물은 큰 종이나 큰 화이트보드, 포스트잇과 펜 정도면 충분합니다!&lt;/p&gt;
-&lt;p&gt;이벤트 스토밍은 단계별로 진행됩니다!&lt;/p&gt;
-&lt;p&gt;여러 참고 자료를 공부해본 결과, 자료마다 포스트잇 색상이 의미하는 개념은 대부분 비슷했지만&lt;/p&gt;
-&lt;p&gt;어떤 단계로 진행하는 지는 부분부분 달랐습니다.&lt;/p&gt;
-&lt;p&gt;저희 팀은 아래의 영상에 나오는 단계를 참고하여 진행했습니다!
-참고는 했지만,&lt;/p&gt;
-&lt;p&gt;처음 진행해본 것이기도 하고 부분적으로 단계별로 진행하지 않았던 부분도 있어서 완전히 똑같게 진행하지는 않았습니다!&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hUcpv5fdCIk&amp;#x26;ab_channel=OpenUP-%EC%98%A4%ED%94%88%EC%97%85&quot;&gt;KCD 2020 TRACK 2 : 도메인 지식 탐구를 위한 이벤트 스토밍&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;그럼, 저희 팀에서 이벤트 스토밍을 진행했던 단계를 경험 기반으로 소개해보겠습니다!&lt;/p&gt;
-&lt;p&gt;(단계 이름은 제 맘대로 정해보겠습니다!)&lt;/p&gt;
-&lt;h3&gt;✅ 1단계 : 도메인 이벤트 흩뿌리기&lt;/h3&gt;
-&lt;p&gt;1단계에서는 팀의 서비스에서 발생할 수 있는 이벤트들을 &lt;strong&gt;주황색 포스트잇&lt;/strong&gt;에 생각나는대로 적어서 붙이는 단계입니다.&lt;/p&gt;
-&lt;p&gt;저희 서비스는 &apos;여러 팀플 참여 시 쉽게 협업을 할 수 있도록 도와주는 서비스&apos;이므로,&lt;/p&gt;
-&lt;p&gt;다음과 같은 이벤트가 공통적으로 발생합니다.&lt;/p&gt;
-&lt;p&gt;(아래 이벤트만 있는 것이 아니라 무수히 많은 이벤트가 발생하겠죠?!)&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 로그인이 성공하였다.
-2. 팀 플레이스가 생성되었다.
-3. 팀별 캘린더 일정 등록이 성공하였다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;이처럼, 각자의 생각으로 서비스에 맞는 도메인의 이벤트들을 적어서 붙이면 됩니다.&lt;/p&gt;
-&lt;p&gt;이때, 하나의 큰 종이에 포스트잇을 붙여나가면서 다른 팀원들의 이벤트를 볼 수는 있지만&lt;/p&gt;
-&lt;p&gt;&apos;그 이벤트가 필요할까?&apos;와 같은 토론은 지양하고, 팀원들 각각 자신의 생각대로 이벤트를 적어서 붙입니다.&lt;/p&gt;
-&lt;p&gt;저희 팀 같은 경우는 1단계 마무리 시 다음과 같이 큰 종이에 빽빽하게 채워질 만큼의 도메인 이벤트가 도출되었습니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/bbbf7/1st.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 74.11764705882352%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEAElEQVR42h3RSU+TCQCA4e93zA+Yg5nMJJN4MXEOEw/jZIyKijgQp2yySG0pS0vpYiltaUsp5fugO11FylKEotCiLKUlgECRxSAGQcz8jncyHt7rc3kFrbYDvUGDqUeHw27B7XYwJLoQJTeSV0TySQz7hxkJ+vCNBvGFA4wEvITiUaJjSYJOI2GTkrhNg19dh2AwP6fHZqbP5WDIKxGMRxhNxIgmIiRCEmMhkYmYj8mQh2mpl/RAN9PGJ8z1a5jx9zOjqSLd9AeT7Y9IqcoR7Mpq3Dolwz1qYk4DSZuapEnBdK+CWUMd850PSLeVMa/7h3m9jEXbUxY77jDX+ZBM+z0mFXd4palkSn6LzKiI4Kn6HbHuLwLKShJqGZMdFYw1/8mM4hYLnWXMqR+S6apg0dLAgrOV7LCRN+oHLLtUZNtuMdtZzpK5npzmPm8G9Qg+2Q1GGu8S09Qw1lXNbE8T86Z65lxq1rx6ls3V31vtl5MX1eRDvaz1ynhraSCrrWBVc4cl3d/k1PdYGtIhJBX3CTTeZkzfwHj7IzKmJ2Rtzbz2Wcm/HKE4IGd9QE7RXs/GoJKNwHOKnjbWrHUULLWsGStZ0leR+x9PJxAmHN1EHv/GC1UFU23lvNZVsWx9wrKhgryxgoKtlt1AN7v+LnZCRvZiVrb6atmz17DV38ymo5HNvnoKTjmFlRyCZGhgSnmXVx33mWotY0XUshkwsDPUyo69hu2YlVKgi72wgVLYyGHkOZtWGRvmx+y7mij1VVPU3GYzaGY1v4Iw6fqFjF7GnOo2bw2VFB2N7HiUfAjrKYnPOM6EOQp0cvTCxnHSysm4k6Ohp3yUWjnxtHxHd73d7C6kWM6vIqxM6VkSdWSNMjbsDbwfaOEgYuKjr4PjoRZK0R4+JUx8HrNyOuHkNBPkNGbibNzOWdTAx5F2DsYHKb30UHg3j+Ad8JOJSrzTVVC0VFMSVRyOD3Do7WBfVHLib+ciPciXiJazpJlDSclZysFFNs7FQpSTpI19ex0lZxP5xRmELkkiFg9QNFVSMFWxMyDnaNTE55CaD55nbLuf8TktcRE3cJ7s4ZNXxfmolq8pJ1+nRc5eOjgQVez69Kxk5xAkTx+JuJ9Vl4J1XTnF3hqOfBqOpVZOJfn3k4eJPk7cjZxHDVwsRLjwtfIt0cPlrJejoIFdRxO7QRNvc/MIDouOgH+QbNDGhlfLwYTI19UpvixE+XcxwqdxFyepQb69GuYyE+ByK8dlWMu5V8UXbzuLhhr6y68z3FlPOBJAuPrrT1y/dpWH5WW0KJrptZiIxoNMpFPMvs7wbjnHzvsCm9vrbG2vs7+3wfH2CvvZFB9mR5lwG6m9eY0bV37g5ys/8h9OVTfWq5V88wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 1단계&apos; title=&apos;&apos; src=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/ca1dc/1st.png&apos; srcset=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/e7570/1st.png 170w,
-/static/6c1e8800dffac656bce9ff9106ebc61b/f46e7/1st.png 340w,
-/static/6c1e8800dffac656bce9ff9106ebc61b/ca1dc/1st.png 680w,
-/static/6c1e8800dffac656bce9ff9106ebc61b/02d09/1st.png 1020w,
-/static/6c1e8800dffac656bce9ff9106ebc61b/bbbf7/1st.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 1단계&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;h3&gt;✅ 2단계 : 도메인 이벤트 타임 라인 순으로 정리 &amp;#x26; 토론 시작&lt;/h3&gt;
-&lt;p&gt;1단계를 마무리했다면, 수많은 도메인 이벤트가 큰 종이에 붙어있을 것입니다.&lt;/p&gt;
-&lt;p&gt;2단계가 이벤트 스토밍의 Main 단계라고 생각이 듭니다.&lt;/p&gt;
-&lt;p&gt;2단계에서는 1단계에서 팀원들이 각각의 생각대로 도출한 도메인 이벤트를 타임 라인 순으로 정리합니다.&lt;/p&gt;
-&lt;p&gt;타임 라인 순으로 정리하면서 중복이라고 생각되는 이벤트들은 제거합니다.&lt;/p&gt;
-&lt;p&gt;정리를 해나가면서, 팀원들과 토론이 필요한 부분은 토론하면서 필요한 이벤트들만 남겨놓습니다.&lt;/p&gt;
-&lt;p&gt;도메인 이벤트를 중복이라고 여겨서 제거할 때 중요한 점은,&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;동일한 용어인 이유로 중복일 때 다른 개념일 수 있으므로 100% 중복인 도메인 이벤트만 제거해야합니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;예를 들어, 팀원 A와 B가 똑같이 &apos;로그인이 성공했습니다.&apos; 이벤트를 작성했을 때,&lt;/p&gt;
-&lt;p&gt;A는 자체 로그인으로 생각했고, B는 소셜 로그인으로 생각했다면 이 두 개의 이벤트는 다른 이벤트입니다.&lt;/p&gt;
-&lt;p&gt;따라서 제거하는 것이 아니라 구체화해야 할 것입니다.&lt;/p&gt;
-&lt;p&gt;이렇듯, 도출한 이벤트를 제거할 때는 100% 중복이 맞는지 확인 후에 제거해야합니다.&lt;/p&gt;
-&lt;p&gt;이 단계에서 한 가지 더 중요한 포인트는 바로 &lt;strong&gt;토론을 시작한다는 점&lt;/strong&gt;입니다!&lt;/p&gt;
-&lt;p&gt;도메인 이벤트에 대한 토론을 시작하면서 많은 갈등 및 충돌이 발생할 것입니다!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;이때, 자주색 포스트잇을 이용하여 어떤 부분에서 토론을 했는지에 대해 토론을 한 도메인 이벤트 옆에 붙여주는 것이 중요합니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;이후에 자주색 포스트잇에 적혀있는 토론 부분들을 해결해 나가면서 공통된 이해를 도출할 수 있습니다!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;다음은 저희 팀이 진행한 2단계 결과입니다.&lt;/p&gt;
-&lt;p&gt;저희 팀의 경우에는 분홍색 포스트잇에 용어 후보들이나, 해당 기능을 넣을지 말지 등의 고민들을 적어 놓고&lt;/p&gt;
-&lt;p&gt;이후에 해당 포스트잇을 보고 해결해나갔습니다.&lt;/p&gt;
-&lt;p&gt;(자주색 포스트잇이 없어서 불가피하게 분홍색 포스트잇으로 토론이 발생한 부분을 나타냈습니다.)&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6d336a811a966f1b614418c4981683bf/bbbf7/2nd-1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 111.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGElEQVR42i3V2XMU1xXH8f6D8pAXl20Z4QiBiJREQFgcI5cCCLSgDRBEaCuQsSwHywib2I5iYUtC0sz09HRP732X7ukZhJxyxf6Xvqnp4eG89MOn7rn3/E4bh6U9XN8mkSGJjFCpoJGnNFSCDmykU8J9sYq79RSdJgShQxh7qDRBZ6L4prVAa4nOJEap/ArPdxAqLjDdkCgV46yOYt0ZpDLey49Xfkd5eQQZefh2mSSso1WE0nFRUsVImSBkglGu7BMEHjKVHSwViMSjNvMnSsPvUB45we7Hv6eyeB3pWkS1EjqoI0OXRAQoFSHbJWOEiDFMs0TgO0gRonWM1hFKBPhLn+BO9RLcH8R/cIlgY4HYLhPWDknqVeKiq6hoO801uqEK2Kiah4SBh1ICrTr3kYoId2GI6nQ/uxMDVEZPEn06Qhh6JHGAiDxE+xCJRyo9EnufyNpDiRDDqlbwt58Tfb1C/J+nJNtfIrbWcabPsDPcxctr3ezf+AD//iDB0zu4a1O4q6P4Sx8TLlzGvvsXKtffxV0eLq7CsKpVvLVp6tffwbrVjT3ahT/RRX2yB+t2L87kKWrjH+KMd+ONfUD52nuUb3QTzlzAm7mEOXkVa/wy7txfUXUTwzYr+I9uEtzqwp+7SjB3lfrs33Cm/og/24c704c98SH22AmC8RM4o+/h3T5L8mgVZ3EFb+kxycJDgvtXUI6JUa9WiF8+Qz5bQD75HHd5FWd+EXv0NLXxbmoTf8C6+T716TPI5/Mk366gvv0M+XgVd2EZ9+Ei3vwiurSPDn2MulVBSEEWR4jVJ9Ta2Nx93Ik+vJlevLv91KdP4z++RqM9p7kma8/sP79ArK8jN75Cb2yiahY68DBc20RFHplfR794QfTVM+TmJmrve0TlJYm5g3RNlHNAsDJE/eEV/KUhwoWPiNduF3OYttMiQpSIMHzbIk18mmlCMxPkOiZXMalKkEmICF2ECEnsA7z2Q906iTl2Cn+ih2j+MkqG6EYngkoLjCCok6WSVjOlmWsaaUIqAnTsIQMH4VnF3CXOAd70WdzJ07hTffi3e3HvnUNJnyxXaN2ZYSOKA/JWg6PjFkfHTfJmimpjkVtkNnY7oPBM3AcXqd8bxJs7jz93nuAfV8jaYFO/XRIKI04imq8bvDlu8vrnJnmuijtVbTBwSNpg3AHt6X4q42dwZwYIZwcI7w7SiJ1O9FJBmimMRES0XucFeHScF2C7XRE4RO1l4FRIfJugsos13svhjZNUbvVijfYSTveT+hV0Iy3WV9ZIMZRWHP3yCz//9ivHv/2P5pvXRaaTJCQKPaLAJQo83PIelZlBzKkBarPncO9eIHhwGe2VSRsZaarI8wxDVPfIv/+U1vYXZD98TvTNCs7GIt7mCs6zZWobSxx+do+D9Xlqr7axS7v45VdEtTIicjoLJVM0GroDJlvriPEe0nt/Rsz2442dKqJljvSwO3ySraFufhp6l72bvdivtqlVDnDMQwLXRrSxVJK+xfJmA0N894Rkqo90/hLJ3Hnqk/34d85RGj3Lv4dP8c0nPTy9+D47YwM4pR1qtQquaxFHfmflZZIsT2k2m0UZ8sUj8ocXOVr9O9nyVaK5C7h3LmBODBTo/s0zbA918eNIH9WDn6haZVyvRhyHSCVQWecxmq0mrVYLI3VrvIl9/qsiWoGNMPcI9n7AefkvrK1NzO++pPz1GvvP1ygd7mBapbdgUPxDpBYdsJkX4P8BgULpb63QVtEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 2단계 - 1&apos; title=&apos;&apos; src=&apos;/static/6d336a811a966f1b614418c4981683bf/ca1dc/2nd-1.png&apos; srcset=&apos;/static/6d336a811a966f1b614418c4981683bf/e7570/2nd-1.png 170w,
-/static/6d336a811a966f1b614418c4981683bf/f46e7/2nd-1.png 340w,
-/static/6d336a811a966f1b614418c4981683bf/ca1dc/2nd-1.png 680w,
-/static/6d336a811a966f1b614418c4981683bf/02d09/2nd-1.png 1020w,
-/static/6d336a811a966f1b614418c4981683bf/bbbf7/2nd-1.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 2단계 - 1&lt;/figcaption&gt;
-  &lt;/figure&gt;
-&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/bbbf7/2nd-2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 133.52941176470588%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 2단계 - 2&apos; title=&apos;&apos; src=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/ca1dc/2nd-2.png&apos; srcset=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/e7570/2nd-2.png 170w,
-/static/b259f4081cf46811ca0c1fa2c0528534/f46e7/2nd-2.png 340w,
-/static/b259f4081cf46811ca0c1fa2c0528534/ca1dc/2nd-2.png 680w,
-/static/b259f4081cf46811ca0c1fa2c0528534/02d09/2nd-2.png 1020w,
-/static/b259f4081cf46811ca0c1fa2c0528534/bbbf7/2nd-2.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 2단계 - 2&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;h3&gt;✅ 3단계 : 액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책 설정 + 토론 결론 내기&lt;/h3&gt;
-&lt;p&gt;2단계를 거쳐서 타임 라인이 결정된 이후에 저희 팀은 다시 한번 도메인 Flow를 하나씩 살펴보며&lt;/p&gt;
-&lt;p&gt;액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책을 생각나는 대로 개념에 맞는 포스트잇 색상으로 붙여나갔습니다.&lt;/p&gt;
-&lt;p&gt;보통의 2단계에서는 노란색 포스트잇으로 &lt;strong&gt;구체적인 사용자 페르소나를 뜻하는 액터&lt;/strong&gt;를 설정하지만,&lt;/p&gt;
-&lt;p&gt;저희 팀은 서비스 Flow에서 액터가 거의 &apos;멤버&apos; 1개라고 생각했기 때문에, 따로 액터 포스트잇은 붙이지 않았습니다.&lt;/p&gt;
-&lt;p&gt;다음으로, &lt;strong&gt;도메인 이벤트가 발생하는 원인인 액션&lt;/strong&gt;을 파란색 포스트잇으로 붙여나갔습니다.&lt;/p&gt;
-&lt;p&gt;붙어져 있는 모든 도메인 이벤트들의 액션을 생각해보며 자연스럽게&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;액터가 액션을 내리는데 필요한 정보&lt;/strong&gt;를 초록색 포스트잇으로,&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;도메인 이벤트와 액션 사이에 위치한 정책&lt;/strong&gt;을 진한 노랑색 포스트잇으로 붙여나갔습니다.&lt;/p&gt;
-&lt;p&gt;(원래는 정책은 보라색 포스트잇이지만 없어서 진한 노랑색 포스트잇으로 대체했습니다.)&lt;/p&gt;
-&lt;p&gt;정보, 정책 개념에 대해 사용했던 예시를 들어보자면 다음과 같이 들어볼 수 있습니다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 정보 : &apos;팀별 캘린더 일정 등록&apos; 액션을 하기 위해 필요한 정보
-    - 일정 이름
-    - 시작 기간
-    - 종료 기간
-
-2. 정책 : 도메인 이벤트와 액션 사이에 위치해서 도메인 이벤트가 발생할 때마다 액션을 수행하게 하는 트리거
-    - &apos;팀 플레이스에서 나갔다&apos; 도메인 이벤트가 발생할 때, &apos;팀 플레이스가 삭제되었다.&apos;가 수행되는 조건
-    - &apos;팀 플레이스 멤버가 0명이면&apos; : 정책&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8fccc04899220e098c6bdb196eb4244c/bbbf7/info.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACcElEQVR42o2T208aQRSH+Xeb+NT3PvShL1hrTUDrHS+9xEuaVq1RmlqxFS9FWBFYVxEQscIuorA7sFz2a3bXxtbQpA9fzmRy8mXm/GY8hcIlkhQnGpNIpmRS8jHRqMTNbRXdENR047/RdQNPqVjgJBVBSf4glz4im45zehxF1IqYQqNhqDTsWi/TEHfUuyBUhF7BYzfQykOrAM2LOwogsi71LFzLUEqAlgQ1CVrKqVYp4XIVh4qMaah4GroKRgbLyIHIOZL7dQ4aeVr7QbQ3o5Tmxim/G6O9tYy+Okdm0sfppI+r6SGsoxCmeX0ndE5y7iLuxRhZMC9o7q6R8veSGukn4ffSCS3xcyFAYtCLMjaAMvic9uFXzGYFT1PXyNQShCsRdq8jSNUYG9kyMwnB26TOnKKjh4MUxgeQ/L1kxwZga4XL+Qnifi+p0X7SQ320pQ1X2NI1YtUYgZNPBJJLBCs7TESveLR4Rs+iwpNQhdr+JvUPM1wtBtA/vsYKryLW5slP+TkN+FBnhyFxd2VbeFiVmJKXmZVXCJbDzB6V6ZmXefxe4emmRu0kinXwmY60STvyhY4cxtKOQbXDkbGKKbhRMIXqChNViRV1mzUtzNbtPgvKDc926nj3BC9jDW6/B8mO9DnzOh1+QTO05MzWDszlwnkNpl5yQ+mIDO16jpbIOjT1PI3fiEuae+uOKDnaz/GrPlrflh8EaJPBNEp/pCzO76nnXOxGM4+1t05xwseh34s6PUgntPxA9pewBOLM2eiK/bALMTrKNp30Dp2TMFb+oEtvGlMv4rG/i2kUHfs/qWtOgqZZdmtD69JXdL7eL94SrNkG+Uf/AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;정보 (초록색) 예시&apos; title=&apos;&apos; src=&apos;/static/8fccc04899220e098c6bdb196eb4244c/ca1dc/info.png&apos; srcset=&apos;/static/8fccc04899220e098c6bdb196eb4244c/e7570/info.png 170w,
-/static/8fccc04899220e098c6bdb196eb4244c/f46e7/info.png 340w,
-/static/8fccc04899220e098c6bdb196eb4244c/ca1dc/info.png 680w,
-/static/8fccc04899220e098c6bdb196eb4244c/02d09/info.png 1020w,
-/static/8fccc04899220e098c6bdb196eb4244c/bbbf7/info.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;정보 (초록색) 예시&lt;/figcaption&gt;
-  &lt;/figure&gt;
-&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/bbbf7/policy.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 36.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABh0lEQVR42m3QX2vTYBTH8bxZ8QWoN94O772QCYJOHSI6cdKpu3DaTqe166Rsa3Fds9A1TZPmSWLaZHnS/PtK0rIbvfjAOQd+B85RLi5Ums0m54MBZ/0+wXxOGAT/CsP/ClbCMKgo0cwgnWkUVyPy8JJcGhSxWcmvGRRSryDHFJVVH4+XIp04FChpZNIYOrzs+bwbzJn3WmQHO8Q/PpI0d0m+fyA7/oqr+Qh1jtX/g63O8NQAbejx5rfLi+6Mtj4ljyyUTFqst2xubGncbfg43+oEm+uoj+6jP3mAt/mQ5HON0UlGp+6xX1NpfzIZHma0u5JbuyNubhts9RyIpyjplcnT04A7ex73DiPEQZ3i7TO81xu4rx6Tbj8nabxHP11wvO/QqVv8+mKitSI6Z5K1nwG393xqAx+kVS40GDsG57ZAFRYLswvDI9A7S5dHFJMTYjFh4YolT7AQFjPHqDJ9WzD1dNLy5PKRhTRhJZU2aSxIVsq6nGXSJJMT0miprHNpXefKHTJ0+Qu1ff9Gf0hwVAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;정책 (보라색) 예시&apos; title=&apos;&apos; src=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/ca1dc/policy.png&apos; srcset=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/e7570/policy.png 170w,
-/static/83c3406eb1b1baf7d2db5e1096428f9d/f46e7/policy.png 340w,
-/static/83c3406eb1b1baf7d2db5e1096428f9d/ca1dc/policy.png 680w,
-/static/83c3406eb1b1baf7d2db5e1096428f9d/02d09/policy.png 1020w,
-/static/83c3406eb1b1baf7d2db5e1096428f9d/bbbf7/policy.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;정책 (보라색) 예시&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;이 단계에서는 액션, 정보, 정책 붙이기 이외에 더 중요한 작업이 있었습니다.&lt;/p&gt;
-&lt;p&gt;중요한 작업은 바로, 2단계에서 붙여놨던 토론 부분들을 다시 살펴보면서 해결해나가는 과정입니다.&lt;/p&gt;
-&lt;p&gt;이를 통해 용어나 해당 기능의 개발 여부 등 여러 갈림길들을 하나의 길로 만들어서 싱크를 맞췄습니다.&lt;/p&gt;
-&lt;p&gt;저희 팀은 이러한 3단계 과정 끝에 공통된 도메인 이해를 가지고 개발 단계에 접어들 수 있었습니다!&lt;/p&gt;
-&lt;p&gt;다음은 완성한 저희 팀의 이벤트 스토밍 결과물입니다!&lt;/p&gt;
-&lt;p&gt;(최소 기능들만 우선 구현하자는 공동의 목표로 가지고 임했기 때문에 이벤트들을 많이 제거하게 되었습니다.)&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/bbbf7/result-1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 62.94117647058823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC7UlEQVR42kWTXU8bRxhG/YP6M3oVtWovc1EpKVXSIJU6paAALi7g2CS1oebDxcbGYJv17s737Owa6EdaRflfp1pHai+emas5et5XZyqHrX263V+Ib1vMBqvM+tuI2QSlNVJK4jgiEYIkSRBpgtGSVEqESFHlrTVpmiJEghQxlXa7xWnvnIuzLaL9T5jtfk7a2OLsMqJf2yDeeoZUCqs1o+kto1SS9E+5WXuMHp5jlERphTEaYxSVk26bs8mM43qN4TdfkFwNybKA1o755lPEXhXvHcE7etfXrB8N6Bw0iV+tMPnhK+a1VYK3+DwnywOVy/4FmwctGs8fE22/4OH+jjj/i87pNbfPHmG6DYo//iTznsxovHPEynL425zL6lPk1grBG7IiJxQ5lenlkPHmFuOVz4iPW5zMcma/tnHNDcKgw10eyO9/Jy/CssUywXOTGOavX6Gb64TMERYF+SKnYqzFxhFi1EdLxWgecIMT4m6b4URie20GP+0xHoxR52/Q0yGxdjS614zXy4ZfE6wiL3LyRUGlPEyxwOYL8sWCd//8zbv3H5jaB467fUzzRxr1t+zWDpl/+4j4aA+VBXqjiGm9itqv4p0mKzxZZqlMx9dE9SqzkyNkNMcdVNEnLXwIuODJ7u/pRRlnnWOS+ipp2d44riYRca+Du+gQxmfYmx7eGypvX75k9uRT6rUWxwdvyNa+RB0dYLKAMAZlHc5bbOYRzqGd4WIq2Hl9zmznBb2NFWprT0j2vycET2XWrHFVq7LXHjFp1Mh3n2PHA7TWzJUmUXYpcOliqiWJkqRaIZ0l5IGrKGK71yc1H/dYsS5jeKvZaV6Q/lzF73+H0xJlDdIaTOaXUc4uQYkSxEqQKIWyliw47oqwVGbpYZIIojhGaMXdIqcoMoyziPIHlPb7ckyLNJpUClKZkoiUSfkulSiZorXEh+wjMJrH3MbRErJ4uF8KKrX6H+gsumxbjivi/xILgTIGl3l85pewEvgvx73rSortN4oAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 3단계 - 1&apos; title=&apos;&apos; src=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/ca1dc/result-1.png&apos; srcset=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/e7570/result-1.png 170w,
-/static/7f049bfa9dd684cda4b823bd9d1cc0db/f46e7/result-1.png 340w,
-/static/7f049bfa9dd684cda4b823bd9d1cc0db/ca1dc/result-1.png 680w,
-/static/7f049bfa9dd684cda4b823bd9d1cc0db/02d09/result-1.png 1020w,
-/static/7f049bfa9dd684cda4b823bd9d1cc0db/bbbf7/result-1.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 3단계 - 1&lt;/figcaption&gt;
-  &lt;/figure&gt;
-&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/bbbf7/result-2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 53.529411764705884%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR42i2R2W7iBgBF/Xd96XulqdSqmkpNm1GXUTsziRIyWTrTEAhLwGHHNg7YgUAwGLybmMUQkv7SqZr24b4eHZ0rHCX2SJ6fUW+WKItHVCpXKIpEW+uQqTcQGwrtYhqteoXW1ak1ZTqlLHVJoiaKdIp73FzvIqVPkGoiwp+nhxx9SpI+PiB1ukvh+D1iJks1m+YqeUb+/a/0jn9BT7yhq3eolcoov71CqlWQKxXui79zX/sWLXeKrjYQzv86IZUvcvnj12Tf/kRh5yvEs2Pk4hWWJDI8eYOZ+sD9/neMB12aSgf1YBezkccJXWzfZeo4mLaJMR4gZC7PUeUarXKBW7mCrLTIpfL0q3k8Z4I/C7C1OnZmH9816fSHDOoFrLs2XugQ+BN838L1ptjOGEEsZrjVVNotiX6vQ1m9o5q6YHSxR+CYDCYuarWKf33KzDNfII49xutKPFgG89Uji3hOtAgJQwehXhfpdjU0TcUY9hiZYyZ9HbvbIgod9KHDjVhgJn4kCqY4gYd2ozLa+4ao+D0b54DFUGbuGsznIUIul6ZWLdMoiehtGaPXwRgOGNlTLNtAMyZochO7kcad9On2bsmVZbofXuN//pKl9gVR8S2BUngxF8RyFVXModXLyK0bxkoFX5fw7hSmrk9gDlibHVabFQ/zANse43oTeoev2f9jB8t3+Ps5ZrNesI4jhHeJDLWfX1G9vODTRYlhYofpxx+w8gkaPYdWLkcsHhJH7kunf2HhzMJSC7TLaR4WM56fYp62/02oN5robYVeT8cY9vGsEYE3JYoCFssH4vWSx+c1qzgiCB2mloEodWhfZ5k3kmyWAdunNdv/oUK7Lb0c0h/omJMhlmPieBZB6DKfz1jFC+LN8sXOdkyM0R1JsUnp8wnT1DsWoc1mG/P4tOJxu+IfR3qH51WgqO0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 3단계 - 2&apos; title=&apos;&apos; src=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/ca1dc/result-2.png&apos; srcset=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/e7570/result-2.png 170w,
-/static/2453bd9057d7b456772ff257a5d71fc7/f46e7/result-2.png 340w,
-/static/2453bd9057d7b456772ff257a5d71fc7/ca1dc/result-2.png 680w,
-/static/2453bd9057d7b456772ff257a5d71fc7/02d09/result-2.png 1020w,
-/static/2453bd9057d7b456772ff257a5d71fc7/bbbf7/result-2.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 3단계 - 2&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;🎯 피그잼에 이벤트 스토밍 결과 옮기기&lt;/h2&gt;
-&lt;p&gt;저희 팀은 &lt;strong&gt;오프라인&lt;/strong&gt;으로 이벤트 스토밍을 진행했습니다.&lt;/p&gt;
-&lt;p&gt;이때 1단계에서 진행한 도메인 이벤트 포스트잇은 공통된 &apos;유비쿼터스 언어&apos;를 정의하기 전에 작성된 것이기 때문에&lt;/p&gt;
-&lt;p&gt;용어들이 공통된 용어로 작성되지 못했습니다.&lt;/p&gt;
-&lt;p&gt;예를 들면, 이벤트 스토밍이 끝난 후에는 &apos;파일 업로드 하는 공간&apos;을 &apos;팀 드라이브&apos;로 정의를 마쳤는데,&lt;/p&gt;
-&lt;p&gt;1단계에서 작성한 주황색 포스트잇에서는 &apos;공유 드라이브&apos;라는 용어로 표현되어 있는 경우가 많았습니다.&lt;/p&gt;
-&lt;p&gt;이러한 이유 때문에 온라인으로 옮기면서 용어를 공통된 용어로 수정해야겠다고 생각했고,&lt;/p&gt;
-&lt;p&gt;또한 이미 작성했던 포스트잇 부분에 변경 사항이 생기거나 추가할 필요가 생길 때&lt;/p&gt;
-&lt;p&gt;불편한 점이 많다고 느끼게 되어서 디자인 툴인 피그잼에 이벤트 스토밍 결과를 옮기게 되었습니다.&lt;/p&gt;
-&lt;p&gt;그렇다고 해서, &lt;strong&gt;오프라인에서 직접 포스트잇을 붙이며 진행한 이벤트 스토밍이 의미가 없다고 생각하지는 않습니다.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;오히려 7명의 팀원이 각자의 화면에서 이벤트 스토밍을 진행했다면&lt;/p&gt;
-&lt;p&gt;집중이 분산되어서 결과물의 퀄리티가 더 낮아졌을 것이라고 저는 느꼈습니다!&lt;/p&gt;
-&lt;p&gt;또한, 오프라인으로 진행한 이벤트 스토밍 결과를 온라인으로 옮길 때&lt;/p&gt;
-&lt;p&gt;한번 더 설계한 서비스의 Flow를 되새기면서 놓쳤던 부분을 발견해서 더 나은 설계가 되기도 했습니다.&lt;/p&gt;
-&lt;p&gt;다음은, 피그잼으로 옮긴 저희의 이벤트 스토밍 결과물입니다.&lt;/p&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/1d227/real-result.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 80.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkElEQVR42n2Ua4/cNBiF9///C8SHopWo1CJRIQRfqBCCVt22CGZmV7OZJHNJJjcnthPHSR5kZyd0UEukNzcfn/ic9zg30zRxOdz95TnPc1arFVEUstlsSNKUXfDI2LdX2Av+cn/jHvq+R6qWcYLeDn6g6zoO+z3xfs8pPdPUDWVVMQ6WcZp8DdPI8AnxQhjHe3796TuaJCA7hmjV+K++/3jHy+e3JOEDpSgoTzFZmlDlKdU5QWZnVHn25HxKaIyhTgJEEtLkIV2rmEaQpqB89zPm7Y8cioz8GJOt7yjvP3A+HKjDCJ3GjLPma0KpNEJ3ZIdHjJYe1KkSK0/IY4AoCmQtSPcB+hyj3ZxWI3XLOI6Lj4uHSkqkUtR5QqeVB8SnlCJ6RBpDGGyRDx+RjfTVNI0vKeU14fQfU2c75qtuNboRtK0mOZ1oshNt16GUWsqNXTXFnQY7eNnDOC4xcF81pscMw9JV9+5S7hiGeZ4dxusub4Mtz29vie7XTNMMroTg+5ff8ssPryjPR0R6RGntZbpI+Xm7gGdff8Xdb6+p0j29MdzgpHUV2ep3bLpmGK0Hd9ZS7N5R7u4okoAq2qLajqauF0LRNoTr9+Tbv0ju/2TozbxCUVfU4YpWFlg7E7pGaa1ojUEkEWL7N7Lr/AqdTC/5CVtLQXb/AWueCHVnaJsa29vFH+t2j1R+B2XpERFtfGSyYI1VwmPOacqbN28J49j76ebefGkvd31PfozIk5jK+acaRF2Thw/0cibcxHtevfiG3R+vF47PxGYmbK0l220oopVfnQuwy2kj5SJ5xk6+kVex+Ryhk6y0IklixGlL4+RLeeXh9BSnf7P7P4TOD9egvjcMtvceXWocxy/+vv4BPdLP9wvkyZQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 결과물 in FigJam&apos; title=&apos;&apos; src=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/ca1dc/real-result.png&apos; srcset=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/e7570/real-result.png 170w,
-/static/8d02b5640ed41f4b4594ade69cf70517/f46e7/real-result.png 340w,
-/static/8d02b5640ed41f4b4594ade69cf70517/ca1dc/real-result.png 680w,
-/static/8d02b5640ed41f4b4594ade69cf70517/02d09/real-result.png 1020w,
-/static/8d02b5640ed41f4b4594ade69cf70517/1d227/real-result.png 1164w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 결과물 in FigJam&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;h2&gt;🎯 이벤트 스토밍 진행 후 느낀점&lt;/h2&gt;
-&lt;p&gt;저희 팀 프로젝트 진행 전에 이벤트 스토밍을 스스로 도입해야겠다고 생각했던 이유는&lt;/p&gt;
-&lt;p&gt;앞에서도 말했듯이 DDD를 하기 위함이 아닌, &lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과&lt;/strong&gt;를 얻기 위해서였습니다.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;저희 팀에 맞게 줄인 이벤트 스토밍의 3단계를 진행하고 나서 경험한 바로는&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과를 경험해봤습니다! 😃 👍&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;그래서 너무 만족하게 되었습니다!&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;이벤트 스토밍 진행 중이나, 끝나고 난 후에 팀원들이 모두&lt;/p&gt;
-&lt;p&gt;우리가 이벤트 스토밍을 진행하면서 정한 공통의 언어인 &lt;strong&gt;유비쿼터스 언어&lt;/strong&gt;를 사용하고 있었고,&lt;/p&gt;
-&lt;p&gt;기능 구현 우선 순위나 해당 기능의 정책 등 여러 결정 사항이 도출되었습니다.&lt;/p&gt;
-&lt;p&gt;아래는 저희 팀이 이벤트 스토밍에서 정립한 저희 팀의 &lt;strong&gt;용어 사전&lt;/strong&gt;입니다.&lt;/p&gt;
-&lt;h3&gt;📕 용어 사전&lt;/h3&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 41.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6klEQVR42oVSWw7DIAzb/Y86GO9nC/XkdHRf3ZCiQpwax+HRWoOxFt4HeO/BxZy1Fs45hBAECyGilCL4cRy38di2XQrHmBhjYM4DzKWUhSjGKPuU0oXfhRBSjdYv9N4/SaDWM6eUhtZaVJL0F9lF2PsG5zxKqZKgUhKy/ZyLtMrzwn6FEO77jpwzYkzSHhfVkpDKiLHmn3eXh7z9+VQwxkCpF2qtOG3QUErJ1xgrxHekc06Jayg0nCoYlL4GRRvYNv3jmcpb63Lhd9+vYX2G0kUBk+tG/nC2HMVfY5w8oRWsJ07MWgfOYSl8A6lncOMULI+wAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;용어 사전&apos; title=&apos;&apos; src=&apos;/static/da4427083cef8054a90b1f210d73055b/ca1dc/dictionary.png&apos; srcset=&apos;/static/da4427083cef8054a90b1f210d73055b/e7570/dictionary.png 170w,
-/static/da4427083cef8054a90b1f210d73055b/f46e7/dictionary.png 340w,
-/static/da4427083cef8054a90b1f210d73055b/ca1dc/dictionary.png 680w,
-/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png 948w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;용어 사전&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;이렇듯, 처음 진행해서 미숙했음에도 불구하고 &lt;strong&gt;팀원 모두가 &apos;공통된 이해&apos;를 가지고,&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;기록까지 남아있다는 점에서 아주 좋은 방법이라고 생각했습니다! 👍&lt;/strong&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[LocalDateTime 원하는 Format으로 바인딩하기 (feat.@DateTimeFormat, @JsonFormat)]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다! 📘 0. 일정 등록 API Request Body API 명세를 정할 당시에는 LocalDateTime이 요청으로 들어왔을 때 어떻게 Request Dto…]]></description><link>https://team-by-team.github.io/local-date-time-binding/</link><guid isPermaLink="false">https://team-by-team.github.io/local-date-time-binding/</guid><pubDate>Sat, 01 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 21 Jul 2023 03:36:24 GMT</lastBuildDate><item><title><![CDATA[LocalDateTime 원하는 Format으로 바인딩하기 (feat.@DateTimeFormat, @JsonFormat)]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다! 📘 0. 일정 등록 API Request Body API 명세를 정할 당시에는 LocalDateTime이 요청으로 들어왔을 때 어떻게 Request Dto…]]></description><link>https://team-by-team.github.io/local-date-time-binding/</link><guid isPermaLink="false">https://team-by-team.github.io/local-date-time-binding/</guid><pubDate>Sat, 01 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/sh111-coder&quot;&gt;성하&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2&gt;📘 0. 일정 등록 API Request Body&lt;/h2&gt;
@@ -436,4 +106,264 @@
 &lt;hr&gt;
 &lt;h4&gt;Reference&lt;/h4&gt;
 &lt;p&gt;&lt;a href=&quot;https://swampwar.github.io/2020/03/19/LocalDateTime-%EB%B3%80%EC%88%98%EB%B0%94%EC%9D%B8%EB%94%A9.html&quot;&gt;Controller 메서드에서 LocalDateTime 타입의 변수 바인딩 받기&lt;/a&gt;
-&lt;a href=&quot;https://jojoldu.tistory.com/361&quot;&gt;SpringBoot에서 날짜 타입 JSON 변환에 대한 오해 풀기&lt;/a&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
+&lt;a href=&quot;https://jojoldu.tistory.com/361&quot;&gt;SpringBoot에서 날짜 타입 JSON 변환에 대한 오해 풀기&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[팀바팀 이벤트 스토밍(Event Storming) 도입기]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다! 🌈 이벤트 스토밍(Event Storming) 도입기 우아한테크코스 5기 팀바팀 Project에서 Event Storming…]]></description><link>https://team-by-team.github.io/event-storming/</link><guid isPermaLink="false">https://team-by-team.github.io/event-storming/</guid><pubDate>Sat, 01 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/sh111-coder&quot;&gt;성하&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;🌈 이벤트 스토밍(Event Storming) 도입기&lt;/h2&gt;
+&lt;p&gt;우아한테크코스 5기 팀바팀 Project에서 Event Storming을 처음 사용해보면서&lt;/p&gt;
+&lt;p&gt;적용했던 배경과 적용 과정, 적용 후에 느낀점 등을 간단하게 기록하고자 합니다!&lt;/p&gt;
+&lt;h2&gt;🎯 이벤트 스토밍 도입 배경&lt;/h2&gt;
+&lt;p&gt;프로젝트 팀원이 배정되기 전에,&lt;/p&gt;
+&lt;p&gt;DDD에 대해 공부해보면서 자연스럽게 DDD 도입 시 쉽게 DDD를 도입할 수 있는 방법을 접하게 되었습니다.&lt;/p&gt;
+&lt;p&gt;그게 바로 이벤트 스토밍(Event Storming)이었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;처음에는 &apos;DDD를 쉽게 할 수 있다고?&apos; 라는 생각으로 이벤트 스토밍에 흥미를 가지고 공부를 해봤습니다.&lt;/p&gt;
+&lt;p&gt;공부를 한 뒤에 느낀 생각은 다음과 같았습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;DDD 뿐만 아니라 기획, 설계 시에 적용하면 좋겠는데?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;뒤에서 소개하겠지만, 이벤트 스토밍을 하고 나면 팀원 모두가 공통된 이해를 가지는 효과때문에&lt;/p&gt;
+&lt;p&gt;위와 같은 생각을 하게 되었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;그래서 결국 팀 첫 회의 날에 이벤트 스토밍을 해보자고 주장했고, 도입하게 되었습니다!&lt;/p&gt;
+&lt;h2&gt;🎯 이벤트 스토밍이란?&lt;/h2&gt;
+&lt;p&gt;간단하게 이벤트 스토밍에 대해서 설명하고 넘어가겠습니다!&lt;/p&gt;
+&lt;p&gt;이벤트 스토밍이란, &lt;strong&gt;복잡한 비즈니스 도메인을 빠르게 탐색하고 학습할 수 있는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;코드로 소통하지 않고 모든 사람이 공통된 도메인 이해를 가지도록 하는 방법입니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;포스트잇 색상으로 개념들을 구분하고, 해당 개념에 따라 포스트잇을 붙여가면서 도메인 이해를 해나가는 방법입니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/bbbf7/event-stroming-postit.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 25.294117647058822%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZUlEQVR42iXMz0obQQDA4bxGwYOv4K149yU8Kz1YRehFLy22CJUSkSo9VtSLpQimLcQaSCytpm5iEqwJYVn/pTbZXWdmdya7GyPIr6i37/SlLq4d6l6VhlfD0x1ES3L1p81VvU3oSVpuRKkRUWlGXLo9Ev+UG7tA3y4QtR1M+JfY3SHxskSiQipjbzB/OMWC9YITWcbJnfPt5Xeyrwu4tXN2q7eML/YZS/fYLgH1z3jvhnHfDmF+fCQWOeLiIMnvAXr29GM493OCN78mOZYWZ/lLvs5lybzaoVM5I1e75flSzLO0JmMB9hc6SyP46ack+6vEYhe5N4jce0LSnCBVbOXZqK6wVn6PIxu0Kv84WD+k/KmGcNpYzYjFTcHylsay7+hfFPG2Zgm2Z+ie5OnKI/TxGH5plMD5QMpogxIKea24tzYaoQRBqDDGYHSIkj5hoOgajTYGGYTIwDzYmC5SaTw/QAWG/30LVQxeQD8GAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;포스트잇 색상에 따른 개념&apos; title=&apos;&apos; src=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/ca1dc/event-stroming-postit.png&apos; srcset=&apos;/static/87ef14a113bc4e34675135f74cb4d75a/e7570/event-stroming-postit.png 170w,
+/static/87ef14a113bc4e34675135f74cb4d75a/f46e7/event-stroming-postit.png 340w,
+/static/87ef14a113bc4e34675135f74cb4d75a/ca1dc/event-stroming-postit.png 680w,
+/static/87ef14a113bc4e34675135f74cb4d75a/02d09/event-stroming-postit.png 1020w,
+/static/87ef14a113bc4e34675135f74cb4d75a/bbbf7/event-stroming-postit.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;포스트잇 색상에 따른 개념&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;일반적으로 이벤트 도메인에 사용되는 포스트잇의 색상에 따른 개념은 위의 사진과 같습니다.&lt;/p&gt;
+&lt;p&gt;간단하게 색상별 개념을 알아보도록 하겠습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 주황색 : &apos;도메인 이벤트&apos; - 서비스에서 발생할 수 있는 도메인별 이벤트
+2. 노란색 : &apos;액터&apos; - 단순한 사용자, 고객보다 구체적인 페르소나
+3. 파란색 : &apos;액션&apos; - 시스템에서 일어나는 일, 도메인 이벤트가 발생하는 원인
+4. 초록색 : &apos;정보&apos; - 액터가 액션을 실행하는 데에 필요한 정보
+5. 보라색 : &apos;정책&apos; - 도메인 이벤트와 액션 사이에 위치해서 &apos;주로 ~할 때마다&apos;로 시작하는 정책&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;구체적인 색상별 예시는 아래에서 더 설명하겠습니다.&lt;/p&gt;
+&lt;p&gt;말로만 들으면 어떤 방법인지 감이 안 올 수 있기 때문에,&lt;/p&gt;
+&lt;p&gt;어떻게 공통된 도메인 이해를 가질 수 있는지 진행 방식 및 과정을 보면서 이해해봅시다.&lt;/p&gt;
+&lt;h2&gt;🎯 이벤트 스토밍 진행 방식&lt;/h2&gt;
+&lt;p&gt;이벤트 스토밍을 하기 위한 준비물은 큰 종이나 큰 화이트보드, 포스트잇과 펜 정도면 충분합니다!&lt;/p&gt;
+&lt;p&gt;이벤트 스토밍은 단계별로 진행됩니다!&lt;/p&gt;
+&lt;p&gt;여러 참고 자료를 공부해본 결과, 자료마다 포스트잇 색상이 의미하는 개념은 대부분 비슷했지만&lt;/p&gt;
+&lt;p&gt;어떤 단계로 진행하는 지는 부분부분 달랐습니다.&lt;/p&gt;
+&lt;p&gt;저희 팀은 아래의 영상에 나오는 단계를 참고하여 진행했습니다!
+참고는 했지만,&lt;/p&gt;
+&lt;p&gt;처음 진행해본 것이기도 하고 부분적으로 단계별로 진행하지 않았던 부분도 있어서 완전히 똑같게 진행하지는 않았습니다!&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=hUcpv5fdCIk&amp;#x26;ab_channel=OpenUP-%EC%98%A4%ED%94%88%EC%97%85&quot;&gt;KCD 2020 TRACK 2 : 도메인 지식 탐구를 위한 이벤트 스토밍&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;그럼, 저희 팀에서 이벤트 스토밍을 진행했던 단계를 경험 기반으로 소개해보겠습니다!&lt;/p&gt;
+&lt;p&gt;(단계 이름은 제 맘대로 정해보겠습니다!)&lt;/p&gt;
+&lt;h3&gt;✅ 1단계 : 도메인 이벤트 흩뿌리기&lt;/h3&gt;
+&lt;p&gt;1단계에서는 팀의 서비스에서 발생할 수 있는 이벤트들을 &lt;strong&gt;주황색 포스트잇&lt;/strong&gt;에 생각나는대로 적어서 붙이는 단계입니다.&lt;/p&gt;
+&lt;p&gt;저희 서비스는 &apos;여러 팀플 참여 시 쉽게 협업을 할 수 있도록 도와주는 서비스&apos;이므로,&lt;/p&gt;
+&lt;p&gt;다음과 같은 이벤트가 공통적으로 발생합니다.&lt;/p&gt;
+&lt;p&gt;(아래 이벤트만 있는 것이 아니라 무수히 많은 이벤트가 발생하겠죠?!)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 로그인이 성공하였다.
+2. 팀 플레이스가 생성되었다.
+3. 팀별 캘린더 일정 등록이 성공하였다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이처럼, 각자의 생각으로 서비스에 맞는 도메인의 이벤트들을 적어서 붙이면 됩니다.&lt;/p&gt;
+&lt;p&gt;이때, 하나의 큰 종이에 포스트잇을 붙여나가면서 다른 팀원들의 이벤트를 볼 수는 있지만&lt;/p&gt;
+&lt;p&gt;&apos;그 이벤트가 필요할까?&apos;와 같은 토론은 지양하고, 팀원들 각각 자신의 생각대로 이벤트를 적어서 붙입니다.&lt;/p&gt;
+&lt;p&gt;저희 팀 같은 경우는 1단계 마무리 시 다음과 같이 큰 종이에 빽빽하게 채워질 만큼의 도메인 이벤트가 도출되었습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/bbbf7/1st.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 74.11764705882352%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD/UlEQVR42h3O7VPSBwDAcf6Ovd+bbrfd7XqzXbe73fai3dXKVmqjnZGPlCgqAiL+EBEBUZDnRwGBVMJQlHzAgkJxmikstQfL0+wP+e7qH/jcR6TRKBgQ1OiHtIxajNjtozhdY7jcdtw+F26/G4/fjTfowz8ZxB8O4A14CU9FiU0nCI0KTA7KiZvUBFTNiIQhHQaTAfO4BafPTWgqQjQRIxaPkAi7mAk7eRTzkQ5N8Ng9TGa8n8e6ZhatKub9VubVYjLSy6QVt0l11yGyyCXYtXI8Q0qmRgdIjihJ6jt4PNxBVtdETnmLTPcNctoGcoKEVVM7q73XySrryCn+It15nQW1mDnZVZYiLkSOO7/iarpCUC4mobpLureeaekfZDqusKKsYVFdx1JfPavGVlasctY8OpZVNymMd7Pac5UFZS3rhmby6ps8sfcj8t39Da+0hil1I9N9ErJDUpb0zSyOqXjuEygY7lEwSCha2yk5lZRCw5QMd1k3trDaV0dRdY289m/yyhusO/oRJTtvEWz7k+mBVmYV9SzpW1gz3eeJf4TSjIeyrYMNm4yypYWtiS62goNsOXp4YWxk09jIC52Y/ICYvKae55kEokejGqINv/Cwq465nlqeaO9QMLZQEOop6W6zYWriVbCfPX8fr8I69qeM7Jib2Lc0sjN2n+3RNrZNzWxaZWwU84jcQitz8hoWFDdJd92g6NLwb1Bg19nFruUeL2MjVIJ97E8KVCYFDqKDbI80sGX4h+q4lIpZQll9je2QgeelIqL02A8sahvIdl/jqSCmbGlj19HJf18AVyeHS2EOA70cPjRxlDTydsbKgeMBR54u3jrav6J7Pg17yykKX8DCnJZ1Vz9rQgNb5lZ2be28jg5x5Fdw5GynEjXwPq7nw7SR45SV41yI4yk9H2fMfIwN8Mar4PWMncr0BJvPcoh8thBLMQ/P+uspGyVU3N0czNo58PV+Hb7z93A2P8FJTMNJ0sCBq5OTlJWzfIKz1Rjvk2aqlkYq1jZKKxlEKpebWDxIeVDMpv4Or2wyDiODfAipqDpk7NhkfMi4OYsLnCb0vPd2cRrR8OkLmnFxMjvKgaubPb9AcW0RkcdpIZkI8WJczqa2lvKwhCO/ijduOceudratUg7iZt7ZWjiNDnC2EuXMJ+dzXM/5gpfDsMC+9T6VSQOFp8uILMZ+An47K0ETm14N1ZST02Kaj8tRPq9EeTc7ztvUBOdZL59yIc538pxPajj19XDiU7Ai3MNaewl3bxPhSADRxR+/49LPF6m9VcMDmZQhg45ILMDs3AzzuSxPn62xu1tm++UGO7sbVPe2ONwpUl1LUc1GeGTT0Xj5J36/8A3fX/iW/wGhPzcHc3rn/QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 1단계&apos; title=&apos;&apos; src=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/ca1dc/1st.png&apos; srcset=&apos;/static/6c1e8800dffac656bce9ff9106ebc61b/e7570/1st.png 170w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/f46e7/1st.png 340w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/ca1dc/1st.png 680w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/02d09/1st.png 1020w,
+/static/6c1e8800dffac656bce9ff9106ebc61b/bbbf7/1st.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 1단계&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;✅ 2단계 : 도메인 이벤트 타임 라인 순으로 정리 &amp;#x26; 토론 시작&lt;/h3&gt;
+&lt;p&gt;1단계를 마무리했다면, 수많은 도메인 이벤트가 큰 종이에 붙어있을 것입니다.&lt;/p&gt;
+&lt;p&gt;2단계가 이벤트 스토밍의 Main 단계라고 생각이 듭니다.&lt;/p&gt;
+&lt;p&gt;2단계에서는 1단계에서 팀원들이 각각의 생각대로 도출한 도메인 이벤트를 타임 라인 순으로 정리합니다.&lt;/p&gt;
+&lt;p&gt;타임 라인 순으로 정리하면서 중복이라고 생각되는 이벤트들은 제거합니다.&lt;/p&gt;
+&lt;p&gt;정리를 해나가면서, 팀원들과 토론이 필요한 부분은 토론하면서 필요한 이벤트들만 남겨놓습니다.&lt;/p&gt;
+&lt;p&gt;도메인 이벤트를 중복이라고 여겨서 제거할 때 중요한 점은,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;동일한 용어인 이유로 중복일 때 다른 개념일 수 있으므로 100% 중복인 도메인 이벤트만 제거해야합니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;예를 들어, 팀원 A와 B가 똑같이 &apos;로그인이 성공했습니다.&apos; 이벤트를 작성했을 때,&lt;/p&gt;
+&lt;p&gt;A는 자체 로그인으로 생각했고, B는 소셜 로그인으로 생각했다면 이 두 개의 이벤트는 다른 이벤트입니다.&lt;/p&gt;
+&lt;p&gt;따라서 제거하는 것이 아니라 구체화해야 할 것입니다.&lt;/p&gt;
+&lt;p&gt;이렇듯, 도출한 이벤트를 제거할 때는 100% 중복이 맞는지 확인 후에 제거해야합니다.&lt;/p&gt;
+&lt;p&gt;이 단계에서 한 가지 더 중요한 포인트는 바로 &lt;strong&gt;토론을 시작한다는 점&lt;/strong&gt;입니다!&lt;/p&gt;
+&lt;p&gt;도메인 이벤트에 대한 토론을 시작하면서 많은 갈등 및 충돌이 발생할 것입니다!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이때, 자주색 포스트잇을 이용하여 어떤 부분에서 토론을 했는지에 대해 토론을 한 도메인 이벤트 옆에 붙여주는 것이 중요합니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이후에 자주색 포스트잇에 적혀있는 토론 부분들을 해결해 나가면서 공통된 이해를 도출할 수 있습니다!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;다음은 저희 팀이 진행한 2단계 결과입니다.&lt;/p&gt;
+&lt;p&gt;저희 팀의 경우에는 분홍색 포스트잇에 용어 후보들이나, 해당 기능을 넣을지 말지 등의 고민들을 적어 놓고&lt;/p&gt;
+&lt;p&gt;이후에 해당 포스트잇을 보고 해결해나갔습니다.&lt;/p&gt;
+&lt;p&gt;(자주색 포스트잇이 없어서 불가피하게 분홍색 포스트잇으로 토론이 발생한 부분을 나타냈습니다.)&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/6d336a811a966f1b614418c4981683bf/bbbf7/2nd-1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 111.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAYAAADAQbwGAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFGUlEQVR42kWVW3MVxxWF5//kIU+JbRGBQQhZSlmogmUKiwIMQhyhKxIgIcRNBoMBKQQTFyYS1v1c58zpufZ098w5IxCkXIn/0pc6o6r4YVe/dH+9qvZae1u7xU2EV0eqABkHKCNJWwlNIzG+g3KKuK+WEG+eoY3EDxyCyEUnEpPGmPZpYoxRmERhFUtbuJ5DrCN0EmNShVIhztIVatMnKY8e5+3Xf6C0eAkVunj1IjJoYFSIMhHahPl9pSSxklil8ja+L1DmANaGxtLFnvwrxXN/onTpL6yf+SPlhQsoUSOwi+i2cr+BjH2UDnJgHEd5WZXqLr7roGIfo0N0u6SHe/ssYrwL70Y/7o1T+M/niewigb1L1KgSenViFeYCkpbBpJpYh1jVyi6BL9A6xmiJNjFJHCIWhqhO9LJxtY/yyBGCpUuEgUsU+cShh2yrlB5J7CGdHcLaZi7KqlXLeKsvCP9xl+hfz5Brz4nfPKE+cYL1cx2sXehk++IhvOv9+E9nEI8mEEtX8G5/Q3BrkPq1Lyl/+wniznm038Cyq5X8UuPbP1O9fJj6SAfeaAeNsc+pXe3CGTuGXTiCU+jEvXKI0oVPKV08TDA5gDt5isrYGWqFrxCzf0M5Fax6pYx7bxhv+DO82W/wZ87QmDqNM/4F3tQJxGQP9dEj1Aud+IVD1C9/ijvag7z3AGfhDu7iA+Stebzrg+g2sFErE60uo5bnUd99j1h8gDO3QH3kOHahk9ro51SHP8OZ6Eb9/SbRq0XUqyXU/QeIW7cR8wu4cwuY3S2M7x4A2/5JwxB5/zvsmwvUZ68jCt24E12401/QaHf73nnStk9bhrTt2R+eED9+jHq2jH6+grarB0BhV3LDpq6DefmS4PkyamUFvfETsrSKLL9FiTLa2ca/M0Rj/jTe4lmCW6eJHo2iVUBiYnQcoGWI5TpVksgjMxFZKmmZiJaOSLUklgEyEMRxQFTfwR07mjeuMnIMb/Qo4dxgDjTNdiCi3HKW7zukiSLLDFnL0Exk7i0TucSegxQ14tDNveZO9CDGjtMYP4F3tQtx7SRaeaQtjTEy97IVRD7NvZR3HzLef8hoZQYduahQ5JmNcqAgdiuIG6doXOtHzA7gzQzg3fyatA1sv2kPE6OwIhmSvWuy/zHj3ceMZkujQzcv6TlEovp/oD3RS7nQjZjsI5jqI7jWTzNyDqLXTliqsaQM2dtrsv+hxfv9Jq2mwkSC2HcIGzVCp4z06vjldWqFLnYvHqZ8uYvaSBfBRC+JV8Y02woVaWqwlNG8//VXPv72Xz789h+y/Xd5pmUU5NkNfUHou4jSJuXJfirjfdhT/Yjpk/jXBzGiRNJMSRNNs5VixdUtWq8fsrf2hHT1MeHLuzjLC7gv7uKs3MFeXqT4aJadJ/PYW2vUdzfwSluEdok4cPLPk0Tn6lpZiiVfPyYePUYy8yXxVB9u4RhirIfK8FE2zh3m56FOfhn6hM3hLupbq9jlHZzKLr6oE2uZT+mkeaCulTWx4p+WkOM9JHODyNkBGmO9eNMnKY708PpcFy/PHuXpVx2sX+mjXlzHtsuI9jwMPbSS6ETlKyPLWmRZhqV+vEtr7hTv758nvX2GcGaAxvQAldFeiiMn2B7uZnWog7eXuqnu/EK1VkK4NlEUoHSMTn8H7u3tYSXCZj90+bcK2PPrqPIG/uYbnLUfqf28QuWfTym9eMj2i4cUd9ep1IoIUTsYtErmqyNt/g78H+pM6LbHlY6TAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 2단계 - 1&apos; title=&apos;&apos; src=&apos;/static/6d336a811a966f1b614418c4981683bf/ca1dc/2nd-1.png&apos; srcset=&apos;/static/6d336a811a966f1b614418c4981683bf/e7570/2nd-1.png 170w,
+/static/6d336a811a966f1b614418c4981683bf/f46e7/2nd-1.png 340w,
+/static/6d336a811a966f1b614418c4981683bf/ca1dc/2nd-1.png 680w,
+/static/6d336a811a966f1b614418c4981683bf/02d09/2nd-1.png 1020w,
+/static/6d336a811a966f1b614418c4981683bf/bbbf7/2nd-1.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 2단계 - 1&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/bbbf7/2nd-2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 133.52941176470588%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,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&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 2단계 - 2&apos; title=&apos;&apos; src=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/ca1dc/2nd-2.png&apos; srcset=&apos;/static/b259f4081cf46811ca0c1fa2c0528534/e7570/2nd-2.png 170w,
+/static/b259f4081cf46811ca0c1fa2c0528534/f46e7/2nd-2.png 340w,
+/static/b259f4081cf46811ca0c1fa2c0528534/ca1dc/2nd-2.png 680w,
+/static/b259f4081cf46811ca0c1fa2c0528534/02d09/2nd-2.png 1020w,
+/static/b259f4081cf46811ca0c1fa2c0528534/bbbf7/2nd-2.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 2단계 - 2&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h3&gt;✅ 3단계 : 액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책 설정 + 토론 결론 내기&lt;/h3&gt;
+&lt;p&gt;2단계를 거쳐서 타임 라인이 결정된 이후에 저희 팀은 다시 한번 도메인 Flow를 하나씩 살펴보며&lt;/p&gt;
+&lt;p&gt;액터 &amp;#x26; 액션 &amp;#x26; 리드 모델 &amp;#x26; 정책을 생각나는 대로 개념에 맞는 포스트잇 색상으로 붙여나갔습니다.&lt;/p&gt;
+&lt;p&gt;보통의 2단계에서는 노란색 포스트잇으로 &lt;strong&gt;구체적인 사용자 페르소나를 뜻하는 액터&lt;/strong&gt;를 설정하지만,&lt;/p&gt;
+&lt;p&gt;저희 팀은 서비스 Flow에서 액터가 거의 &apos;멤버&apos; 1개라고 생각했기 때문에, 따로 액터 포스트잇은 붙이지 않았습니다.&lt;/p&gt;
+&lt;p&gt;다음으로, &lt;strong&gt;도메인 이벤트가 발생하는 원인인 액션&lt;/strong&gt;을 파란색 포스트잇으로 붙여나갔습니다.&lt;/p&gt;
+&lt;p&gt;붙어져 있는 모든 도메인 이벤트들의 액션을 생각해보며 자연스럽게&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;액터가 액션을 내리는데 필요한 정보&lt;/strong&gt;를 초록색 포스트잇으로,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;도메인 이벤트와 액션 사이에 위치한 정책&lt;/strong&gt;을 진한 노랑색 포스트잇으로 붙여나갔습니다.&lt;/p&gt;
+&lt;p&gt;(원래는 정책은 보라색 포스트잇이지만 없어서 진한 노랑색 포스트잇으로 대체했습니다.)&lt;/p&gt;
+&lt;p&gt;정보, 정책 개념에 대해 사용했던 예시를 들어보자면 다음과 같이 들어볼 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. 정보 : &apos;팀별 캘린더 일정 등록&apos; 액션을 하기 위해 필요한 정보
+    - 일정 이름
+    - 시작 기간
+    - 종료 기간
+
+2. 정책 : 도메인 이벤트와 액션 사이에 위치해서 도메인 이벤트가 발생할 때마다 액션을 수행하게 하는 트리거
+    - &apos;팀 플레이스에서 나갔다&apos; 도메인 이벤트가 발생할 때, &apos;팀 플레이스가 삭제되었다.&apos;가 수행되는 조건
+    - &apos;팀 플레이스 멤버가 0명이면&apos; : 정책&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8fccc04899220e098c6bdb196eb4244c/bbbf7/info.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 65.29411764705883%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVR42oWTWU8aURiG+btNvOp9L5r0Rq1bFONKpVUbW0xTl2rV1oqtVK2yCAwDIiBLhQFRmIVhmaeZGSte2PTiyXdy8uXJSd73OPL5AoHgGaf+INFoDCEm4vcHubmtISsqdVmxqf8HWUGWFRylYp6EcEI8+otMMkw6eca56EetF9HVMg1FomFOrUJDrdjzMVQJVa7iMJdo5aBVgGbOppUHNd3lWgQpCmXhbsass1GK2BQjcCOiKyUcDVnCUFIYSuYBpigDSgb0LK2jbSqLU5SWZqm8naHtXUXZWCLlGiXhGuXKPY4R3kNvVm2h9Qrt0sYUWaTBFOtZmoefEZz9CFPDhJ19dLyr/F6eIzLeT3xmhPj4S9qhb7awKZe5qEfwVU84rJ4QrAfYTVd4HVVZFBSW4gqyb5vc7AhBZz/pmRHYX6fgcXHm7EOYHiY5MUg7uGsLW3KZQC2AO/GJuegK21UfLv8VT5Yv6PGIPPNWqR3voX18w5VnDnllgc7BBsrmOy7dTs5do0jzExD2ouvXtjBUC+IW1liIrbNT8TEfvqbnfYynH0Se70nUE344/UIn5KV9+pVOzIdRMYOKWQEZJQFu4uiKZAsjtSBr0gGbZR/7t8d4xFte/GzQe6QyFNC5/bFDanIAcXqY88lBmnuroOegkb0jB1oaXb5LuaOmaGsZi5aapqlcostZGvUsupanebTF+dQQ0ekhxIkBWt/Xui0wgzOnmurWxu7bZRctY6PatTGOtii+GiM01ovkHqfjXXvQhr/cC0ugXlgXj6KloRCgEz/ASB5iJHwY2dNHdpPochGH+V10pWjZ/4lWthK8p1F5ZK9ofb0/nqOsxQdkyEQAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;정보 (초록색) 예시&apos; title=&apos;&apos; src=&apos;/static/8fccc04899220e098c6bdb196eb4244c/ca1dc/info.png&apos; srcset=&apos;/static/8fccc04899220e098c6bdb196eb4244c/e7570/info.png 170w,
+/static/8fccc04899220e098c6bdb196eb4244c/f46e7/info.png 340w,
+/static/8fccc04899220e098c6bdb196eb4244c/ca1dc/info.png 680w,
+/static/8fccc04899220e098c6bdb196eb4244c/02d09/info.png 1020w,
+/static/8fccc04899220e098c6bdb196eb4244c/bbbf7/info.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;정보 (초록색) 예시&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/bbbf7/policy.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 36.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABiklEQVR42m3QXWvTcBTH8b5afQHqjZcD772QCYKPQ0EnFOpwF3Nri8Vu6yDYtRibtOua5alJuuZh+SfNw1fSFkHw4gO/c+AcOKc2Hqt0u11GI4VfskwYBERh+B/R1r91GIZrUVSJqMW+TuZP4G5GEV1TCIMyMdeKvwxKoW3dbG1qkhsQFY0kcqhlsUnryuXDYEl9FBAMT8k7X0h+fGXVPWTVOSDvt3EnS2wlwBrdYqs+nhIyni74LHu8H/j0NIsitqjlwmL3zObe/oTHrVuc7ycEe7uoL54ye/UMb+856XGDWT9Hai5oN1R6RybT85zeIObB4TX36zr7QxcSm1p2Z/LmMuTR0YIn5wKn06Ssv2Xx6TXex5dk9XesWgdolyk/2y5S0+LixGRyFiPJgp3TkIffljQUH4RVLdTRXJ3f9hx1bpOaQ5heUGoSaBJllfU+wjFJXYfU20gcm6VroMwtZNvB8jSy6uTqkaUwYM0kE3OyxGG1VeWqlwuTXBhk8UaVC2GtZyqlMBGRxx9zK/8QBk4M9wAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;정책 (보라색) 예시&apos; title=&apos;&apos; src=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/ca1dc/policy.png&apos; srcset=&apos;/static/83c3406eb1b1baf7d2db5e1096428f9d/e7570/policy.png 170w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/f46e7/policy.png 340w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/ca1dc/policy.png 680w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/02d09/policy.png 1020w,
+/static/83c3406eb1b1baf7d2db5e1096428f9d/bbbf7/policy.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;정책 (보라색) 예시&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;이 단계에서는 액션, 정보, 정책 붙이기 이외에 더 중요한 작업이 있었습니다.&lt;/p&gt;
+&lt;p&gt;중요한 작업은 바로, 2단계에서 붙여놨던 토론 부분들을 다시 살펴보면서 해결해나가는 과정입니다.&lt;/p&gt;
+&lt;p&gt;이를 통해 용어나 해당 기능의 개발 여부 등 여러 갈림길들을 하나의 길로 만들어서 싱크를 맞췄습니다.&lt;/p&gt;
+&lt;p&gt;저희 팀은 이러한 3단계 과정 끝에 공통된 도메인 이해를 가지고 개발 단계에 접어들 수 있었습니다!&lt;/p&gt;
+&lt;p&gt;다음은 완성한 저희 팀의 이벤트 스토밍 결과물입니다!&lt;/p&gt;
+&lt;p&gt;(최소 기능들만 우선 구현하자는 공동의 목표로 가지고 임했기 때문에 이벤트들을 많이 제거하게 되었습니다.)&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/bbbf7/result-1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 62.94117647058823%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC6klEQVR42kWTW08bVxSF/YP6L/oYpX1tparNRSniAUgpacBcysUYGpvYAbvYGAyMmdu5zTlzZiZuo0ZR1f/1VZ5I7cPS2S/n09raazVO2of0em+IZm1mo2WC0Rbp7A6pFEII4igkEYIkSRBpgtaSRMp6VlIglCJNU6RIkCKm0em0uRgMGF28Jjz8gtnuY9LWJheTkPHOBtHWixqeac118MB1KklG59ytfoueDDBKorTCmIUkjX6/w/n9A2/3trl6/hXpzYTcF2jjiDaeIPbXcM7inWV4e8t6d0z3oEX0+in3L78j2l7GuwxXePLC07gaXfLq8ISjH78h3Frij3lF7P+iez7l4cUjTL9F+eEDuXPkma7hsTKc/B5xtfYEufmsBuZFgS8LGsHVhOmrTabPHhP3jjkPCma9Dll7Az/q8t7nFPM/KQqPLXztxHnHbWIIW7+gW+v43OKr8jPQZIYsDhHXlyipmEQeO35H3OswuZeYYYfxzj7T8RQ1OEUHE2JtOerfMV1fOHyKt4qiKms1iqrClBVZUVJWFR8/feLj3/8QmDlveyPM8c8c7Z6yt31CtPSI6GwflXuGNyHB3hrqYBXnNHnlyV1GI5jeEe6u8vCui4wj7OEqun+M84sVc/x8ziDMOX9zRrKzRDruExvLNAiJh2fYyy7l9ILsdoizmsZvL9eYff8lu802Z4en5Ctfo84OMLlHGoOyFusyrHcI59DWcBkImq0BD81lBq+e01z5geRgFe8djdnxNjfbP7Hfueb+aIdid4lsOkZrTaQ0icpQUtZZTLUiUbJ+pc3w3nMThjSHI1KjKOqjuJxJqGm2R6S/ruEOVrBaojKDzAwmd7WUzUjVAiiIpSBRCpUtoJb3pScvizoBjSQRhHGM0IqqKiiLHGMzxKIBRmOcRdsMaTSpFKQyIRYpweJfKtEqrevofP452GEUE8ZhDanm8zqgUqv/gTZDL9wuOizi/xQLgTIGm1tcbmvYAvgvSa/rIrU0U0UAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 3단계 - 1&apos; title=&apos;&apos; src=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/ca1dc/result-1.png&apos; srcset=&apos;/static/7f049bfa9dd684cda4b823bd9d1cc0db/e7570/result-1.png 170w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/f46e7/result-1.png 340w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/ca1dc/result-1.png 680w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/02d09/result-1.png 1020w,
+/static/7f049bfa9dd684cda4b823bd9d1cc0db/bbbf7/result-1.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 3단계 - 1&lt;/figcaption&gt;
+  &lt;/figure&gt;
+&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/bbbf7/result-2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 53.529411764705884%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtklEQVR42iWRSW/bZhRF+fe66LpAigYoUqBJHQQNAsR2Uw9R3DS2JWuwRIuiBmomNVkTRerjJFGyBsvpXzpt1MXbnnvufdLZ6THXVxcUSwpZ+YycekulotHQG8QLReRilYYcQ1dv0dsG+VKZZjZBQdPIyzLNzBH1uwO0WAQtf4f016cTzj5fEYucEI0ccPvxkLt4AjURI3V1Qerwd9of32CcvqZl6OSzCpW3z9DyOTRF4T7zjn7+OXoyglErIl1+iRBNZbh59SOJt7+RfvkD8sU55UwKW5MZRF5jxo7o//Ez416LUqVJ7c8DzGISEThMPRdLCEwxYTjuI8Vjl9TKeapKmlY5R7lSIxFN0sslcYWFOw+YNvNM48d4jkmzO6BXSGN3G7i+wPNMPM/CcSdMp2MkOROnpddoVDV6nQZKtYsajTK6PsIXY+4nDrWcinf3iZlr4gYCMR3jdjRm9ojF+pHlekG4nBEEAqlQkGm3m+h6jWG/w8gcMekZ2J0qYSAwBoK6nGYmnxN6E6a+g16vMjr6iXn6BVvxgeWgzEKMWCwCpGQyRl5VKGVljEaZQafJcNBjZE+w7SHGcIJRLiGKMZxJj3a3RUop0z5+gfflex707wjld/iVzN5ckhWVmpxELyiUq3XGFRXP0HC7FSzXxTPv2ZhNVo8r5gt/v5PjTOic/MKH96+wfYd/vm7Zbh7YrOdI709vUN88Q7255nM0y+D0Jdb5r9ipU4odQSWZYCWfsA4F4TLYw4LAxq7e0sxGmS8Cvj6tedp9uxVSoVjCaFTodIx9Vdca4rsW89BjuZyx3ix5fFqzWof4gcCyh2S0JnU5Tli4ZLv02T1t2O3+h0qNurZ/SO/ewJz0sYWJcC38wCFczHhYL/fQb3ZTYTIadbmSS2T/jmBFD1kGU7a79T708T/DfwEClYe0quw3lgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 3단계 - 2&apos; title=&apos;&apos; src=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/ca1dc/result-2.png&apos; srcset=&apos;/static/2453bd9057d7b456772ff257a5d71fc7/e7570/result-2.png 170w,
+/static/2453bd9057d7b456772ff257a5d71fc7/f46e7/result-2.png 340w,
+/static/2453bd9057d7b456772ff257a5d71fc7/ca1dc/result-2.png 680w,
+/static/2453bd9057d7b456772ff257a5d71fc7/02d09/result-2.png 1020w,
+/static/2453bd9057d7b456772ff257a5d71fc7/bbbf7/result-2.png 1280w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 3단계 - 2&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;🎯 피그잼에 이벤트 스토밍 결과 옮기기&lt;/h2&gt;
+&lt;p&gt;저희 팀은 &lt;strong&gt;오프라인&lt;/strong&gt;으로 이벤트 스토밍을 진행했습니다.&lt;/p&gt;
+&lt;p&gt;이때 1단계에서 진행한 도메인 이벤트 포스트잇은 공통된 &apos;유비쿼터스 언어&apos;를 정의하기 전에 작성된 것이기 때문에&lt;/p&gt;
+&lt;p&gt;용어들이 공통된 용어로 작성되지 못했습니다.&lt;/p&gt;
+&lt;p&gt;예를 들면, 이벤트 스토밍이 끝난 후에는 &apos;파일 업로드 하는 공간&apos;을 &apos;팀 드라이브&apos;로 정의를 마쳤는데,&lt;/p&gt;
+&lt;p&gt;1단계에서 작성한 주황색 포스트잇에서는 &apos;공유 드라이브&apos;라는 용어로 표현되어 있는 경우가 많았습니다.&lt;/p&gt;
+&lt;p&gt;이러한 이유 때문에 온라인으로 옮기면서 용어를 공통된 용어로 수정해야겠다고 생각했고,&lt;/p&gt;
+&lt;p&gt;또한 이미 작성했던 포스트잇 부분에 변경 사항이 생기거나 추가할 필요가 생길 때&lt;/p&gt;
+&lt;p&gt;불편한 점이 많다고 느끼게 되어서 디자인 툴인 피그잼에 이벤트 스토밍 결과를 옮기게 되었습니다.&lt;/p&gt;
+&lt;p&gt;그렇다고 해서, &lt;strong&gt;오프라인에서 직접 포스트잇을 붙이며 진행한 이벤트 스토밍이 의미가 없다고 생각하지는 않습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;오히려 7명의 팀원이 각자의 화면에서 이벤트 스토밍을 진행했다면&lt;/p&gt;
+&lt;p&gt;집중이 분산되어서 결과물의 퀄리티가 더 낮아졌을 것이라고 저는 느꼈습니다!&lt;/p&gt;
+&lt;p&gt;또한, 오프라인으로 진행한 이벤트 스토밍 결과를 온라인으로 옮길 때&lt;/p&gt;
+&lt;p&gt;한번 더 설계한 서비스의 Flow를 되새기면서 놓쳤던 부분을 발견해서 더 나은 설계가 되기도 했습니다.&lt;/p&gt;
+&lt;p&gt;다음은, 피그잼으로 옮긴 저희의 이벤트 스토밍 결과물입니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/1d227/real-result.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 80.58823529411765%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsTAAALEwEAmpwYAAAClUlEQVR42n2Ua2/kNBSG+///BeIDaBH7YUGsEIIvrAQCCt2ulpK2TDNJZjK5ThxfEuf2oDiddFoElk5kx69fn8t7fDFNE8uYmOendVEU3NzcEAYBnudxSBK2DxvGrlnQ03P8aX4xL7quQ+mGcYKuH9xG27bs93ui/Z4kzZBScqwqxqFnnCZnwzQynBGvhFG046fvv0YmPnkcYLR0t15/eM9Xr78gCe45ipLyEJKnCVWRcswSVJahj5kj55zQthaRPCCSLTIPaI1mGkG2BeXvP9Befse+yCj2IZl3xfHummy3p96G6DRifBmytRalDUI35PEDVksHsvpIrw6o2EeUJbKuSSMfk0aY+YwxKNMwjuOax6ccKonUiro4OA/nEcYpZfiAai2Bv0HdXyOlcvk8t2eEa6XWxD65bxqDkQJjDElyQOYHmrZFa72Y0TRNwzSOTyHPn6EfXNjDvDEuMphvtbbDDuNa1fnfyeYxDIPDdI+YNeSNv+H1q1eEdx7TtIArIfjmzZf8+O1bjlmMyGK0MS7EWVLu3Nbns08/4ernd1Tpjs5aLpjA2Irc+4U+vWUYewdu+54y+IPj9ory4FMFG3TTusKcCEUj2XrvyTcfSe4+MHR28VDUFXXwF40s6fuFcC6UMdpVUyQBYvMnqmmQsnbpmccJK1VNfntNbx8JTWsxdU3f9Wt+eld57TooT2NE4JHufHLfo9fCYbI05bfLS4IoYhiWsxdPvcyz3my7jiIOKZKIKo3RWiLqmjy4p1ML4V204+2bz9n++u7fsnnZ7E3XO2/K4AYR3joBK6WQSq0hrw/DODjv/pdwzuGstUMSIeK/qR8FXZ8VZXqU07PH4b8I5xvnpHedddWbNXey8UzIL5+vfwBfjc+aZWJpWAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;이벤트 스토밍 결과물 in FigJam&apos; title=&apos;&apos; src=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/ca1dc/real-result.png&apos; srcset=&apos;/static/8d02b5640ed41f4b4594ade69cf70517/e7570/real-result.png 170w,
+/static/8d02b5640ed41f4b4594ade69cf70517/f46e7/real-result.png 340w,
+/static/8d02b5640ed41f4b4594ade69cf70517/ca1dc/real-result.png 680w,
+/static/8d02b5640ed41f4b4594ade69cf70517/02d09/real-result.png 1020w,
+/static/8d02b5640ed41f4b4594ade69cf70517/1d227/real-result.png 1164w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;이벤트 스토밍 결과물 in FigJam&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;h2&gt;🎯 이벤트 스토밍 진행 후 느낀점&lt;/h2&gt;
+&lt;p&gt;저희 팀 프로젝트 진행 전에 이벤트 스토밍을 스스로 도입해야겠다고 생각했던 이유는&lt;/p&gt;
+&lt;p&gt;앞에서도 말했듯이 DDD를 하기 위함이 아닌, &lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과&lt;/strong&gt;를 얻기 위해서였습니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;저희 팀에 맞게 줄인 이벤트 스토밍의 3단계를 진행하고 나서 경험한 바로는&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;팀원 모두가 공통된 이해를 가지는 효과를 경험해봤습니다! 😃 👍&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;그래서 너무 만족하게 되었습니다!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;이벤트 스토밍 진행 중이나, 끝나고 난 후에 팀원들이 모두&lt;/p&gt;
+&lt;p&gt;우리가 이벤트 스토밍을 진행하면서 정한 공통의 언어인 &lt;strong&gt;유비쿼터스 언어&lt;/strong&gt;를 사용하고 있었고,&lt;/p&gt;
+&lt;p&gt;기능 구현 우선 순위나 해당 기능의 정책 등 여러 결정 사항이 도출되었습니다.&lt;/p&gt;
+&lt;p&gt;아래는 저희 팀이 이벤트 스토밍에서 정립한 저희 팀의 &lt;strong&gt;용어 사전&lt;/strong&gt;입니다.&lt;/p&gt;
+&lt;h3&gt;📕 용어 사전&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 41.1764705882353%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6UlEQVR42n1Siw7CIBDz/z/VMV7jOWBnWmVq4iRpOI7jaCm3UoporcU5R2AgZ4wRY6w455n33ktKifvHcVzitu+Nhb0P6b3LGIcgF2NkkxCChBA5z/0rsCHYqHWVWuuZzDmLUqsopTg/G0cZY/wFG9a6U1JK+XXTkJwLczEm2baNaxQ/VVzjlIzbvQ88jAG21jq+H6S21r/ebir5+YaQd78vorWhRDAFI8TLsnCGabgU47PZjH8ybK0R2JhGoXlMkQZhDealVP6Cd1xPs16mVLKDrOkWGEIyzLDW8vsAiAHUW+dYgzx8mAwfgf5wt3WUAkYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;용어 사전&apos; title=&apos;&apos; src=&apos;/static/da4427083cef8054a90b1f210d73055b/ca1dc/dictionary.png&apos; srcset=&apos;/static/da4427083cef8054a90b1f210d73055b/e7570/dictionary.png 170w,
+/static/da4427083cef8054a90b1f210d73055b/f46e7/dictionary.png 340w,
+/static/da4427083cef8054a90b1f210d73055b/ca1dc/dictionary.png 680w,
+/static/da4427083cef8054a90b1f210d73055b/6648e/dictionary.png 948w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;용어 사전&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;이렇듯, 처음 진행해서 미숙했음에도 불구하고 &lt;strong&gt;팀원 모두가 &apos;공통된 이해&apos;를 가지고,&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;기록까지 남아있다는 점에서 아주 좋은 방법이라고 생각했습니다! 👍&lt;/strong&gt;&lt;/p&gt;</content:encoded></item></channel></rss>
