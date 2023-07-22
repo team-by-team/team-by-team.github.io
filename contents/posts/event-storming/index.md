@@ -8,7 +8,7 @@ tags:
 - 설계
 ---
 
-> 해당 글은 우아한테크코스 5기 팀바팀 크루 [성하](https://github.com/sh111-coder)가 작성했습니다!
+> 해당 글은 우아한테크코스 5기 팀바팀 크루 [성하](https://github.com/sh111-coder)가 작성했습니다!!
 
 
 ## 🌈 이벤트 스토밍(Event Storming) 도입기
