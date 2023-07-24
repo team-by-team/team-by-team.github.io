@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 22 Jul 2023 05:14:56 GMT</lastBuildDate><item><title><![CDATA[팀바팀 컴포넌트 스타일링 방법 선택]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다. CSS…]]></description><link>https://team-by-team.github.io/component-styling/</link><guid isPermaLink="false">https://team-by-team.github.io/component-styling/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 Jul 2023 08:21:45 GMT</lastBuildDate><item><title><![CDATA[프론트엔드 Husky 사용해서 commit 단위로 Lint 검사]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127) Husky란? husky는 commit 또는 push 할 때 lint…]]></description><link>https://team-by-team.github.io/frontend-husky/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-husky/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127)&lt;/h1&gt;
+&lt;h2&gt;Husky란?&lt;/h2&gt;
+&lt;p&gt;husky는 commit 또는 push 할 때 lint에 맞는지 확인하고, 테스트를 실행하는 것에 사용할 수 있다.&lt;/p&gt;
+&lt;p&gt;팀마다 컨벤션이 다양할 텐데 인간이 코드를 작성하는지라 어쩔 수 없이 컨벤션에 맞지않게 코드를 작성할 수도 있다.&lt;/p&gt;
+&lt;p&gt;그럴때 husky를 사용하면 자동으로 검사해서 commit이든 push든 막아준다.&lt;/p&gt;
+&lt;p&gt;팀바팀은 husky로 lint검사만 진행하는 것으로 결정했다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;lint 검사는 commit 단위로 진행하는 것이 더 많은 수정을 막는다&lt;/li&gt;
+&lt;li&gt;test를 commit단위로 진행하는 것은 필요없는 commit이 더 많기도 하고 전체 파일에서의 통과 여부가 더 중요하기 때문에 PR 단위로 진행한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;라는 이유였다!&lt;/p&gt;
+&lt;h3&gt;Husky 설치하기&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm i -d husky&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;명령어 넣기&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//package.json
+&quot;scripts&quot;: {
+  ...
+    &quot;prepare&quot;: &quot;cd .. &amp;amp;&amp;amp; husky install frontend/.husky &amp;amp;&amp;amp; cd frontend&quot;
+  },&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;우리는 하나의 레포에서 각각 백엔드 프론트엔드 파일을 만들어서 사용하고 있기 때문에 frontend 폴더로 이동하는 것도 추가했다&lt;/p&gt;
+&lt;h3&gt;lint-staged 설치하기&lt;/h3&gt;
+&lt;p&gt;lint-staged란 문법 오류나 스타일 오류를 분석하고 표시, 수정하는 도구이다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;npm i -d lint-staged&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;설치했으면 설정도 해주자&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;//package.json
+&quot;lint-staged&quot;: {
+    &quot;*.{ts,tsx}&quot;: [
+      &quot;eslint --cache&quot;
+    ],
+    &quot;*.{ts,tsx,md,json}&quot;: [
+      &quot;prettier --write&quot;
+    ]
+  }&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;각각 확장자로 끝나는 파일들을 어떤 거로 검사할건지 정해주는 거다.&lt;/p&gt;
+&lt;p&gt;+) --cache는 캐싱해주는 옵션으로 한 파일만 고쳤는데 나머지 코드들이 의미없이 포맷팅되는 상황을 막아준다. 즉, 전과 후를 비교해 비교를 최소화해준다.&lt;/p&gt;
+&lt;h3&gt;pre-commit 파일&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#!/bin/sh
+. &quot;$(dirname &quot;$0&quot;)/_/husky.sh&quot;
+
+cd frontend
+npx lint-staged&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;마찬가지로 프론트엔드 폴더로 이동 후 커맨드를 실행시키게 하자&lt;/p&gt;
+&lt;p&gt;추가적으로 깃 데스크탑을 사용하면 조금 바뀐다.&lt;/p&gt;
+&lt;h2&gt;Git Desktop에서 husky 오류&lt;/h2&gt;
+&lt;p&gt;내가 깃 데탑을 써서 그런가, 아님 윈도우라 그런가, 아님 그 둘다라서 husky 억까를 당했다. storybook과 npm배포에 이어 또 억까.. 그냥 한달에 한번 환경억까당한다고 생각해야 마음 편할듯.&lt;/p&gt;
+&lt;p&gt;커밋하려고 하니까 이런 에러가 떴다. (아래 가린건 신경안써도 된다) 근데 VScode에서는 commit이 아주아주 잘된다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://blog.kakaocdn.net/dn/beyYO1/btsn6HDjKtq/u1sDGEqQV5vFj1lgkfzlkk/img.png&quot; alt=&quot;https://blog.kakaocdn.net/dn/beyYO1/btsn6HDjKtq/u1sDGEqQV5vFj1lgkfzlkk/img.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;이거 두개 이슈 보면서 환경변수 추가했는데 안됐다.(추가하라는거 다 한듯?)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/typicode/husky/issues/1038&quot;&gt;Code 127 error · Issue #1038 · typicode/husky
+Troubleshoot [ x ] Before creating an issue, please check: https://typicode.github.io/husky/#/?id=troubleshoot Context We had husky 7.0.1 working fine in our repo. But a few days ago it stopped wor...
+github.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/typicode/husky/issues/1072&quot;&gt;Win 10 Github Desktop pre-commit hook · Issue #1072 · typicode/husky
+Hello, I have a problem with my pre-commit hook or husky in general when using Github Desktop. On the first look, it seems to be #1038, but the problem is. It works perfectly fine in VS code. My en...
+github.com&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;해결방법&lt;/h3&gt;
+&lt;p&gt;진짜 간단하다.&lt;/p&gt;
+&lt;p&gt;.husky\pre-commit 에서 이렇게 하면 된다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;#!/bin/sh
+. &quot;$(dirname &quot;$0&quot;)/_/husky.sh&quot;
+
+cd frontend
+npx.cmd lint-staged&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;npx  -&gt; npx.cmd&lt;/p&gt;
+&lt;p&gt;단, 이렇게 하면 맥에서는 아예 작동을 하지 않는다ㅋㅋ.. 그래서 나는 일단 브랜치에서 작업할 때마다 .cmd를 붙여주고있다.&lt;/p&gt;
+&lt;p&gt;다른 방법 알면 알려주세요...&lt;/p&gt;
+&lt;p&gt;끋!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Github Action 테스트 자동화]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 프론트엔드 Github Action 테스트 자동화 팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build…]]></description><link>https://team-by-team.github.io/frontend-ci/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-ci/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;프론트엔드 Github Action 테스트 자동화&lt;/h1&gt;
+&lt;p&gt;팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build시 빌드가 잘 되는지 자동으로 테스트할 예정이다. 테스트 자동화를 하면 여러명이 하나의 프로젝트를 같이 진행하는 만큼 나의 코드가 기존의 테스트에 영향을 주는지 사람이 직접 확인하지 않아도 쉽게 확인할 수 있다. 테스트가 통과하지 못한다면 merge를 하지 못하게 막아 merge시 안전성을 높일 수 있다.&lt;/p&gt;
+&lt;h1&gt;Github Action을 이용한 테스트 자동화&lt;/h1&gt;
+&lt;p&gt;github workflows의 하위에 다음과 같은 파일을 넣는다. 확장자는 &lt;code class=&quot;language-text&quot;&gt;.yml&lt;/code&gt;이다.&lt;/p&gt;
+&lt;p&gt;자세한 내용은 아래 주석으로 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; frontend&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ci &lt;span class=&quot;token comment&quot;&gt;//액션의 이름&lt;/span&gt;
+
+&lt;span class=&quot;token literal-property property&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//PR 요청일 때&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; develop &lt;span class=&quot;token comment&quot;&gt;//해당 브랜치에서 PR이벤트가 일어났을 때 실행 &lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; frontend&lt;span class=&quot;token comment&quot;&gt;/** //frontend하위 폴더에서 작업이 일어날때만 실행
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest //어떤 머신으로 실행할건지
+    permissions:
+      contents: write //GITHUB_TOKEN에 부여된 기본 사용 권한
+    concurrency: //동시성 제어
+      group: ${{ github.workflow }}-${{ github.ref }} //동시성을 제어할 그룹 설정
+      cancel-in-progress: true //동시에 돌아가게 된다면 가장 최신의 워크플로우 실행
+    env:
+      working-directory: ./frontend //어디에서 커맨드를 실행 할 건지 
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node with cache //종속성 파일 캐싱하기.(각 PR 별로 생성된다) 
+        uses: actions/setup-node@v3
+        with: //캐싱하는 방법
+          node-version: 18
+          cache: &apos;npm&apos;
+          cache-dependency-path: &apos;**/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;lock&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;json&apos;
+
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Install dependencies &lt;span class=&quot;token comment&quot;&gt;//종속성 설치하기&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm ci
+        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Run unit test &lt;span class=&quot;token comment&quot;&gt;//테스트 실행하기&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm run test&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ci 
+        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;캐싱 관련해서는 아래 자료 참고하면 더 자세히 알 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows&quot;&gt;Caching dependencies to speed up workflows - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.blog/changelog/2021-09-07-github-actions-setup-node-supports-dependency-caching-for-projects-with-monorepo-and-pnpm-package-manager/&quot;&gt;GitHub Actions: Setup-node supports dependency caching for projects with monorepo and pnpm package manager&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;PR Merge 막기&lt;/h1&gt;
+&lt;p&gt;열심히 테스트 자동화를 했는데 테스트 실패한 PR이 merge되면 무슨 소용이 있을까. 다행히 github에서는 테스트가 통과하지 못하면 merge 하지 못하게 해주는 설정이 있다.&lt;/p&gt;
+&lt;h2&gt;레포 설정 → 브랜치&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 59.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABMUlEQVR42q2T23LDIAxE+f8PbZv4ihF37K2WOJmmb/VUM57ISBztEmNEPDa7obWG3+GcwzhOWNcV0zT13K5W8xkxxldfazsGrfkQYVJKKLXi+AF65twkChVxsNZi2zZ473WQoJTy6D0O7PuBmHPnGNEGQqmw6gIb2cSoOvnmEmLdX4Oy1kPUtZR1X4b4ALsJ4mJRcoFxm8P9dlc7Y39on0A+qTQMkrCf731Nh9MaoUlVOQUuusePM7LWTFBbtEGlzCn/qaZpnlTdcb5TeFUnVMlfuiqlKrigxIdLY5XOA52XtRfq2VRre1n/SxiCPj6/usLMaUmnlQf0EpD/nIi8fy5JUPeGK2GsApd5eVMjiWrzRSDPcBgQQngrXLF7nuHSFfI2PG/LgWuwDlz1BlDlf8U394iwdR5sp2cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Untitled&apos; title=&apos;&apos; src=&apos;/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png&apos; srcset=&apos;/static/d92f7700560790e511c26cd38c7e411d/e7570/Untitled.png 170w,
+/static/d92f7700560790e511c26cd38c7e411d/f46e7/Untitled.png 340w,
+/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png 680w,
+/static/d92f7700560790e511c26cd38c7e411d/02d09/Untitled.png 1020w,
+/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png 1198w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Untitled&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;팀바팀은 개발용 브랜치 develop과 배포 브랜치 main를 사용하기 때문에 이렇게 두개가 올라가 있다. 처음 룰을 등록한다면 오른쪽 위에 있는 Add rule을 눌러 추가한다.&lt;/p&gt;
+&lt;p&gt;아래 내려서 이 항목을 체크해주면 끝!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Untitled%201.png&quot; alt=&quot;Untitled&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[팀바팀 React query 도입이유]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! React query 도입이유 react-query…]]></description><link>https://team-by-team.github.io/react-query-reason/</link><guid isPermaLink="false">https://team-by-team.github.io/react-query-reason/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;React query 도입이유&lt;/h1&gt;
+&lt;h3&gt;react-query 사용을 고려하게된 이유&lt;/h3&gt;
+&lt;p&gt;팀바팀의 핵심 기능인 캘린더는 등록,수정,삭제가 일어날 때 전체 일정과 개별 일정의 최신화가 보장되어야 함. 이후에 추가될 기능들 또한 최대한의 최신화가 보장되어야 함. 즉 서버,클라이언트 데이터를 분리하여 관리 할 수 있기 때문에 도입을 고려하게 됨. &lt;/p&gt;
+&lt;h3&gt;react-query을 도입했을 때 장점&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;캐싱&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;동일한 데이터를 여러번 요청하면 캐싱된 데이터를 가져오기 때문에 불필요한 통신을 줄일 수 있음.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;캘린더에서 달을 이동할 때 항상 전체 일정을 get한다. 전체 일정에서 개별 일정을 조회할 때마다 해당 일정을 get한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;get한 데이터에 대해 update를 진행하게 되면 자동으로 get을 수행한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;개별 일정에 대해 수정, 삭제를 하게되면 전체 일정 또한 invalidateQueries를 통해 쿼리가 오래되었다는 것을 알려주어 데이터를 가져오게 한다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;비동기 과정을 선언적으로 관리할 수 있다.&lt;/li&gt;
+&lt;li&gt;서비스의 특성상 각각 기능별 페이지와 모아보기 페이지에서 데이터를 사용하는데 이 데이터를 저장하는 불필요한 전역 상태를 만들지 않아도 된다.&lt;/li&gt;
+&lt;li&gt;react-query를 통해 성공, 에러, 로딩, 패칭 등 다양한 상태를 알 수 있기 때문에 간단하게 상황에 따라 맞는 UX/UI를 사용자에게 제공할 수 있다.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UX&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;협업을 위한 서비스 특성 상 서버 상태 동기화의 필요성이 높아짐&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;react-query의 background refetch를 활용하여 사용자에게 서버의 최신 상태를 보여줄 수 있음&lt;/li&gt;
+&lt;li&gt;refetchOnWindowFocus 등을 활용하여 탭 전환 / 윈도우 포커스 시 그동안 다른 사용자가 업데이트한 데이터를 보여줄 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Suspense, ErrorBoundary를 할용하여 선언적으로 비동기 로직의 로딩 / 에러 상태를 처리할 수 있음&lt;/li&gt;
+&lt;li&gt;캐싱을 활용하여 불필요한 비동기 요청 횟수를 줄일 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[팀바팀 컴포넌트 스타일링 방법 선택]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다. CSS…]]></description><link>https://team-by-team.github.io/component-styling/</link><guid isPermaLink="false">https://team-by-team.github.io/component-styling/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다.&lt;/p&gt;
