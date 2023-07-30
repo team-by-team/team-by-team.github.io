@@ -1,4 +1,427 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 24 Jul 2023 08:21:45 GMT</lastBuildDate><item><title><![CDATA[프론트엔드 Husky 사용해서 commit 단위로 Lint 검사]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127) Husky란? husky는 commit 또는 push 할 때 lint…]]></description><link>https://team-by-team.github.io/frontend-husky/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-husky/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Jul 2023 15:20:11 GMT</lastBuildDate><item><title><![CDATA[스프링 이벤트를 사용하여 도메인 의존성 분리하기]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다!! 프로젝트를 진행하던 중 스프링 이벤트를 사용하게 되었습니다! 왜 스프링 이벤트를 사용했는지, 어떻게 사용하는지, 사용 시 고려할 점 등에 대해 자세히 알아보도록 하겠습니다!…]]></description><link>https://team-by-team.github.io/spring-event/</link><guid isPermaLink="false">https://team-by-team.github.io/spring-event/</guid><pubDate>Mon, 31 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/sh111-coder&quot;&gt;성하&lt;/a&gt;가 작성했습니다!!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;br&gt;
+&lt;p&gt;프로젝트를 진행하던 중 스프링 이벤트를 사용하게 되었습니다!&lt;/p&gt;
+&lt;p&gt;왜 스프링 이벤트를 사용했는지, 어떻게 사용하는지, 사용 시 고려할 점 등에 대해 자세히 알아보도록 하겠습니다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;0. 스프링 이벤트 도입 배경&lt;/h2&gt;
+&lt;p&gt;   프로젝트를 진행하면서 다음과 같은 요구사항이 존재했습니다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;팀 캘린더의 일정이 등록, 수정, 삭제되면 팀 피드에 일정 알림이 생성된다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d6ff41f936fbb39b3ffebd062b92a742/f6909/img.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 25.882352941176467%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGUlEQVR42kWO2XKCQBBF/f9vyuqCqFFjYlRAQAFZBEGSMuXKSTtalYdbPdPd9/apReEeb3HGX56lnlj5FcN+yOvLhGbd4PlxzOAtoK3ZtBomTw+faE0L29oReBfxnZTXl4wsO1JL0yPR6kIc3hVdWLo7HPsbZ35VKYdu/2t/bm1xnR/xnP49dxWFBCaxBAaQhBCvKtIYxqNEKEw6baGSOv5I6Oou/Z5Hoz6l11nguYebJ6zEB2FQkecHapvsgD0vMI0Uy8iwzEyoCiZfEbNpwnQSyzwXwkLNzNla7bpOqWSZG6HOCfxfylII1/FeXdSaBu2WidYyGA1D9e7qjuoP+z7vgxUd3ZZdR2nQ9+h1XTXXNQtjWlBuj/wBEJFqDFdKmPgAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;일정 알림 디자인&apos; title=&apos;&apos; src=&apos;/static/d6ff41f936fbb39b3ffebd062b92a742/ca1dc/img.png&apos; srcset=&apos;/static/d6ff41f936fbb39b3ffebd062b92a742/e7570/img.png 170w,
+/static/d6ff41f936fbb39b3ffebd062b92a742/f46e7/img.png 340w,
+/static/d6ff41f936fbb39b3ffebd062b92a742/ca1dc/img.png 680w,
+/static/d6ff41f936fbb39b3ffebd062b92a742/02d09/img.png 1020w,
+/static/d6ff41f936fbb39b3ffebd062b92a742/f6909/img.png 1181w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;일정 알림 디자인&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;위의 디자인처럼 팀 피드 공간에 팀 캘린더의 일정이 등록, 수정, 삭제되면 알림이 생성되도록 하는 요구사항이었습니다.&lt;/p&gt;
+&lt;p&gt;(여기서 알림은 실시간 알림이 아니라 게시글처럼 생성되는 알림을 의미합니다.)&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;스프린트를 거쳐서 팀 캘린더의 일정 등록, 수정, 삭제 로직은 구현되어 있는 상태였으므로&lt;/p&gt;
+&lt;p&gt;처음에는 단순하게 일정 알림 기능을 추가하면 된다고 생각해서 팀 캘린더 서비스에 다음과 같이 로직을 추가했습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Transactional&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@RequiredArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TeamCalendarScheduleService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleRepository&lt;/span&gt; scheduleRepository&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+    &lt;span class=&quot;token comment&quot;&gt;// 일정 알림 Service 의존성 추가&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NotificationService&lt;/span&gt; notificationService&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 기존 일정 등록 로직&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+        
+        &lt;span class=&quot;token comment&quot;&gt;// 일정 알림 생성 로직 추가&lt;/span&gt;
+        notificationService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 기존 일정 수정 로직&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+        
+        &lt;span class=&quot;token comment&quot;&gt;// 일정 알림 생성 로직 추가&lt;/span&gt;
+        notificationService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 기존 일정 삭제 로직&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+        
+        &lt;span class=&quot;token comment&quot;&gt;// 일정 알림 생성 로직 추가&lt;/span&gt;
+        notificationService&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;알림 생성 로직을 추가하고 생각을 해보았을 때 다음과 같은 문제가 생겼습니다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Schedule과 Notification 도메인 간의 강한 결합도&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;TeamCalendarScheduleService의 단일 책임 원칙(SRP) 위반&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/9adc736b5aa82741d603c4a39a7147f1/5745f/img_1.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 34.705882352941174%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABEUlEQVR42oWRe0uDYBSH/f7fpoKKikEE9cdYEVsLb3Pq5taFvExfNT3n13k1iM0i4eGHB3w8F4NLBVbFEKmDGYePrqgGyD+HFIJB0RIUuqDVok9N4IAiX76mgZDEuMwAMwbsBLCSPvX7ItXCjY9WBI0Wrb0f8Sb4R0gwP1qBRMiwYu6FeFkhGN/i4eoM09EFxucnyKwZeBuiVApVVe2hygr2e43LiYWj6wlO76Y4vrnH6NGFJz8yWDqpfQvKM1G4z8idORrf7jqktgER7dG0JB0ynt5qzF+rjtlWSda9kCIPHDpgGbVjrUcWoez2t6Pokb30e4eSVtqnKXt09chc7MB5NqTI/7zyTq4Z10ByQCr1L5TGFtWIDFazAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Schdule - Notification 의존&apos; title=&apos;&apos; src=&apos;/static/9adc736b5aa82741d603c4a39a7147f1/ca1dc/img_1.png&apos; srcset=&apos;/static/9adc736b5aa82741d603c4a39a7147f1/e7570/img_1.png 170w,
+/static/9adc736b5aa82741d603c4a39a7147f1/f46e7/img_1.png 340w,
+/static/9adc736b5aa82741d603c4a39a7147f1/ca1dc/img_1.png 680w,
+/static/9adc736b5aa82741d603c4a39a7147f1/02d09/img_1.png 1020w,
+/static/9adc736b5aa82741d603c4a39a7147f1/5745f/img_1.png 1258w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Schdule - Notification 의존&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;0-1. Schedule과 Notification 도메인 간의 강한 결합도&lt;/h3&gt;
+&lt;p&gt;먼저, Schedule 로직에 Notification 도메인 생성 로직이 존재하기 때문에 Schedule과 Notification이 강한 결합을 가지게 되었습니다.&lt;/p&gt;
+&lt;p&gt;두 개의 도메인이 라이프 사이클이 비슷하거나 동일한 제약 사항을 공유한다면 결합을 가져도 괜찮다고 생각하지만,&lt;/p&gt;
+&lt;p&gt;Schedule과 Notification 도메인은 라이프 사이클이 비슷하지 않고, 동일한 제약 사항도 공유하지 않습니다.&lt;/p&gt;
+&lt;p&gt;이러한 상황에서 이후에 Notification의 생성 로직이 변경된다면 Schedule의 등록, 수정, 삭제 로직에 직접적인 영향을 미치게 될 것입니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;따라서 서로 다른 두 도메인이 강한 결합도를 가져서 재사용성과 유지보수성이 떨어지게 됐습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;0-2. TeamCalendarScheduleService의 단일 책임 원칙(SRP) 위반&lt;/h3&gt;
+&lt;p&gt;다음으로 ScheduleService의 단일 책임 원칙이 위반되었다고 생각했습니다.&lt;/p&gt;
+&lt;p&gt;현재 구조에서는 ScheduleService, 즉 Schedule이 Notification을 생성하는 책임을 가지게 됩니다.&lt;/p&gt;
+&lt;p&gt;일정의 입장에서 알림에 대해서는 알 필요가 없다고 생각했기 때문에&lt;/p&gt;
+&lt;p&gt;Schdule -&gt; Notification의 의존성을 없애는 것이 좋다고 생각하게 되었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;위의 2가지 이유로 의존성을 없앨 수 있는 방법에 대해서 생각해보게 되었고,&lt;/p&gt;
+&lt;p&gt;이전에 도메인 간의 의존성을 없앨 수 있는 방법인 스프링 이벤트에 대해 들어보았기 때문에 적용을 해보기로 했습니다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;1. 스프링 이벤트를 사용해서 의존성 분리하기&lt;/h2&gt;
+&lt;p&gt;   어떻게 스프링 이벤트를 사용하면 도메인 의존성을 분리할 수 있을까요?&lt;/p&gt;
+&lt;p&gt;그림으로 요약해서 도식화해보면 다음과 같습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a9bd639441020e8e8342c3f1e9596a3e/cc6c5/img_2.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 21.176470588235293%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5klEQVR42jWQjUrDMBSF9/7PIfgC4gso8wepW4XhhpYJUrslXdr1Z02b5PM26IVDTg7knnOyCO2ZUCkQhE444B1cDNga+vnsiTNME0XXUPQtjR2iNnpoJ4G8scIXoTxwSB45rp5wZYEqNX07kO960uWebG1otOOkFXt95Dp54Or5jrefb4xoqhlYfijutwX6ElhgFGazigiVxktGL475rmOb5HymJZ0R6+DRkuz2PeVm80pWlVLFS9JA8nXiJVNUdk44WsIo8aVCmGysEaS3ExpksR+JBv96NJy/Zb78TV2fMabCOc8vVTow6Fhr32QAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;스프링 이벤트 구조&apos; title=&apos;&apos; src=&apos;/static/a9bd639441020e8e8342c3f1e9596a3e/ca1dc/img_2.png&apos; srcset=&apos;/static/a9bd639441020e8e8342c3f1e9596a3e/e7570/img_2.png 170w,
+/static/a9bd639441020e8e8342c3f1e9596a3e/f46e7/img_2.png 340w,
+/static/a9bd639441020e8e8342c3f1e9596a3e/ca1dc/img_2.png 680w,
+/static/a9bd639441020e8e8342c3f1e9596a3e/02d09/img_2.png 1020w,
+/static/a9bd639441020e8e8342c3f1e9596a3e/9d567/img_2.png 1360w,
+/static/a9bd639441020e8e8342c3f1e9596a3e/cc6c5/img_2.png 1552w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;스프링 이벤트 구조&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;ScheduleService와 NotificationService 간의 의존성을 위와 같이 Event를 통해 해결할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;ScheduleService에서 일정이 등록, 수정, 삭제되면 NotificationService의 알림 생성 로직을 실행하는 것이 아니라,&lt;/p&gt;
+&lt;p&gt;ScheduleEvent를 발행하기만 하고, ScheduleEvent가 발행되면 NotificationService에서 알림 생성 로직을 실행합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이를 통해 Schedule이 Notification을 의존하는 문제를 해결할 수 있었고,&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ScheduleService에서는 Notification의 로직을 알 필요 없이 이벤트만 발행하면 되었습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;✅ ApplicationEventPublisher&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@FunctionalInterface&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationEventPublisher&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;ApplicationEvent&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+		&lt;span class=&quot;token function&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token class-name&quot;&gt;Object&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;이벤트를 발행할 곳에서 ApplicationEventPublisher의 publishEvent()를 통해서 이벤트를 발행할 수 있습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;스프링 4.2 이전에는 default 메소드밖에 없어서 Event 객체를 사용하려면 ApplicationEvent를 상속해야 했습니다.&lt;/p&gt;
+&lt;p&gt;하지만 스프링 4.2 이후에는 일반 Object를 파라미터로 받는 publishEvent()가 추가되어&lt;/p&gt;
+&lt;p&gt;일반 객체로도 이벤트를 생성할 수 있게 되었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;✅  @EventListener&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;이벤트가 발행되면, @EventListener 어노테이션이 선언된 메소드에서 이벤트를 Listen해서 실행하게 됩니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;해당 메소드에서 발행 시에 파라미터로 넘겨준 Event 객체를 전달하여 로직에 사용할 수 있습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@EventListener&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;executeEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Event&lt;/span&gt; event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;간단하게 스프링의 이벤트 발행 - 실행 Flow를 요약하면 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ApplicationEventPublisher가 publishEvent()로 이벤트 발행&lt;/li&gt;
+&lt;li&gt;ApplicationContext가 발행된 이벤트를 @EventListener가 붙어있는 메소드에 전달&lt;/li&gt;
+&lt;li&gt;@EventListener 메소드 로직 실행&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2번 과정을 살펴보면, ApplicationContext가 등장하게 됩니다.&lt;/p&gt;
+&lt;p&gt;ApplicationContext 클래스를 들어가보면, 다음과 같이 ApplicationEventPublisher를 상속받고 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;interface&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationContext&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationEventPublisher&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;따라서, 스프링이 실행되어 ApplicationContext가 로드됐을 때&lt;/p&gt;
+&lt;p&gt;이벤트가 발행되면 ApplicationContext에서 @EventListener의 메소드를 실행하게 됩니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;p&gt;이렇게 스프링 이벤트의 이론적인 부분을 알아봤습니다!&lt;/p&gt;
+&lt;p&gt;그렇다면 구체적으로 스프링 이벤트를 사용하여 리팩토링한 코드를 살펴봅시다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;2.  스프링 이벤트를 사용해서 기존 코드 리팩토링&lt;/h2&gt;
+&lt;br&gt;
+&lt;h3&gt;✅ ScheduleService&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Transactional&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@RequiredArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;TeamCalendarScheduleService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleRepository&lt;/span&gt; scheduleRepository&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+    &lt;span class=&quot;token comment&quot;&gt;// ApplicationEventPublisher 추가&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ApplicationEventPublisher&lt;/span&gt; eventPublisher&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+	
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Long&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 기존 일정 등록 로직&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+        
+        &lt;span class=&quot;token comment&quot;&gt;// ScheduleCreateEvent 발행 로직 추가&lt;/span&gt;
+        eventPublisher&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleCreateEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 기존 일정 수정 로직&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+        
+        &lt;span class=&quot;token comment&quot;&gt;// ScheduleUpdateEvent 발행 로직 추가&lt;/span&gt;
+        eventPublisher&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleCreateEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+
+	&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token comment&quot;&gt;// 기존 일정 삭제 로직&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+        
+        &lt;span class=&quot;token comment&quot;&gt;// ScheduleDeleteEvent 발행 로직 추가&lt;/span&gt;
+        eventPublisher&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;publishEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleCreateEvent&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;ScheduleService에서 NotificationService가 아닌&lt;/p&gt;
+&lt;p&gt;이벤트 발행 객체 ApplicationEventPublisher를 사용해서 각 로직마다 이벤트를 발행해줬습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;✅ ScheduleEvent&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Getter&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleEvent&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Long&lt;/span&gt; scheduleId&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Long&lt;/span&gt; teamPlaceId&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Title&lt;/span&gt; title&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Span&lt;/span&gt; span&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;발행하는 ScheduleEvent는 NotificationService에서 알림 생성 시 필요한 정보만 담아서 구현했습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;✅ NotificationService&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Service&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Transactional&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@RequiredArgsConstructor&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NotificationService&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;token keyword&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;NotificationRepository&lt;/span&gt; notificationRepository&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@Transactional&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;propagation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Propagation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;REQUIRES_NEW&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;token annotation punctuation&quot;&gt;@TransactionalEventListener&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createScheduleNotification&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleEvent&lt;/span&gt; scheduleEvent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;NotificationService에서는 Event를 받아서 로직을 실행하기 위해&lt;/p&gt;
+&lt;p&gt;@EventListener를 사용하여 이벤트가 발행되면 ApplicationContext에서 해당 메소드를 실행하도록 설정했습니다.&lt;/p&gt;
+&lt;p&gt;(왜 @EventListener가 아닌 @TransactionalEventListener를 사용했는지와&lt;/p&gt;
+&lt;p&gt;@Transactional의 propagation을 설정한 이유는 아래에서 설명하도록 하겠습니다!)&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;3.  스프링 이벤트 사용 시 고려할 점&lt;/h2&gt;
+&lt;p&gt;위처럼 생각보다는 간단하게 코드 리팩토링을 진행할 수 있었습니다.&lt;/p&gt;
+&lt;p&gt;하지만, 간단했던 코드 구현과는 달리 스프링 이벤트를 사용할 때는 고려할 점이 많았습니다!&lt;/p&gt;
+&lt;p&gt;이번 프로젝트의 스프링 이벤트를 사용할 때 고려했던 점들을 나열해보도록 하겠습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;3-1. Event 발행 후에 EventListener 로직을 바로 실행해도 되는가? (@TransactionalEventListener)&lt;/h3&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/ac48d037243e633aab1b34f543e419b1/ca38a/img_3.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 36.47058823529412%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9klEQVR42pWRW2uDQBCF/f//xVeffCgtgYLQFBofhQStN9SoWRPd28nOphtsINAODLvM7J795qwHE8uyII5j7HZf+Nx+oGkaKkNrjf+G5zb7Q4a3zTteXjc4XziU0lbwr/lLUEqFyYhwZWilxiwAtYLjnJsz8imVEMKeuQvO84wi/8Y0MRyPHXqTXdehbVsMw4A8z1HXNfq+t/V1Uo0sGsfxJsjYyTaKorSrMCRSKTOysqOQv2maoixLS6l+ei6JLssyVFV1E0ySBEEQwPd9RFF0/wznC1FSPwxDO8njZ9F+fdejFxw60TwGUTDGjB3TUw+p5zy8AnirHIIPk1N+AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;@EventListener 실행 시점&apos; title=&apos;&apos; src=&apos;/static/ac48d037243e633aab1b34f543e419b1/ca1dc/img_3.png&apos; srcset=&apos;/static/ac48d037243e633aab1b34f543e419b1/e7570/img_3.png 170w,
+/static/ac48d037243e633aab1b34f543e419b1/f46e7/img_3.png 340w,
+/static/ac48d037243e633aab1b34f543e419b1/ca1dc/img_3.png 680w,
+/static/ac48d037243e633aab1b34f543e419b1/ca38a/img_3.png 871w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;@EventListener 실행 시점&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;@EventListener를 사용한다면, 이벤트가 발행되는 시점에 바로 EventListener의 로직이 실행되게 됩니다.&lt;/p&gt;
+&lt;p&gt;따로 EventListener의 로직 실행 시점을 특정해서 설정할 수 없습니다.&lt;/p&gt;
+&lt;p&gt;이때 문제가 되는 것은, EventListener의 로직에서 예외가 발생했을 때의 상황입니다.&lt;/p&gt;
+&lt;p&gt;예외가 발생하게 되면 트랜잭션이 롤백이 되는데 아래의 상황을 살펴봅시다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/c2e6a8307a11cee83c437f2885388595/24c26/img_4.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 35.88235294117647%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsTAAALEwEAmpwYAAABPElEQVR42oVR22qDUBD0/0s/I68lfTAQyGOh0FQkbYNRG23ihaoxXpMeb5me3WCfWrqwzDnrnNkZVCDrcrngY+fDtLewty4cd4fV6xpZ/QU8PgDGG3Al4r9SxkMQV3jSTTyvbGgv71hbHlIBiNsbdPd36Eiv63j5X/0j2DQtypOA631i58cSIxyyEqIFUuny1AN1A/T9ACHEr85oPgzDVfB4PCIIAlRVhSzLuIs8RxiGsCwTeZ7hkCR8t22bv0dRhDiOGdM0hed56GQChZRJkJoEm6bhrusaRVHIR4k8n9C2MkVZ8uLz+Szd9jwjpLvv+4yKpmmYz+eYTqfQdR3jT3JdF4vFAqqqYrlc8oy4s9kMhmEwj8SoyN1kMmFUaOtms4FpmuxwLCLv93sZ2WJnVBSPeBR5XDxyHcdh/AZCexEWoVGrCQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;EventListener 로직 롤백&apos; title=&apos;&apos; src=&apos;/static/c2e6a8307a11cee83c437f2885388595/ca1dc/img_4.png&apos; srcset=&apos;/static/c2e6a8307a11cee83c437f2885388595/e7570/img_4.png 170w,
+/static/c2e6a8307a11cee83c437f2885388595/f46e7/img_4.png 340w,
+/static/c2e6a8307a11cee83c437f2885388595/ca1dc/img_4.png 680w,
+/static/c2e6a8307a11cee83c437f2885388595/24c26/img_4.png 921w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;EventListener 로직 롤백&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;순서대로 살펴봅시다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;일정 등록되어 이벤트 발행&lt;/li&gt;
+&lt;li&gt;이벤트가 발행되어 EventListener 로직 실행&lt;/li&gt;
+&lt;li&gt;일정 등록 메소드 안에서 다른 로직 수행&lt;/li&gt;
+&lt;li&gt;일정 등록 메소드가 종료되기 전 (Commit 되기 전) EventListener에서 예외가 발생하여 롤백&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이 경우는 EventListener 로직인 일정 알림 로직에 예외가 발생하여 롤백이 된 경우입니다.&lt;/p&gt;
+&lt;p&gt;이때 일정 등록이 Commit이 되지 않았기 때문에 일정 알림 로직에 예외가 발생해서 롤백이 되는 건데&lt;/p&gt;
+&lt;p&gt;일정 등록 로직까지 롤백이 되는 상황이 발생합니다.&lt;/p&gt;
+&lt;p&gt;만약 해당 상황이 정상적인 경우는 그대로 @EventListener를 사용해도 되지만,&lt;/p&gt;
+&lt;p&gt;저희 프로젝트에서는 일정 알림의 예외로 인해 일정의 등록, 수정, 삭제가 롤백되는 것은 비정상적인 상황으로 봤기 때문에&lt;/p&gt;
+&lt;p&gt;다른 해결책을 찾게 되었습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;※ @TransactionalEventListener&lt;/h3&gt;
+&lt;p&gt;이 상황을 해결할 수 있는 것이 바로 @TransactionalEventListener입니다.&lt;/p&gt;
+&lt;p&gt;위에서 언급했듯이 @EventListener를 사용할 때는 EventListener의 실행 시점을 지정할 수 없었습니다.&lt;/p&gt;
+&lt;p&gt;@EventListener 대신 @TransactionalEventListener를 사용하면 트랜잭션 기준으로 실행 시점을 정할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;@TransactionalEventListener에서 phase 속성을 지정하면 실행 시점을 변경할 수 있습니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;1. BEFORE_COMMIT: 이벤트 발행 로직이 커밋되기 전에 실행
+2. AFTER_COMMIT : 이벤트 발행 로직이 커밋된 후에 실행 (기본값)
+3. AFTER_ROLLBACK : 이벤트 발행 로직이 롤백된 후에 실행
+4. AFTER_COMPLETION : 이벤트 발행 로직이 커밋 or 롤백된 후에 실행&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;4가지 옵션으로 실행 시점을 변경할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;위의 상황을 방지하기 위해서는 일정 등록, 수정, 삭제 로직이 커밋된 후에 일정 알림 로직이 실행되어야 합니다.&lt;/p&gt;
+&lt;p&gt;이렇게 설정을 하면 일정 알림 로직에서 예외가 발생하여 롤백이 되어도 일정 등록, 수정, 삭제는 이미 커밋이 되었으므로&lt;/p&gt;
+&lt;p&gt;데이터가 롤백되지 않을 것입니다.&lt;/p&gt;
+&lt;p&gt;따라서 프로젝트에서는 @TransactionalEventListener의 기본값인 AFTER_COMMIT를 사용했습니다!&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;3-2. @TransactionalEventListener를 사용한 상황에서, 데이터를 쓰는 로직이 있는가?&lt;/h3&gt;
+&lt;p&gt;@TransactionalEventListener를 사용할 때 AFTER_COMMIT 옵션을 사용하면 다음과 같은 상황이 됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/81d40812df03710b24cad472912dc393/68327/img_5.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 29.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA7ElEQVR42m1QSY6DMBDk/w/hChduvIAbt1GUMMNqVhsIAxgEFdxkmCDRUrm77XL1ouFt67peQpmoW3zd7rg/vvH4CShOWI6V/i0nrqaOaZoIV6bueTsgrTpk1S9y0YMVLflp2TnLsmIYhn/BpmkQhiH5oigIeZ5DCAHf98GSBM+2geDVDsHJK15ZlsSN43gX7PsenHNkWYa6riGlPDoexxHJJpam6eleyg3veJ5nKhxFEeWa67qwLAuGYcBxnGOfypSQaZqwbfsY6e/tM/Y8D7qukyh1GAQBJV3XnYiquhpFjfUpdLVnxti2ywUvvvbLLr9yHSYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;@TransactionalEventListener AFTER_COMMIT 사용 상황&apos; title=&apos;&apos; src=&apos;/static/81d40812df03710b24cad472912dc393/ca1dc/img_5.png&apos; srcset=&apos;/static/81d40812df03710b24cad472912dc393/e7570/img_5.png 170w,
+/static/81d40812df03710b24cad472912dc393/f46e7/img_5.png 340w,
+/static/81d40812df03710b24cad472912dc393/ca1dc/img_5.png 680w,
+/static/81d40812df03710b24cad472912dc393/68327/img_5.png 950w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;@TransactionalEventListener AFTER_COMMIT 사용 상황&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;일정 등록 로직이 Commit된 이후에, EventListener의 로직이 실행됩니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;이때 주의해야 하는 점이 트랜잭션에서 이미 Commit이 되었기 때문에 해당 트랜잭션에서는 조회밖에 수행할 수 없습니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;그래서 EventListener 로직에 데이터를 insert, update, delete하는 로직이 존재한다면 해당 로직을 반영할 수 없습니다.&lt;/p&gt;
+&lt;p&gt;이때, @Transactional의 propagation을 REQUIRES_NEW로 설정하게 되면 이를 해결할 수 있습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;※ @Transactional(propagation = Propagation.REQUIRES_NEW)&lt;/h3&gt;
+&lt;p&gt;@Transactional의 Propagation.REQUIRES_NEW는 해당 어노테이션이 붙은 메소드 호출 시&lt;/p&gt;
+&lt;p&gt;매번 새로운 트랜잭션을 시작하게 됩니다.&lt;/p&gt;
+&lt;p&gt;따라서, 트랜잭션 자체가 분리되기 때문에 이후 EventListener 로직의 Commit을 수행할 수 있습니다.&lt;/p&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/a009b8280c5fc31b4ab498db75937b6c/f843c/img_6.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 48.23529411764706%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABSklEQVR42o2SS2+DMBCE+f9/JjlxSC455Vr1gRShpISAwQ6Yl6uIp6driFqlIhUrjZDs3W/HIywsqH4YcL5c4Pk+3OMJYRxDP+m1/iUVObRMMeQS4fsbmPMB//UFwj0AJd1lEpAJQAuXAa/C2AOPBD6PHrzTGSxgODgHCDozpZMr0LYLgeQs5lf4PMM5Skf5sRy/HkuQ5gVQldAE1IuAPIYSHG1VoFclOiMC9KpCTc9VaQrQ/YNDrTXqup7laRpuKUN8qeeiLHsCNk0zAQcKlDGGJEmQZRmklJNoe1aWOHkePS2fF/Xn1COEGGdHoCEXRTG67LpucqanRG63GzjnaMwLzNmMTK+ZN4aMOWuz2cC2bazX658tw/032O/3WK1WcBznYdHf2u122G63oykrDEO4rosoin6zuw+azUEQQCk1n/G9L6V4jEx9Az88AzuoxhvGAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;@Transactional(propagation = Propagation.REQUIRES_NEW)&apos; title=&apos;&apos; src=&apos;/static/a009b8280c5fc31b4ab498db75937b6c/ca1dc/img_6.png&apos; srcset=&apos;/static/a009b8280c5fc31b4ab498db75937b6c/e7570/img_6.png 170w,
+/static/a009b8280c5fc31b4ab498db75937b6c/f46e7/img_6.png 340w,
+/static/a009b8280c5fc31b4ab498db75937b6c/ca1dc/img_6.png 680w,
+/static/a009b8280c5fc31b4ab498db75937b6c/f843c/img_6.png 861w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;@Transactional(propagation = Propagation.REQUIRES_NEW)&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;저희 프로젝트에서는 EventListener 로직이 일정 알림을 생성해서 insert 하는 로직이 있었기 때문에&lt;/p&gt;
+&lt;p&gt;@TransactionalEventListener와 함께 @Transactional(propagation = Propagation.REQUIRES_NEW)를 설정했습니다.&lt;/p&gt;
+&lt;br&gt;
+&lt;h3&gt;3-3. 비동기적으로 처리해야 하는 로직인가?&lt;/h3&gt;
+&lt;p&gt;스프링 이벤트 사용 시 비동기 처리도 가능합니다.&lt;/p&gt;
+&lt;p&gt;EventListener 로직에 @Async로 비동기 어노테이션을 선언하고,&lt;/p&gt;
+&lt;p&gt;Application에 @EnableAsync를 선언하면 비동기 처리가 가능합니다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;java&quot;&gt;&lt;pre class=&quot;language-java&quot;&gt;&lt;code class=&quot;language-java&quot;&gt;&lt;span class=&quot;token annotation punctuation&quot;&gt;@Transactional&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;propagation &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Propagation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;REQUIRES_NEW&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@TransactionalEventListener&lt;/span&gt;
+&lt;span class=&quot;token annotation punctuation&quot;&gt;@Async&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;createScheduleNotification&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;ScheduleEvent&lt;/span&gt; scheduleEvent&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;프로젝트에서는 EventListener 로직이 일정 알림 생성으로 단순하기 때문에 따로 비동기 처리를 해주지 않았습니다.&lt;/p&gt;
+&lt;p&gt;나중에 하나의 EventListener 로직에서 여러 작업을 수행한다면 고려해볼 수 있을 것 같습니다!&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;지금까지 스프링 이벤트에 대해서 살펴봤습니다!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;스프링 이벤트를 통해 도메인 의존성을 분리하고 서비스간의 결합도를 낮추는 효과를 얻을 수 있었습니다!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;처음 사용해봤을 때 생각보다 이벤트를 발행하고 Listen해서 실행하는 구현이 간단해서 쉽다고 생각했습니다.&lt;/p&gt;
+&lt;p&gt;그러나, 트랜잭션과 비동기와 관련해서 고려할 요소가 상당히 많았습니다.&lt;/p&gt;
+&lt;p&gt;애플리케이션에 스프링 이벤트를 적용할 때 트랜잭션과 비동기 설정을 근거를 가지고 한다면 좋은 설계가 되지 않을까 싶습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Github Action 테스트 자동화]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 프론트엔드 Github Action 테스트 자동화 팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build…]]></description><link>https://team-by-team.github.io/frontend-ci/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-ci/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;프론트엔드 Github Action 테스트 자동화&lt;/h1&gt;
+&lt;p&gt;팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build시 빌드가 잘 되는지 자동으로 테스트할 예정이다. 테스트 자동화를 하면 여러명이 하나의 프로젝트를 같이 진행하는 만큼 나의 코드가 기존의 테스트에 영향을 주는지 사람이 직접 확인하지 않아도 쉽게 확인할 수 있다. 테스트가 통과하지 못한다면 merge를 하지 못하게 막아 merge시 안전성을 높일 수 있다.&lt;/p&gt;
+&lt;h1&gt;Github Action을 이용한 테스트 자동화&lt;/h1&gt;
+&lt;p&gt;github workflows의 하위에 다음과 같은 파일을 넣는다. 확장자는 &lt;code class=&quot;language-text&quot;&gt;.yml&lt;/code&gt;이다.&lt;/p&gt;
+&lt;p&gt;자세한 내용은 아래 주석으로 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; frontend&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ci &lt;span class=&quot;token comment&quot;&gt;//액션의 이름&lt;/span&gt;
+
+&lt;span class=&quot;token literal-property property&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//PR 요청일 때&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; develop &lt;span class=&quot;token comment&quot;&gt;//해당 브랜치에서 PR이벤트가 일어났을 때 실행 &lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; frontend&lt;span class=&quot;token comment&quot;&gt;/** //frontend하위 폴더에서 작업이 일어날때만 실행
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest //어떤 머신으로 실행할건지
+    permissions:
+      contents: write //GITHUB_TOKEN에 부여된 기본 사용 권한
+    concurrency: //동시성 제어
+      group: ${{ github.workflow }}-${{ github.ref }} //동시성을 제어할 그룹 설정
+      cancel-in-progress: true //동시에 돌아가게 된다면 가장 최신의 워크플로우 실행
+    env:
+      working-directory: ./frontend //어디에서 커맨드를 실행 할 건지 
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node with cache //종속성 파일 캐싱하기.(각 PR 별로 생성된다) 
+        uses: actions/setup-node@v3
+        with: //캐싱하는 방법
+          node-version: 18
+          cache: &apos;npm&apos;
+          cache-dependency-path: &apos;**/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;lock&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;json&apos;
+
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Install dependencies &lt;span class=&quot;token comment&quot;&gt;//종속성 설치하기&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm ci
+        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Run unit test &lt;span class=&quot;token comment&quot;&gt;//테스트 실행하기&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm run test&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ci 
+        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;캐싱 관련해서는 아래 자료 참고하면 더 자세히 알 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows&quot;&gt;Caching dependencies to speed up workflows - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.blog/changelog/2021-09-07-github-actions-setup-node-supports-dependency-caching-for-projects-with-monorepo-and-pnpm-package-manager/&quot;&gt;GitHub Actions: Setup-node supports dependency caching for projects with monorepo and pnpm package manager&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;PR Merge 막기&lt;/h1&gt;
+&lt;p&gt;열심히 테스트 자동화를 했는데 테스트 실패한 PR이 merge되면 무슨 소용이 있을까. 다행히 github에서는 테스트가 통과하지 못하면 merge 하지 못하게 해주는 설정이 있다.&lt;/p&gt;
+&lt;h2&gt;레포 설정 → 브랜치&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 59.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABMUlEQVR42q2T23LDIAxE+f8PbZv4ihF37K2WOJmmb/VUM57ISBztEmNEPDa7obWG3+GcwzhOWNcV0zT13K5W8xkxxldfazsGrfkQYVJKKLXi+AF65twkChVxsNZi2zZ473WQoJTy6D0O7PuBmHPnGNEGQqmw6gIb2cSoOvnmEmLdX4Oy1kPUtZR1X4b4ALsJ4mJRcoFxm8P9dlc7Y39on0A+qTQMkrCf731Nh9MaoUlVOQUuusePM7LWTFBbtEGlzCn/qaZpnlTdcb5TeFUnVMlfuiqlKrigxIdLY5XOA52XtRfq2VRre1n/SxiCPj6/usLMaUmnlQf0EpD/nIi8fy5JUPeGK2GsApd5eVMjiWrzRSDPcBgQQngrXLF7nuHSFfI2PG/LgWuwDlz1BlDlf8U394iwdR5sp2cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Untitled&apos; title=&apos;&apos; src=&apos;/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png&apos; srcset=&apos;/static/d92f7700560790e511c26cd38c7e411d/e7570/Untitled.png 170w,
+/static/d92f7700560790e511c26cd38c7e411d/f46e7/Untitled.png 340w,
+/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png 680w,
+/static/d92f7700560790e511c26cd38c7e411d/02d09/Untitled.png 1020w,
+/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png 1198w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Untitled&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;팀바팀은 개발용 브랜치 develop과 배포 브랜치 main를 사용하기 때문에 이렇게 두개가 올라가 있다. 처음 룰을 등록한다면 오른쪽 위에 있는 Add rule을 눌러 추가한다.&lt;/p&gt;
+&lt;p&gt;아래 내려서 이 항목을 체크해주면 끝!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Untitled%201.png&quot; alt=&quot;Untitled&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Husky 사용해서 commit 단위로 Lint 검사]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127) Husky란? husky는 commit 또는 push 할 때 lint…]]></description><link>https://team-by-team.github.io/frontend-husky/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-husky/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1&gt;Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127)&lt;/h1&gt;
@@ -66,74 +489,7 @@ npx.cmd lint-staged&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;npx  -&gt; npx.cmd&lt;/p&gt;
 &lt;p&gt;단, 이렇게 하면 맥에서는 아예 작동을 하지 않는다ㅋㅋ.. 그래서 나는 일단 브랜치에서 작업할 때마다 .cmd를 붙여주고있다.&lt;/p&gt;
 &lt;p&gt;다른 방법 알면 알려주세요...&lt;/p&gt;
-&lt;p&gt;끋!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Github Action 테스트 자동화]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 프론트엔드 Github Action 테스트 자동화 팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build…]]></description><link>https://team-by-team.github.io/frontend-ci/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-ci/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;프론트엔드 Github Action 테스트 자동화&lt;/h1&gt;
-&lt;p&gt;팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build시 빌드가 잘 되는지 자동으로 테스트할 예정이다. 테스트 자동화를 하면 여러명이 하나의 프로젝트를 같이 진행하는 만큼 나의 코드가 기존의 테스트에 영향을 주는지 사람이 직접 확인하지 않아도 쉽게 확인할 수 있다. 테스트가 통과하지 못한다면 merge를 하지 못하게 막아 merge시 안전성을 높일 수 있다.&lt;/p&gt;
-&lt;h1&gt;Github Action을 이용한 테스트 자동화&lt;/h1&gt;
-&lt;p&gt;github workflows의 하위에 다음과 같은 파일을 넣는다. 확장자는 &lt;code class=&quot;language-text&quot;&gt;.yml&lt;/code&gt;이다.&lt;/p&gt;
-&lt;p&gt;자세한 내용은 아래 주석으로 작성했다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; frontend&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ci &lt;span class=&quot;token comment&quot;&gt;//액션의 이름&lt;/span&gt;
-
-&lt;span class=&quot;token literal-property property&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//PR 요청일 때&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; develop &lt;span class=&quot;token comment&quot;&gt;//해당 브랜치에서 PR이벤트가 일어났을 때 실행 &lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; frontend&lt;span class=&quot;token comment&quot;&gt;/** //frontend하위 폴더에서 작업이 일어날때만 실행
-
-jobs:
-  unit-test:
-    runs-on: ubuntu-latest //어떤 머신으로 실행할건지
-    permissions:
-      contents: write //GITHUB_TOKEN에 부여된 기본 사용 권한
-    concurrency: //동시성 제어
-      group: ${{ github.workflow }}-${{ github.ref }} //동시성을 제어할 그룹 설정
-      cancel-in-progress: true //동시에 돌아가게 된다면 가장 최신의 워크플로우 실행
-    env:
-      working-directory: ./frontend //어디에서 커맨드를 실행 할 건지 
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup node with cache //종속성 파일 캐싱하기.(각 PR 별로 생성된다) 
-        uses: actions/setup-node@v3
-        with: //캐싱하는 방법
-          node-version: 18
-          cache: &apos;npm&apos;
-          cache-dependency-path: &apos;**/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;lock&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;json&apos;
-
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Install dependencies &lt;span class=&quot;token comment&quot;&gt;//종속성 설치하기&lt;/span&gt;
-        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm ci
-        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Run unit test &lt;span class=&quot;token comment&quot;&gt;//테스트 실행하기&lt;/span&gt;
-        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm run test&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ci 
-        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;캐싱 관련해서는 아래 자료 참고하면 더 자세히 알 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows&quot;&gt;Caching dependencies to speed up workflows - GitHub Docs&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.blog/changelog/2021-09-07-github-actions-setup-node-supports-dependency-caching-for-projects-with-monorepo-and-pnpm-package-manager/&quot;&gt;GitHub Actions: Setup-node supports dependency caching for projects with monorepo and pnpm package manager&lt;/a&gt;&lt;/p&gt;
-&lt;h1&gt;PR Merge 막기&lt;/h1&gt;
-&lt;p&gt;열심히 테스트 자동화를 했는데 테스트 실패한 PR이 merge되면 무슨 소용이 있을까. 다행히 github에서는 테스트가 통과하지 못하면 merge 하지 못하게 해주는 설정이 있다.&lt;/p&gt;
-&lt;h2&gt;레포 설정 → 브랜치&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 59.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABMUlEQVR42q2T23LDIAxE+f8PbZv4ihF37K2WOJmmb/VUM57ISBztEmNEPDa7obWG3+GcwzhOWNcV0zT13K5W8xkxxldfazsGrfkQYVJKKLXi+AF65twkChVxsNZi2zZ473WQoJTy6D0O7PuBmHPnGNEGQqmw6gIb2cSoOvnmEmLdX4Oy1kPUtZR1X4b4ALsJ4mJRcoFxm8P9dlc7Y39on0A+qTQMkrCf731Nh9MaoUlVOQUuusePM7LWTFBbtEGlzCn/qaZpnlTdcb5TeFUnVMlfuiqlKrigxIdLY5XOA52XtRfq2VRre1n/SxiCPj6/usLMaUmnlQf0EpD/nIi8fy5JUPeGK2GsApd5eVMjiWrzRSDPcBgQQngrXLF7nuHSFfI2PG/LgWuwDlz1BlDlf8U394iwdR5sp2cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Untitled&apos; title=&apos;&apos; src=&apos;/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png&apos; srcset=&apos;/static/d92f7700560790e511c26cd38c7e411d/e7570/Untitled.png 170w,
-/static/d92f7700560790e511c26cd38c7e411d/f46e7/Untitled.png 340w,
-/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png 680w,
-/static/d92f7700560790e511c26cd38c7e411d/02d09/Untitled.png 1020w,
-/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png 1198w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Untitled&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;팀바팀은 개발용 브랜치 develop과 배포 브랜치 main를 사용하기 때문에 이렇게 두개가 올라가 있다. 처음 룰을 등록한다면 오른쪽 위에 있는 Add rule을 눌러 추가한다.&lt;/p&gt;
-&lt;p&gt;아래 내려서 이 항목을 체크해주면 끝!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./images/Untitled%201.png&quot; alt=&quot;Untitled&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[팀바팀 React query 도입이유]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! React query 도입이유 react-query…]]></description><link>https://team-by-team.github.io/react-query-reason/</link><guid isPermaLink="false">https://team-by-team.github.io/react-query-reason/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;끋!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[팀바팀 React query 도입이유]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! React query 도입이유 react-query…]]></description><link>https://team-by-team.github.io/react-query-reason/</link><guid isPermaLink="false">https://team-by-team.github.io/react-query-reason/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1&gt;React query 도입이유&lt;/h1&gt;
