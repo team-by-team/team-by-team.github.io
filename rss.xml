@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 20 Aug 2023 04:36:11 GMT</lastBuildDate><item><title><![CDATA[Base64와 Base64Url의 차이 및 구글 로그인 Trouble Shooting]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다!! ❌…]]></description><link>https://team-by-team.github.io/base64url/</link><guid isPermaLink="false">https://team-by-team.github.io/base64url/</guid><pubDate>Sun, 20 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of TEAM-BY-TEAM]]></title><description><![CDATA[안녕하세요! :) Wooteco 5th Team-By-Team 공식 블로그 입니다!]]></description><link>https://team-by-team.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 21 Aug 2023 03:25:30 GMT</lastBuildDate><item><title><![CDATA[Base64와 Base64Url의 차이 및 구글 로그인 Trouble Shooting]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 성하가 작성했습니다!! ❌…]]></description><link>https://team-by-team.github.io/base64url/</link><guid isPermaLink="false">https://team-by-team.github.io/base64url/</guid><pubDate>Sun, 20 Aug 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/sh111-coder&quot;&gt;성하&lt;/a&gt;가 작성했습니다!!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;br&gt;
-&lt;h1&gt;❌ 0. 문제 상황&lt;/h1&gt;
+&lt;h2&gt;❌ 0. 문제 상황&lt;/h2&gt;
 &lt;p&gt;서비스를 배포하고 나서 피드백을 받을 때, 일부 사용자의 구글 로그인이 정상적으로 작동하지 않는 문제가 발생했습니다.
 &lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
     &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
@@ -35,12 +35,11 @@
 &lt;p&gt;그래서 구글링을 거쳐 &lt;strong&gt;Base64와 Base64Url의 차이&lt;/strong&gt;라는 키워드를 알게 되었고,&lt;/p&gt;
 &lt;p&gt;위의 키워드가 문제 원인 &amp;#x26; 해결 방법을 제시해주고 있었습니다.&lt;/p&gt;
 &lt;hr&gt;
-&lt;br&gt;
-&lt;h1&gt;📘 1. Base64와 Base64Url의 차이&lt;/h1&gt;
+&lt;h2&gt;📘 1. Base64와 Base64Url의 차이&lt;/h2&gt;
 &lt;p&gt;Base64와 Base64Url의 차이를 알아보기 전에,&lt;/p&gt;
 &lt;p&gt;Base64와 Base64Url이 무엇인지 간단하게 살펴봅시다.&lt;/p&gt;
 &lt;br&gt;
-&lt;h2&gt;✅ 1-1. Base64&lt;/h2&gt;
+&lt;h3&gt;✅ 1-1. Base64&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Base64는 8비트 이진 데이터를 텍스트(ASCII 문자)로 인코딩하는 방식 중에 하나입니다.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;파일 및 이미지나 중요한 정보를 Base64를 인코딩 하는 등 여러 컨텍스트에서 다양하게 사용이 가능합니다.&lt;/p&gt;
 &lt;p&gt;예를 들어, &apos;Hello, World!&apos;를 Base64로 인코딩하면 SGVsbG8sIFdvcmxkIQ==라는 문자열로 인코딩됩니다.
@@ -64,7 +63,7 @@
 &lt;br&gt;
 &lt;p&gt;따라서, 이를 보완하기 위해 &lt;strong&gt;Base64Url&lt;/strong&gt;이 등장하게 되었습니다!&lt;/p&gt;
 &lt;br&gt;
-&lt;h2&gt;✅ 1-2. Base64Url&lt;/h2&gt;
+&lt;h3&gt;✅ 1-2. Base64Url&lt;/h3&gt;
 &lt;p&gt;Base64Url은 기본적으로 Base64와 인코딩 방식이 똑같습니다.&lt;/p&gt;
 &lt;p&gt;대신, 위에서 의도와 다르게 동작할 수 있었던 62번, 63번 인덱스가 다른 값으로 변경된 방식입니다.
 &lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
@@ -82,8 +81,7 @@
 Base64에서 의도와 다르게 동작할 수 있었던 62, 63번 인덱스인 &apos;+&apos;와 &apos;/&apos;가 &apos;-&apos;와 &apos;_&apos;로 변경된 걸 볼 수 있습니다.&lt;/p&gt;
 &lt;p&gt;이를 통해 URL을 더욱 안전하게 인코딩 및 디코딩하여 사용할 수 있습니다.&lt;/p&gt;
 &lt;hr&gt;
-&lt;br&gt;
-&lt;h1&gt;❓ 2. 문제 원인&lt;/h1&gt;
+&lt;h2&gt;❓ 2. 문제 원인&lt;/h2&gt;
 &lt;p&gt;그렇다면, 왜 구글 로그인에서 문제가 발생하고 있었던 걸까요?&lt;/p&gt;
 &lt;p&gt;한번 천천히 따라가 봅시다.&lt;/p&gt;
 &lt;p&gt;문제가 발생했던 코드는 다음과 같습니다.&lt;/p&gt;
@@ -128,8 +126,7 @@ Base64에서 의도와 다르게 동작할 수 있었던 62, 63번 인덱스인 
 &lt;p&gt;Base64로 디코딩을 해도 전부 디코딩이 가능하기 때문에 오류가 발생하지 않았던 것입니다.&lt;/p&gt;
 &lt;p&gt;대신, &apos;-&apos;, &apos;_&apos;가 포함된다면 Base64로는 해당 값을 디코딩할 수 없기 때문에 에러가 발생한 것입니다.&lt;/p&gt;
 &lt;hr&gt;
-&lt;br&gt;
-&lt;h1&gt;❓ 3. 문제 해결&lt;/h1&gt;
+&lt;h2&gt;❓ 3. 문제 해결&lt;/h2&gt;
 &lt;p&gt;문제 해결은 정말 간단하게 할 수 있었습니다!&lt;/p&gt;
 &lt;p&gt;애플리케이션의 코드에서 Base64 Decoder 대신 Base64 Url Decoder를 사용하여&lt;/p&gt;
 &lt;p&gt;Base64Url로 디코딩을 진행하면 해결할 수 있었습니다!&lt;/p&gt;
@@ -511,74 +508,7 @@ Base64에서 의도와 다르게 동작할 수 있었던 62, 63번 인덱스인 
 &lt;p&gt;&lt;strong&gt;스프링 이벤트를 통해 도메인 의존성을 분리하고 서비스간의 결합도를 낮추는 효과를 얻을 수 있었습니다!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;처음 사용해봤을 때 생각보다 이벤트를 발행하고 Listen해서 실행하는 구현이 간단해서 쉽다고 생각했습니다.&lt;/p&gt;
 &lt;p&gt;그러나, 트랜잭션과 비동기와 관련해서 고려할 요소가 상당히 많았습니다.&lt;/p&gt;
-&lt;p&gt;애플리케이션에 스프링 이벤트를 적용할 때 트랜잭션과 비동기 설정을 근거를 가지고 한다면 좋은 설계가 되지 않을까 싶습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Github Action 테스트 자동화]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 프론트엔드 Github Action 테스트 자동화 팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build…]]></description><link>https://team-by-team.github.io/frontend-ci/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-ci/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
-&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1&gt;프론트엔드 Github Action 테스트 자동화&lt;/h1&gt;
-&lt;p&gt;팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build시 빌드가 잘 되는지 자동으로 테스트할 예정이다. 테스트 자동화를 하면 여러명이 하나의 프로젝트를 같이 진행하는 만큼 나의 코드가 기존의 테스트에 영향을 주는지 사람이 직접 확인하지 않아도 쉽게 확인할 수 있다. 테스트가 통과하지 못한다면 merge를 하지 못하게 막아 merge시 안전성을 높일 수 있다.&lt;/p&gt;
-&lt;h1&gt;Github Action을 이용한 테스트 자동화&lt;/h1&gt;
-&lt;p&gt;github workflows의 하위에 다음과 같은 파일을 넣는다. 확장자는 &lt;code class=&quot;language-text&quot;&gt;.yml&lt;/code&gt;이다.&lt;/p&gt;
-&lt;p&gt;자세한 내용은 아래 주석으로 작성했다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; frontend&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ci &lt;span class=&quot;token comment&quot;&gt;//액션의 이름&lt;/span&gt;
-
-&lt;span class=&quot;token literal-property property&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//PR 요청일 때&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; develop &lt;span class=&quot;token comment&quot;&gt;//해당 브랜치에서 PR이벤트가 일어났을 때 실행 &lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; frontend&lt;span class=&quot;token comment&quot;&gt;/** //frontend하위 폴더에서 작업이 일어날때만 실행
-
-jobs:
-  unit-test:
-    runs-on: ubuntu-latest //어떤 머신으로 실행할건지
-    permissions:
-      contents: write //GITHUB_TOKEN에 부여된 기본 사용 권한
-    concurrency: //동시성 제어
-      group: ${{ github.workflow }}-${{ github.ref }} //동시성을 제어할 그룹 설정
-      cancel-in-progress: true //동시에 돌아가게 된다면 가장 최신의 워크플로우 실행
-    env:
-      working-directory: ./frontend //어디에서 커맨드를 실행 할 건지 
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: Setup node with cache //종속성 파일 캐싱하기.(각 PR 별로 생성된다) 
-        uses: actions/setup-node@v3
-        with: //캐싱하는 방법
-          node-version: 18
-          cache: &apos;npm&apos;
-          cache-dependency-path: &apos;**/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;lock&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;json&apos;
-
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Install dependencies &lt;span class=&quot;token comment&quot;&gt;//종속성 설치하기&lt;/span&gt;
-        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm ci
-        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-
-      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Run unit test &lt;span class=&quot;token comment&quot;&gt;//테스트 실행하기&lt;/span&gt;
-        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm run test&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ci 
-        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;캐싱 관련해서는 아래 자료 참고하면 더 자세히 알 수 있다.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows&quot;&gt;Caching dependencies to speed up workflows - GitHub Docs&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.blog/changelog/2021-09-07-github-actions-setup-node-supports-dependency-caching-for-projects-with-monorepo-and-pnpm-package-manager/&quot;&gt;GitHub Actions: Setup-node supports dependency caching for projects with monorepo and pnpm package manager&lt;/a&gt;&lt;/p&gt;
-&lt;h1&gt;PR Merge 막기&lt;/h1&gt;
-&lt;p&gt;열심히 테스트 자동화를 했는데 테스트 실패한 PR이 merge되면 무슨 소용이 있을까. 다행히 github에서는 테스트가 통과하지 못하면 merge 하지 못하게 해주는 설정이 있다.&lt;/p&gt;
-&lt;h2&gt;레포 설정 → 브랜치&lt;/h2&gt;
-&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
-      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
-    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 59.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABMUlEQVR42q2T23LDIAxE+f8PbZv4ihF37K2WOJmmb/VUM57ISBztEmNEPDa7obWG3+GcwzhOWNcV0zT13K5W8xkxxldfazsGrfkQYVJKKLXi+AF65twkChVxsNZi2zZ473WQoJTy6D0O7PuBmHPnGNEGQqmw6gIb2cSoOvnmEmLdX4Oy1kPUtZR1X4b4ALsJ4mJRcoFxm8P9dlc7Y39on0A+qTQMkrCf731Nh9MaoUlVOQUuusePM7LWTFBbtEGlzCn/qaZpnlTdcb5TeFUnVMlfuiqlKrigxIdLY5XOA52XtRfq2VRre1n/SxiCPj6/usLMaUmnlQf0EpD/nIi8fy5JUPeGK2GsApd5eVMjiWrzRSDPcBgQQngrXLF7nuHSFfI2PG/LgWuwDlz1BlDlf8U394iwdR5sp2cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
-  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Untitled&apos; title=&apos;&apos; src=&apos;/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png&apos; srcset=&apos;/static/d92f7700560790e511c26cd38c7e411d/e7570/Untitled.png 170w,
-/static/d92f7700560790e511c26cd38c7e411d/f46e7/Untitled.png 340w,
-/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png 680w,
-/static/d92f7700560790e511c26cd38c7e411d/02d09/Untitled.png 1020w,
-/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png 1198w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;
-    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Untitled&lt;/figcaption&gt;
-  &lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;팀바팀은 개발용 브랜치 develop과 배포 브랜치 main를 사용하기 때문에 이렇게 두개가 올라가 있다. 처음 룰을 등록한다면 오른쪽 위에 있는 Add rule을 눌러 추가한다.&lt;/p&gt;
-&lt;p&gt;아래 내려서 이 항목을 체크해주면 끝!&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./images/Untitled%201.png&quot; alt=&quot;Untitled&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Husky 사용해서 commit 단위로 Lint 검사]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127) Husky란? husky는 commit 또는 push 할 때 lint…]]></description><link>https://team-by-team.github.io/frontend-husky/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-husky/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;애플리케이션에 스프링 이벤트를 적용할 때 트랜잭션과 비동기 설정을 근거를 가지고 한다면 좋은 설계가 되지 않을까 싶습니다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Husky 사용해서 commit 단위로 Lint 검사]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127) Husky란? husky는 commit 또는 push 할 때 lint…]]></description><link>https://team-by-team.github.io/frontend-husky/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-husky/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h1&gt;Husky 사용해서 commit 단위로 Lint 검사(Git Desktop 오류코드 127)&lt;/h1&gt;
@@ -688,7 +618,74 @@ npx.cmd lint-staged&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;li&gt;캐싱을 활용하여 불필요한 비동기 요청 횟수를 줄일 수 있음&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[팀바팀 컴포넌트 스타일링 방법 선택]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다. CSS…]]></description><link>https://team-by-team.github.io/component-styling/</link><guid isPermaLink="false">https://team-by-team.github.io/component-styling/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[프론트엔드 Github Action 테스트 자동화]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 프론트엔드 Github Action 테스트 자동화 팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build…]]></description><link>https://team-by-team.github.io/frontend-ci/</link><guid isPermaLink="false">https://team-by-team.github.io/frontend-ci/</guid><pubDate>Mon, 24 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+&lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1&gt;프론트엔드 Github Action 테스트 자동화&lt;/h1&gt;
+&lt;p&gt;팀바팀은 github action을 이용해 프론트엔드 PR시 테스트를 잘 통과하는지 자동으로 테스트하고 있다. 또한, 추후에 Build시 빌드가 잘 되는지 자동으로 테스트할 예정이다. 테스트 자동화를 하면 여러명이 하나의 프로젝트를 같이 진행하는 만큼 나의 코드가 기존의 테스트에 영향을 주는지 사람이 직접 확인하지 않아도 쉽게 확인할 수 있다. 테스트가 통과하지 못한다면 merge를 하지 못하게 막아 merge시 안전성을 높일 수 있다.&lt;/p&gt;
+&lt;h1&gt;Github Action을 이용한 테스트 자동화&lt;/h1&gt;
+&lt;p&gt;github workflows의 하위에 다음과 같은 파일을 넣는다. 확장자는 &lt;code class=&quot;language-text&quot;&gt;.yml&lt;/code&gt;이다.&lt;/p&gt;
+&lt;p&gt;자세한 내용은 아래 주석으로 작성했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token literal-property property&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; frontend&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;ci &lt;span class=&quot;token comment&quot;&gt;//액션의 이름&lt;/span&gt;
+
+&lt;span class=&quot;token literal-property property&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+  &lt;span class=&quot;token literal-property property&quot;&gt;pull_request&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;//PR 요청일 때&lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;branches&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; develop &lt;span class=&quot;token comment&quot;&gt;//해당 브랜치에서 PR이벤트가 일어났을 때 실행 &lt;/span&gt;
+    &lt;span class=&quot;token literal-property property&quot;&gt;paths&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; frontend&lt;span class=&quot;token comment&quot;&gt;/** //frontend하위 폴더에서 작업이 일어날때만 실행
+
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest //어떤 머신으로 실행할건지
+    permissions:
+      contents: write //GITHUB_TOKEN에 부여된 기본 사용 권한
+    concurrency: //동시성 제어
+      group: ${{ github.workflow }}-${{ github.ref }} //동시성을 제어할 그룹 설정
+      cancel-in-progress: true //동시에 돌아가게 된다면 가장 최신의 워크플로우 실행
+    env:
+      working-directory: ./frontend //어디에서 커맨드를 실행 할 건지 
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup node with cache //종속성 파일 캐싱하기.(각 PR 별로 생성된다) 
+        uses: actions/setup-node@v3
+        with: //캐싱하는 방법
+          node-version: 18
+          cache: &apos;npm&apos;
+          cache-dependency-path: &apos;**/&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;lock&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;json&apos;
+
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Install dependencies &lt;span class=&quot;token comment&quot;&gt;//종속성 설치하기&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm ci
+        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+
+      &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; name&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; Run unit test &lt;span class=&quot;token comment&quot;&gt;//테스트 실행하기&lt;/span&gt;
+        &lt;span class=&quot;token literal-property property&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; npm run test&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;ci 
+        working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; $&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; env&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;working&lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt;directory &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;캐싱 관련해서는 아래 자료 참고하면 더 자세히 알 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://docs.github.com/en/actions/using-workflows/caching-dependencies-to-speed-up-workflows&quot;&gt;Caching dependencies to speed up workflows - GitHub Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.blog/changelog/2021-09-07-github-actions-setup-node-supports-dependency-caching-for-projects-with-monorepo-and-pnpm-package-manager/&quot;&gt;GitHub Actions: Setup-node supports dependency caching for projects with monorepo and pnpm package manager&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;PR Merge 막기&lt;/h1&gt;
+&lt;p&gt;열심히 테스트 자동화를 했는데 테스트 실패한 PR이 merge되면 무슨 소용이 있을까. 다행히 github에서는 테스트가 통과하지 못하면 merge 하지 못하게 해주는 설정이 있다.&lt;/p&gt;
+&lt;h2&gt;레포 설정 → 브랜치&lt;/h2&gt;
+&lt;p&gt;&lt;figure class=&apos;gatsby-resp-image-figure&apos; style=&apos;margin-bottom: 16px;&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-wrapper&apos; style=&apos;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; &apos;&gt;
+      &lt;a class=&apos;gatsby-resp-image-link&apos; href=&apos;/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png&apos; style=&apos;display: block&apos; target=&apos;_blank&apos; rel=&apos;noopener&apos;&gt;
+    &lt;span class=&apos;gatsby-resp-image-background-image&apos; style=&quot;padding-bottom: 59.411764705882355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABMUlEQVR42q2T23LDIAxE+f8PbZv4ihF37K2WOJmmb/VUM57ISBztEmNEPDa7obWG3+GcwzhOWNcV0zT13K5W8xkxxldfazsGrfkQYVJKKLXi+AF65twkChVxsNZi2zZ473WQoJTy6D0O7PuBmHPnGNEGQqmw6gIb2cSoOvnmEmLdX4Oy1kPUtZR1X4b4ALsJ4mJRcoFxm8P9dlc7Y39on0A+qTQMkrCf731Nh9MaoUlVOQUuusePM7LWTFBbtEGlzCn/qaZpnlTdcb5TeFUnVMlfuiqlKrigxIdLY5XOA52XtRfq2VRre1n/SxiCPj6/usLMaUmnlQf0EpD/nIi8fy5JUPeGK2GsApd5eVMjiWrzRSDPcBgQQngrXLF7nuHSFfI2PG/LgWuwDlz1BlDlf8U394iwdR5sp2cAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;&gt;&lt;/span&gt;
+  &lt;img class=&apos;gatsby-resp-image-image&apos; alt=&apos;Untitled&apos; title=&apos;&apos; src=&apos;/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png&apos; srcset=&apos;/static/d92f7700560790e511c26cd38c7e411d/e7570/Untitled.png 170w,
+/static/d92f7700560790e511c26cd38c7e411d/f46e7/Untitled.png 340w,
+/static/d92f7700560790e511c26cd38c7e411d/ca1dc/Untitled.png 680w,
+/static/d92f7700560790e511c26cd38c7e411d/02d09/Untitled.png 1020w,
+/static/d92f7700560790e511c26cd38c7e411d/309ad/Untitled.png 1198w&apos; sizes=&apos;(max-width: 680px) 100vw, 680px&apos; style=&apos;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&apos; loading=&apos;lazy&apos; decoding=&apos;async&apos;&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+    &lt;figcaption class=&apos;gatsby-resp-image-figcaption&apos;&gt;Untitled&lt;/figcaption&gt;
+  &lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;팀바팀은 개발용 브랜치 develop과 배포 브랜치 main를 사용하기 때문에 이렇게 두개가 올라가 있다. 처음 룰을 등록한다면 오른쪽 위에 있는 Add rule을 눌러 추가한다.&lt;/p&gt;
+&lt;p&gt;아래 내려서 이 항목을 체크해주면 끝!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./images/Untitled%201.png&quot; alt=&quot;Untitled&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[팀바팀 컴포넌트 스타일링 방법 선택]]></title><description><![CDATA[해당 글은 우아한테크코스 5기 팀바팀 크루 루루가 작성했습니다! 팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다. CSS…]]></description><link>https://team-by-team.github.io/component-styling/</link><guid isPermaLink="false">https://team-by-team.github.io/component-styling/</guid><pubDate>Mon, 17 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;해당 글은 우아한테크코스 5기 팀바팀 크루 &lt;a href=&quot;https://github.com/hafnium1923&quot;&gt;루루&lt;/a&gt;가 작성했습니다!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;팀바팀의 컴포넌트 스타일링 방법을 선택하기전 각각의 장점과 단점을 찾아보았다. 이것말고도 더 많은 장단점이 있지만 선택에 중요한 판단이 되고 공감가능한 장단점을 위주로 찾아보았다.&lt;/p&gt;

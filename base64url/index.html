@@ -225,7 +225,7 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 <p>해당 글은 우아한테크코스 5기 팀바팀 크루 <a href="https://github.com/sh111-coder">성하</a>가 작성했습니다!!</p>
 </blockquote>
 <br>
-<h1>❌ 0. 문제 상황</h1>
+<h2>❌ 0. 문제 상황</h2>
 <p>서비스를 배포하고 나서 피드백을 받을 때, 일부 사용자의 구글 로그인이 정상적으로 작동하지 않는 문제가 발생했습니다.
 <figure class='gatsby-resp-image-figure' style='margin-bottom: 16px;'>
     <span class='gatsby-resp-image-wrapper' style='position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 680px; '>
@@ -258,12 +258,11 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 <p>그래서 구글링을 거쳐 <strong>Base64와 Base64Url의 차이</strong>라는 키워드를 알게 되었고,</p>
 <p>위의 키워드가 문제 원인 &#x26; 해결 방법을 제시해주고 있었습니다.</p>
 <hr>
-<br>
-<h1>📘 1. Base64와 Base64Url의 차이</h1>
+<h2>📘 1. Base64와 Base64Url의 차이</h2>
 <p>Base64와 Base64Url의 차이를 알아보기 전에,</p>
 <p>Base64와 Base64Url이 무엇인지 간단하게 살펴봅시다.</p>
 <br>
-<h2>✅ 1-1. Base64</h2>
+<h3>✅ 1-1. Base64</h3>
 <p><strong>Base64는 8비트 이진 데이터를 텍스트(ASCII 문자)로 인코딩하는 방식 중에 하나입니다.</strong></p>
 <p>파일 및 이미지나 중요한 정보를 Base64를 인코딩 하는 등 여러 컨텍스트에서 다양하게 사용이 가능합니다.</p>
 <p>예를 들어, 'Hello, World!'를 Base64로 인코딩하면 SGVsbG8sIFdvcmxkIQ==라는 문자열로 인코딩됩니다.
@@ -287,7 +286,7 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 <br>
 <p>따라서, 이를 보완하기 위해 <strong>Base64Url</strong>이 등장하게 되었습니다!</p>
 <br>
-<h2>✅ 1-2. Base64Url</h2>
+<h3>✅ 1-2. Base64Url</h3>
 <p>Base64Url은 기본적으로 Base64와 인코딩 방식이 똑같습니다.</p>
 <p>대신, 위에서 의도와 다르게 동작할 수 있었던 62번, 63번 인덱스가 다른 값으로 변경된 방식입니다.
 <figure class='gatsby-resp-image-figure' style='margin-bottom: 16px;'>
@@ -305,8 +304,7 @@ data-styled.g45[id="Footer__HiddenWrapper-sc-zqxmks-9"]{content:"yzdKT,ivqWaF,"}
 Base64에서 의도와 다르게 동작할 수 있었던 62, 63번 인덱스인 '+'와 '/'가 '-'와 '_'로 변경된 걸 볼 수 있습니다.</p>
 <p>이를 통해 URL을 더욱 안전하게 인코딩 및 디코딩하여 사용할 수 있습니다.</p>
 <hr>
-<br>
-<h1>❓ 2. 문제 원인</h1>
+<h2>❓ 2. 문제 원인</h2>
 <p>그렇다면, 왜 구글 로그인에서 문제가 발생하고 있었던 걸까요?</p>
 <p>한번 천천히 따라가 봅시다.</p>
 <p>문제가 발생했던 코드는 다음과 같습니다.</p>
@@ -351,8 +349,7 @@ Base64에서 의도와 다르게 동작할 수 있었던 62, 63번 인덱스인 
 <p>Base64로 디코딩을 해도 전부 디코딩이 가능하기 때문에 오류가 발생하지 않았던 것입니다.</p>
 <p>대신, '-', '_'가 포함된다면 Base64로는 해당 값을 디코딩할 수 없기 때문에 에러가 발생한 것입니다.</p>
 <hr>
-<br>
-<h1>❓ 3. 문제 해결</h1>
+<h2>❓ 3. 문제 해결</h2>
 <p>문제 해결은 정말 간단하게 할 수 있었습니다!</p>
 <p>애플리케이션의 코드에서 Base64 Decoder 대신 Base64 Url Decoder를 사용하여</p>
 <p>Base64Url로 디코딩을 진행하면 해결할 수 있었습니다!</p>
